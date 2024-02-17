@@ -12,7 +12,7 @@
 - [HTTP request - response](Week1/http-request-response.md)
 - [Toolchain](Week1/tools_pt1.md)
 - [HTML recap](Week1/HTML-recap)
-- CSS recap
+- [CSS recap](Week1/CSS-recap.md)
 - Forms
 - CSS Box model
 - CSS Flexbox
