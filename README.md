@@ -14,11 +14,13 @@
 - [HTML recap](Week1/HTML-recap)
 - [CSS recap](Week1/CSS-recap.md)
 - Forms
-- CSS Box model
-- CSS Flexbox
-- CSS Responsive design
+  - CSS Box model
+  - CSS Flexbox
+  - CSS Responsive design
 - Semantic HTML
 - CSS Grid
+
+Tässä vaiheessa voisivat aloittaa tekemään ykislötehtävän alustavaa HTML leiskaa.
 
 ---
 
