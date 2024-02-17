@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" font-family="Verdana">
+    <!-- Status Line (Blue) -->
+    <rect width="380" height="30" x="10" y="10" fill="blue" />
+    <text x="20" y="30" font-size="14" fill="white">HTTP/1.1 200 OK</text>
+
+    <!-- Headers (Red) -->
+    <rect width="380" height="120" x="10" y="50" fill="red" />
+    <text x="20" y="70" font-size="14" fill="white">Server: Apache/2.4.41 (Unix)</text>
+    <text x="20" y="90" font-size="14" fill="white">Content-Type: text/html</text>
+    <text x="20" y="110" font-size="14" fill="white">Content-Length: 1234</text>
+
+    <!-- Body (Green) -->
+    <rect width="380" height="100" x="10" y="180" fill="green" />
+    <text x="20" y="220" font-size="14" fill="white">This is the response body.</text>
+
+    <!-- Labels -->
+    <rect width="100" height="20" x="290" y="10" fill="gray" opacity="0.8" />
+    <text x="300" y="25" font-size="12" fill="black">Status Line</text>
+
+    <rect width="60" height="20" x="320" y="50" fill="gray" opacity="0.8" />
+    <text x="330" y="65" font-size="12" fill="black">Headers</text>
+
+    <rect width="40" height="20" x="340" y="180" fill="gray" opacity="0.8" />
+    <text x="350" y="195" font-size="12" fill="black">Body</text>
+</svg>

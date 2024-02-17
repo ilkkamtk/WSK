@@ -7,6 +7,7 @@
 ---
 
 ## Week 1
+
 - [How web application works](Week1/architecture.md)
 - [HTTP request - response](Week1/http-request-response.md)
 - [Toolchain](Week1/tools_pt1.md)
@@ -22,6 +23,7 @@
 ---
 
 ## Week 2 - JavaScript recap
+
 4. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
 5. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
 6. [JavaScript recap - DOM](Week2/JS-recap3.md)
@@ -31,12 +33,14 @@
 ---
 
 ## Week 3 - Advanced JavaScript
+
 9. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
 10. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
 
 ---
 
 ## Week 4 - Node.js, Express
+
 - Server side programming, Restful API, Node.js, NPM, Express
 - Express - Routing
 - Express - Middleware, File upload
@@ -68,4 +72,3 @@
 
 - Next.js - introduction
 - Tailwind CSS, shadcn/ui
-# WSK

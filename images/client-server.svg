@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" font-family="Verdana">
+        <!-- Client -->
+        <rect width="100" height="140" x="10" y="30" fill="lightblue" />
+        <text x="42.104" y="105" font-size="14" fill="black" style="white-space: pre; font-size: 14px;">Client</text>
+
+        <!-- Internet -->
+        <ellipse cx="260" cy="100" rx="60" ry="70" fill="lightgray" />
+        <text x="236.263" y="105.397" font-size="14" fill="black" style="white-space: pre; font-size: 14px;">Internet</text>
+
+        <!-- Server -->
+        <rect width="100" height="140" x="410" y="30" fill="lightgreen" />
+        <text x="439.383" y="105" font-size="14" fill="black" style="white-space: pre; font-size: 14px;">Server</text>
+
+        <!-- Arrow from Client to Internet -->
+        <path d="M110 80 L200 80" fill="none" stroke="green" />
+        <path d="M200 80 L195 85 M200 80 195 75" fill="none" stroke="green" />
+        <rect x="114.549" y="41.808" width="80" height="20" fill="lightgray" />
+        <text x="134.538" y="56.016" font-size="12" fill="black" style="white-space: pre; font-size: 12px;">request</text>
+
+        <!-- Arrow from Internet to Server -->
+        <path d="M315 80 L405 80" fill="none" stroke="green" />
+        <path d="M405 80 L400 85 M405 80 400 75" fill="none" stroke="green" />
+        <rect x="319.847" y="43.445" width="80" height="20" fill="lightgray" />
+        <text x="339.836" y="57.653" font-size="12" fill="black" style="white-space: pre; font-size: 12px;">request</text>
+
+        <!-- Arrow from Server to Internet -->
+        <path d="M410 110 L320 110" fill="none" stroke="red" />
+        <path d="M320 110 L325 115 M320 110 325 105" fill="none" stroke="red" />
+        <rect x="319.847" y="121.073" width="80" height="20" fill="lightgray" />
+        <text x="335.167" y="135.281" font-size="12" fill="black" style="white-space: pre; font-size: 12px;">response</text>
+
+        <!-- Arrow from Internet to Client -->
+        <path d="M200 110 L110 110" fill="none" stroke="red" />
+        <path d="M110 110 L115 115 M110 110 115 105" fill="none" stroke="red" />
+        <rect x="114.549" y="121.63" width="80" height="20" fill="lightgray" />
+        <text x="129.869" y="135.838" font-size="12" fill="black" style="white-space: pre; font-size: 12px;">response</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" font-family="Verdana">
+    <!-- Request Line (Blue) -->
+    <rect width="380" height="30" x="10" y="10" fill="blue" />
+    <text x="20" y="30" font-size="14" fill="white">POST /api/resource HTTP/1.1</text>
+
+    <!-- Headers (Red) -->
+    <rect width="380" height="140" x="10" y="50" fill="red" />
+    <text x="20" y="70" font-size="14" fill="white">Host: example.com</text>
+    <text x="20" y="90" font-size="14" fill="white">User-Agent: Mozilla/5.0</text>
+    <text x="20" y="110" font-size="14" fill="white">Accept: application/json</text>
+
+    <!-- Body (Green) -->
+    <rect width="380" height="100" x="10" y="200" fill="green" />
+    <text x="20" y="220" font-size="14" fill="white">{"param1": "value1", "param2": "value2"}</text>
+
+    <!-- Labels -->
+    <rect width="100" height="20" x="290" y="10" fill="gray" opacity="0.8" />
+    <text x="300" y="25" font-size="12" fill="black">Request Line</text>
+
+    <rect width="60" height="20" x="320" y="50" fill="gray" opacity="0.8" />
+    <text x="330" y="65" font-size="12" fill="black">Headers</text>
+
+    <rect width="40" height="20" x="340" y="200" fill="gray" opacity="0.8" />
+    <text x="350" y="215" font-size="12" fill="black">Body</text>
+</svg>
