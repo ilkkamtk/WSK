@@ -26,18 +26,18 @@ Tässä vaiheessa voisivat aloittaa tekemään ykislötehtävän alustavaa HTML 
 
 ## Week 2 - JavaScript recap
 
-4. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
-5. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
-6. [JavaScript recap - DOM](Week2/JS-recap3.md)
-7. [JavaScript recap - Event handling](Week2/JS-recap4.md)
-8. [JavaScript recap - AJAX](Week2/JS-recap5.md)
+1. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
+2. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
+3. [JavaScript recap - DOM](Week2/JS-recap3.md)
+4. [JavaScript recap - Event handling](Week2/JS-recap4.md)
+5. [JavaScript recap - AJAX](Week2/JS-recap5.md)
 
 ---
 
 ## Week 3 - Advanced JavaScript
 
-9. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
-10. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
+1. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
+2. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
 
 ---
 

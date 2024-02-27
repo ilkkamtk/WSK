@@ -31,7 +31,7 @@ Accept-Language: en-US,en;q=0.9
 
 ## HTTP response
 
-![HTTP response](images/response.svg)
+![HTTP response](../images/response.svg)
 
 ```http request
 HTTP/1.1 200 OK
