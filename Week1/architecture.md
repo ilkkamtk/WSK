@@ -4,7 +4,7 @@
 
 ## Client-Server Architecture
 
-![Client-Server Architecture](images/client-server.jpg)
+![Client-Server Architecture](../images/client-server.jpg)
 
 - The client, which can be a user's device (e.g., computer or smartphone) with a web browser, connects to the server over the internet.
 - The server, a computer that hosts the web application, stores its data and responds to client requests.
@@ -42,8 +42,8 @@
 - These interactions trigger new requests from the client to the server, creating a continuous cycle of interaction.
 
 ---
-![Developer](images/developer.jpg)
 
+![Developer](../images/developer.jpg)
 
 ## Front-End Development
 
@@ -55,7 +55,7 @@
 - Back-end development handles server-side logic and data processing.
 - Back-end developers use programming languages like Python, Ruby, PHP, or Node.js to handle the requests and responses.
 
---- 
+---
 
 ## Overall
 
@@ -69,11 +69,3 @@
 - Web applications facilitate collaboration and communication among users.
 - They may include features like discussion boards, messaging systems, and shared document repositories.
 - Web applications enhance convenience by enabling access from anywhere with an internet connection.
-
-
-
-
-
-
-
-

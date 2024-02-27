@@ -2,14 +2,14 @@
 
 ---
 
-<img src="images/client-server.svg" style="width: 1000px; max-height: 400px;" alt="Client - Server">
-
-
+![Archtecture](../images/client-server.svg)
 
 ---
 
 ## HTTP request
-![HTTP request](images/request.svg)
+
+![HTTP request](../images/request.svg)
+
 ```http request
 POST /index.html HTTP/1.1
 Host: example.com
@@ -30,7 +30,9 @@ Accept-Language: en-US,en;q=0.9
 ---
 
 ## HTTP response
+
 ![HTTP response](images/response.svg)
+
 ```http request
 HTTP/1.1 200 OK
 Server: Apache/2.4.41 (Unix)
@@ -59,7 +61,8 @@ Date: Sat, 10 Jun 2023 15:30:00 GMT
 
 ---
 
-#### HTTP response with an image (or any binary file)
+### HTTP response with an image (or any binary file)
+
 ```http request
 HTTP/1.1 200 OK
 Server: Apache/2.4.41 (Unix)
