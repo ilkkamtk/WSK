@@ -18,7 +18,7 @@ specific events or points in the program's execution.
 - Hooks can be used in components or other hooks.
 - Example of `useState`, `useEffect` and `useRef` hooks:
 
-```tsx
+```jsx
 import { useState, useEffect, useRef } from 'react';
 
 function Example() {
@@ -57,7 +57,7 @@ export default Example;
 - `useState` returns a pair of values: the current state and a function that updates it.
 - Example:
 
-```tsx
+```jsx
 import {useState} from 'react';
 
 function Example() {
@@ -69,47 +69,6 @@ function Example() {
             <input
                 type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-        </div>
-    );
-}
-
-export default Example;
-```
-
-### useState with TypeScript
-
-- When using `useState` with TypeScript, you need to specify the type of the state variable.
-- Example:
-
-```tsx
-const [name, setName] = useState<string>('');
-```
-
-- If the initial state is `null` or `undefined`, you need to specify the type as `string | null`
-  or `string | undefined`.
-- Example:
-
-```tsx
-const [name, setName] = useState<string | null>(null);
-```
-
-- When the initial state is `null` or `undefined` you need to check for null/undefined before using the state variable.
-  E.g.:
-
-```tsx
-import {useState} from 'react';
-
-function Example() {
-    const [name, setName] = useState<string | null>(null);
-
-    return (
-        <div>
-            <p>You entered: {name}</p>
-            <input
-                type="text"
-                value={name ? name : ''} // Check for null/undefined
                 onChange={(e) => setName(e.target.value)}
             />
         </div>
@@ -136,7 +95,7 @@ export default Example;
   prevent memory leaks.
 - Example of `useEffect` hook with cleanup function:
 
-```tsx
+```jsx
 import {useState, useEffect} from 'react';
 
 function Example() {
@@ -173,7 +132,7 @@ export default Example;
 - `useRef` can also be used to store mutable values that are not part of the state like the previous value of a prop or state
   variable. When the value changes, the ref will not re-render the component.
 - `useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). For example:
-   - `const someHTMLElement = useRef<HTMLDivElement>(null);`
+   - `const someHTMLElement = useRef(null);`
    - `someHTMLElement.current` can then be used to access the DOM element.
 
 ## Lab assignment 1
@@ -184,14 +143,13 @@ export default Example;
       the [fetchData](https://gist.github.com/ilkkamtk/0ef1b6b740e8f3a23a3fce2bd8233bd5) function and the `useEffect`
       hook.
 3. Create a new state `mediaArray` and a function `setMediaArray` using the `useState` hook:
-    - `const [mediaArray, setMediaArray] = useState<MediaItem[]>([]);`
+    - `const [mediaArray, setMediaArray] = useState([]);`
     - The initial value of the state is an empty array.
-    - The type of the state is `MediaItem[]` which is an array of `MediaItem` objects.
 4. Create a new function `getMedia` that fetches the media items from the JSON file using the `fetchData` function and
    updates the `mediaArray` state using the `setMediaArray` function.
     - Download [test.json](https://gist.github.com/ilkkamtk/9b935c507d1f5b67ada63169e76009f1) and save it to
       the `public` folder.
-    ```tsx
+    ```jsx
     const getMedia = async () => {
        const json = await fetchData<MediaItem[]>('test.json');
        setMediaArray(json);
@@ -205,7 +163,7 @@ export default Example;
 6. The function should be called from a `useEffect` hook.
     - The function should be called only once, after the initial render. So the second argument of the `useEffect` hook
       should be an empty array (for now):
-    ```tsx
+    ```jsx
     useEffect(() => {
         getMedia();
     }, []);
@@ -228,9 +186,9 @@ export default Example;
    use [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to
    make multiple requests and combine the results to a single array. Example:
 
-   ```tsx
-    const newArray:Type[] = Promise.all<Type>(array.map(async (item) => {
-        const result = await fetchData<Type>(url + item.id);
+   ```jsx
+    const newArray = Promise.all(array.map(async (item) => {
+        const result = await fetchData(url + item.id);
         return result;
     }));
    
@@ -238,13 +196,11 @@ export default Example;
    ```
 
 7. Use the example above to get the user data for each media item and add it to the media item. Promise.all should return
-   an array of media items with user data. The type of the array is `MediaItemWithOwner`.
+   an array of media items with user data. 
     - You can do this in the `array.map` part of the `Promise.all` function.
-    - Consider what type is returned from the `fetchData` function, and what type is returned from the `Promise.all`
-      function. Then you can use object spread to add the user data to the media
+    - Then you can use object spread to add the user data to the media
       item: `{ ...item, username: result.username }`.
-8. Use the `setMediaArray` function to update the `mediaArray` state with the new array. Note that the type of the state
-   is now `MediaItemWithOwner[]`, so you need to change the type of the state and also fix the types in all components that use the state.
+8. Use the `setMediaArray` function to update the `mediaArray` state with the new array.
 9. Add the owner's username to the `MediaItemCard` and `Single`/`SingleView` components.
 
 ## Submit

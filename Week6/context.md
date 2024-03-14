@@ -95,22 +95,16 @@ export default ComponentB;
 ## Sharing state with context
 
 - Context is often used to share state between components.
-- In the following example we will create a context for the currently logged in user.
+- In the following example we will create a context for the currently logged-in user.
 
-```tsx
-// UserContext.tsx
-import {createContext, useContext, useState, Dispatch, SetStateAction} from 'react';
-import {User} from '../types';
+```jsx
+// UserContext.jsx
+import {createContext, useContext, useState} from 'react';
 
-type UserContextType = {
-    user: User | null;
-    setUser: Dispatch<SetStateAction<User | null>>;
-};
+const UserContext = createContext(null);
 
-const UserContext = createContext<UserContextType | null>(null);
-
-export const UserProvider = ({children}: { children: React.ReactNode }) => {
-    const [user, setUser] = useState<User | null>(null);
+export const UserProvider = ({children}) => {
+    const [user, setUser] = useState(null);
 
     return (
         <UserContext.Provider value={{user, setUser}}>
@@ -122,8 +116,8 @@ export const UserProvider = ({children}: { children: React.ReactNode }) => {
 export const useUser = () => useContext(UserContext);
 ```
 
-```tsx
-// Pofile.tsx
+```jsx
+// Pofile.jsx
 import {useUser} from '../contexts/UserContext';
 
 const Profile = () => {
@@ -151,45 +145,32 @@ export default Profile;
 2. In this exercise we will use context to share the currently logged-in user between components. We will use the
    context to define is the user logged in or not and to show the appropriate links in the navigation and protect
    necessary routes.
-3. We will use the `UserContext.tsx` file from the previous example as a starting point, but we will also add functions
+3. We will use the `UserContext.jsx` file from the previous example as a starting point, but we will also add functions
    to the context to handle the login and logout functionalities.
-4. Add a new type to `src/types/LocalTypes.ts`:
-    ```tsx
-    type AuthContextType = {
-        user: UserWithNoPassword | null;
-        handleLogin: (credentials: Credentials) => void;
-        handleLogout: () => void;
-        handleAutoLogin: () => void;
-    };
-    ```
-    - In this type we define the context values that we want to share between components. Note that we don't need to
-      define the `setUser` function, because we will use the `handleLogin` and `handleLogout` functions to set the user.
-5. Create `contexts` folder in the `src` of your project. Add `UserContext.tsx` file to the `contexts` folder.
-    ```tsx
-    // UserContext.tsx
+4. Create `contexts` folder in the `src` of your project. Add `UserContext.jsx` file to the `contexts` folder.
+    ```jsx
+    // UserContext.jsx
     import React, { createContext, useState } from 'react';
-    import { UserWithNoPassword } from '@sharedTypes/DBTypes';
     import { useAuthentication, useUser } from '../hooks/ApiHooks';
     import { useNavigate } from 'react-router-dom';
-    import { AuthContextType, Credentials } from '../types/LocalTypes';
     
-    const UserContext = createContext<AuthContextType | null>(null);
+    const UserContext = createContext(null);
     
-    const UserProvider = ({ children }: { children: React.ReactNode }) => {
-        const [user, setUser] = useState<UserWithNoPassword | null>(null);
+    const UserProvider = ({ children }) => {
+        const [user, setUser] = useState(null);
         const { postLogin } = useAuthentication();
         const { getUserByToken } = useUser();
         const navigate = useNavigate();
         
         // login, logout and autologin functions are here instead of components
-        const handleLogin = async (credentials: Credentials) => {
+        const handleLogin = async (credentials) => {
             try {
                 // TODO: post login credentials to API
                 // TODO: set token to local storage
                 // TODO: set user to state
                 // TODO: navigate to home
             } catch (e) {
-                console.log((e as Error).message);
+                console.log(e.message);
             }
         };
         
@@ -199,7 +180,7 @@ export default Profile;
                 // TODO: set user to null
                 // TODO: navigate to home
             } catch (e) {
-                console.log((e as Error).message);
+                console.log(e.message);
             }
         };
         
@@ -211,7 +192,7 @@ export default Profile;
                 // TODO: set user to state
                 // TODO: navigate to home
             } catch (e) {
-                console.log((e as Error).message);
+                console.log(e.message);
             }
         };
                
@@ -225,9 +206,9 @@ export default Profile;
    ```
     - Note that in this case we don't make a custom hook in the context file, because linter will recommend to create
       the custom hook in a separate file.
-6. Create `ContextHooks.ts` to `hooks` folder:
-   ```tsx
-   // ContextHooks.ts
+5. Create `ContextHooks.js` to `hooks` folder:
+   ```jsx
+   // ContextHooks.js
    import { useContext } from 'react';
    import { UserContext } from '../contexts/UserContext';
     
@@ -245,9 +226,9 @@ export default Profile;
     
    export { useUserContext };
    ```
-7. Add `UserProvider` to `App.tsx`:
-   ```tsx
-   // App.tsx
+6. Add `UserProvider` to `App.jsx`:
+   ```jsx
+   // App.jsx
    import { UserProvider } from './contexts/UserContext';
     
    const App = () => {
@@ -261,9 +242,9 @@ export default Profile;
    }
    ```
     - Note that the provider must be inside the Router and outside the Routes.
-8. Now we can use the context in our components. For example in `LoginForm.tsx`:
-   ```tsx
-   // LoginForm.tsx
+7. Now we can use the context in our components. For example in `LoginForm.jsx`:
+   ```jsx
+   // LoginForm.jsx
    import { useUserContext } from '../hooks/ContextHooks';
    
    ...
@@ -272,25 +253,25 @@ export default Profile;
    
    const doSubmit = async () => {
         try {
-            handleLogin(inputs as Credentials);
+            handleLogin(inputs);
         } catch (e) {
-            console.log((e as Error).message);
+            console.log(e.message);
         }
     };
    ```
 
-9. Use `handleLogout` in `Logout.tsx` to log out the user.
-10. Use `handleAutoLogin` in `Layout.tsx` to check if there is a valid token in local storage when the app is loaded.
-11. Also in `Layout.tsx` use the `user` from the context to show the appropriate links in the navigation.
-12. Test the app. Check the console. What is happening? When you are logged out and write `/profile` to the address bar,
+8. Use `handleLogout` in `Logout.jsx` to log out the user.
+9. Use `handleAutoLogin` in `Layout.jsx` to check if there is a valid token in local storage when the app is loaded.
+10. Also in `Layout.jsx` use the `user` from the context to show the appropriate links in the navigation.
+11. Test the app. Check the console. What is happening? When you are logged out and write `/profile` to the address bar,
     what happens? You can still access the profile page, so we need to protect the route.
-13. Add new component `ProtectedRoute.tsx` to `src/components` folder:
-    ```tsx
-    // ProtectedRoute.tsx
+12. Add new component `ProtectedRoute.jsx` to `src/components` folder:
+    ```jsx
+    // ProtectedRoute.jsx
     import { Navigate, useLocation } from 'react-router-dom';
     import { useUserContext } from '../hooks/ContextHooks';
 
-    const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+    const ProtectedRoute = ({ children }) => {
         const { user } = useUserContext();
     
         if (!user) {
@@ -304,9 +285,9 @@ export default Profile;
     ```
     - This component is used to protect routes that require the user to be logged in. If the user is not logged in, the
       component will redirect to the home page.
-14. Use `ProtectedRoute` in `App.tsx` to protect the necessary routes:
-    ```tsx
-    // App.tsx
+13. Use `ProtectedRoute` in `App.jsx` to protect the necessary routes:
+    ```jsx
+    // App.jsx
     import ProtectedRoute from './components/ProtectedRoute';
     
     ...
@@ -320,12 +301,12 @@ export default Profile;
         }
     />
     ```
-15. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page
+14. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page
     anymore.
-16. Login, open one of the protected routes and then refresh the page. What happens? Why?
+15. Login, open one of the protected routes and then refresh the page. What happens? Why?
 16. If you want to automatically redirect to the same page you can use the useLocation hook in ProtectedRoute:
-    ```tsx
-    // ProtectedRoute.tsx
+    ```jsx
+    // ProtectedRoute.jsx
     import { Navigate, useLocation } from 'react-router-dom';
     
     ...
@@ -337,8 +318,8 @@ export default Profile;
     }
     ...
     ```
-    ```tsx
-    // UserContext.tsx
+    ```jsx
+    // UserContext.jsx
     import { useLocation, useNavigate } from 'react-router-dom';
     
     ...
@@ -353,12 +334,12 @@ export default Profile;
             if (token) {
                 const userResult = await getUserByToken(token);
                 setUser(userResult.user);
-                // when page is refreshed, the user is redirected to origin (see ProtectedRoute.tsx)
+                // when page is refreshed, the user is redirected to origin (see ProtectedRoute.jsx)
                 const origin = location.state.from.pathname || '/';
                 navigate(origin);
             }
         } catch (e) {
-            console.log((e as Error).message);
+            console.log(e.message);
         }
     };
     ```

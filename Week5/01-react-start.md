@@ -40,7 +40,7 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
     - [Vite](https://vitejs.dev/) for project scaffolding and automated development tasks
 1. Create a new project with Vite
     - `npm create vite@latest my-app`
-      - Choose 'React' -> 'TypeScript + SWC'
+      - Choose 'React' -> 'JavaScript + SWC'
     - `cd my-app`
     - `npm install`
     - `npm run dev`
@@ -76,7 +76,7 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
 
 1. Review the example code and application structure in `src/` folder
 1. Clean up & modify the example code in following files to get a clean starting point
-    - `src/App.tsx`, modify to function component and remove unnecessary code:
+    - `src/App.jsx`, modify to function component and remove unnecessary code:
 
       ```js
       import './App.css';
@@ -99,7 +99,6 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
 
 - [Quick start](https://react.dev/learn)
 - [JSX](https://react.dev/learn/writing-markup-with-jsx)
-- [TypeScript with React Components](https://react.dev/learn/typescript#typescript-with-react-components)
 
 ### Components
 
@@ -180,6 +179,32 @@ const Greeting = (props) => {
 <Greeting name="John" />
 ```
 
+### Prop types
+
+React components can have prop types defined to ensure that the correct type of data is passed to the component. This can help catch bugs and improve the maintainability of the code. Prop types are a way to validate the data that is passed to a component. They are not required, but they can be helpful for catching bugs and improving the maintainability of the code.
+
+```javascript
+import PropTypes from 'prop-types';
+
+const Greeting = (props) => {
+  return <h1>Hello, {props.name}!</h1>;
+};
+
+Greeting.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+```
+
+Different types of prop types:
+- `PropTypes.string`
+- `PropTypes.number`
+- `PropTypes.bool`
+- `PropTypes.array`
+- `PropTypes.object`
+- `PropTypes.func`
+- `PropTypes.node`
+- `PropTypes.element`
+
 ### JSX
 
 JSX stands for JavaScript XML. It's a syntax extension for JavaScript, used in React to describe what the UI should look like. JSX combines the power of JavaScript with the simplicity of HTML-like template syntax.
@@ -203,7 +228,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
 ## Exercise: First Components
 
 1. Create and checkout a new branch for the exercise `git checkout -b first-component`
-1. `App()` is the root component of the application, let's create a new component for displaying some media content into `src/components/Home.tsx`:
+1. `App()` is the root component of the application, let's create a new component for displaying some media content into `src/components/Home.jsx`:
 
     ```js
     const Home = () => {
@@ -216,7 +241,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default Home;
     ```
 
-1. Now you can use the new component in the JSX code in `App.tsx`:
+1. Now you can use the new component in the JSX code in `App.jsx`:
 
     ```js
     import Home from './components/Home';
@@ -322,19 +347,19 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default Home;
     ```
 
-1. We can split the JSX code to separate logical components. Let's creta a new reusable for displaying all of the media rows for each item in the array. Create a new file `src/components/MediaRow.tsx` and add the following code:
+1. We can split the JSX code to separate logical components. Let's creta a new reusable for displaying all of the media rows for each item in the array. Create a new file `src/components/MediaRow.jsx` and add the following code:
 
     ```js
-    // src/components/MediaRow.tsx
+    // src/components/MediaRow.jsx
     const MediaRow = (props: {item: MediaItem}) => {
       const {item} = props;
       return (
-        // TODO: move <tr> element  for each item property from Home.tsx here
+        // TODO: move <tr> element  for each item property from Home.jsx here
       );
     };
     ```
 
-1. Import the new component to `Home.tsx` and use it instead of the `<tr>` element:
+1. Import the new component to `Home.jsx` and use it instead of the `<tr>` element:
 
     ```js
     import MediaRow from './MediaRow';

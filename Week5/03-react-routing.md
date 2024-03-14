@@ -184,7 +184,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     </div>
     ```
 
-1. In `App.tsx`, replace the `Home` component with `BrowserRouter`, `Routes` and `Route` components.
+1. In `App.jsx`, replace the `Home` component with `BrowserRouter`, `Routes` and `Route` components.
 
    - `BrowserRouter` is imported as `Router` from `react-router-dom` and wraps the `Routes` component.
    - import `Layout`, use it as a parent `Route` for the view `Route`s
@@ -219,15 +219,14 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     <Link to="/single" state={{item}}>Show</Link>
     ```
 
-1. Copy the JSX needed for displaying the media item from `components/SingleView.tsx` to `views/Single.tsx` and modify it to use the `item` from `useLocation().state` instead of `selectedItem` state variable.
+1. Copy the JSX needed for displaying the media item from `components/SingleView.jsx` to `views/Single.jsx` and modify it to use the `item` from `useLocation().state` instead of `selectedItem` state variable.
 
     ```jsx
     import {useLocation} from "react-router-dom";
-    import {MediaItem} from "../types/DBTypes";
 
     const Single = () => {
       const {state} = useLocation();
-      const item: MediaItem = state.item;
+      const item = state.item;
       ...
       // TODO: Return JSX for displaying a mediafile here
       ...
@@ -240,7 +239,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     ...
 
     const Single = () => {
-      const navigate: NavigateFunction = useNavigate();
+      const navigate = useNavigate();
       ...
       <button onClick={() => navigate(-1)}>Go back</button>
       ...
@@ -249,7 +248,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
 ### Build and publish the app
 
 1. Check [Building for Production](https://vitejs.dev/guide/build)
-1. To fix the paths for `assets` and navigation in production build, set the _public base path_ e.g. by adding `base` property to `vite.config.ts`:
+1. To fix the paths for `assets` and navigation in production build, set the _public base path_ e.g. by adding `base` property to `vite.config.js`:
 
     ```js
     ...
@@ -259,7 +258,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     });
     ```
 
-    Then add the same path to the `basename` prop of the `Router` component in `App.tsx` by reading it from the config:
+    Then add the same path to the `basename` prop of the `Router` component in `App.jsx` by reading it from the config:
 
     ```jsx
     <Router basename={import.meta.env.BASE_URL}>

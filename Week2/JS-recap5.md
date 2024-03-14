@@ -65,9 +65,9 @@ using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
    ```
     - Handle any errors using try/catch blocks to customize error handling.
     - 5p
-5. In this assignment we will work with the [Restaurant API](https://student-restaurants.azurewebsites.net) to build upon the previous lab's restaurant assignment (Assignment 2). Extend the previous restaurant assignment by integrating the [Restaurant API](https://student-restaurants.azurewebsites.net/) and enhancing the app to display the current day's menu for selected restaurants.
+5. In this assignment we will work with the [Restaurant API](https://10.120.32.94/restaurant/) to build upon the previous lab's restaurant assignment (Assignment 2). Extend the previous restaurant assignment by integrating the [Restaurant API](https://10.120.32.94/restaurant/) and enhancing the app to display the current day's menu for selected restaurants. To use the API you need to be connected to the school's network or use a VPN connection.
    1. Begin by revisiting your previous restaurant assignment code.
-   2. Modify the app to fetch restaurant data using a single AJAX call to the [Restaurant API](https://student-restaurants.azurewebsites.net/api/v1) endpoint. Replace the previous hard-coded array of restaurants.
+   2. Modify the app to fetch restaurant data using a single AJAX call to the [Restaurant API](https://10.120.32.94/restaurant/api/v1) endpoint. Replace the previous hard-coded array of restaurants.
    3. Implement the necessary logic to display the retrieved restaurant data in your app.
    4. When a user clicks on a restaurant, make another AJAX call to fetch the current day's menu for the selected restaurant from the API.
    5. Enhance the modal functionality to show both the restaurant details (name, address, etc.) and the current day's menu.

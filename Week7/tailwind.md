@@ -46,7 +46,7 @@
 
    - These are the [default styles](https://tailwindcss.com/docs/preflight) that Tailwind CSS provides.
 7. Copy `:root` rule from `index_old.css` to `index.css` to get the basic styles back to the app.
-8. Open `Layout.tsx` and add the same styles to the `Layout` component as you had before, but use Tailwind CSS classes
+8. Open `Layout.jsx` and add the same styles to the `Layout` component as you had before, but use Tailwind CSS classes
    instead of CSS.
    - Start with `ul` and `li` elements in `Nav` component. Use [Tailwind CSS docs](https://tailwindcss.com/docs) to
      find the right classes. The old styles are in `index_old.css` if you need to check them.
@@ -69,7 +69,7 @@
 5. Use conditional rendering to show the buttons only when the user is logged in and the user is the owner of the media. If user is admin, the buttons are shown always. If the user is not logged in, the buttons are not shown at all.
 6. Add event listeners to the buttons. Something like this:
 
-   ```tsx
+   ```jsx
    <button
      className="your tailwind classes here"
      onClick={() => console.log("modify/delete", item)}
@@ -82,18 +82,18 @@
 
 1. Continue in the same branch.
 2. Check if the username and/or email are available. If not, show an error message below the input field.
-3. Add two new functions to `useUser` hook in `apiHooks.ts`: `getUsernameAvailable` and `getEmailAvailable`:
+3. Add two new functions to `useUser` hook in `apiHooks.js`: `getUsernameAvailable` and `getEmailAvailable`:
 
    ```ts
    const getUsernameAvailable = async (username: string) => {
-     const result = await fetchData<{available: boolean}>(
+     const result = await fetchData(
        import.meta.env.VITE_AUTH_API + '/users/username/' + username
      );
      return result;
    };
 
    const getEmailAvailable = async (email: string) => {
-     const result = await fetchData<{available: boolean}>(
+     const result = await fetchData(
        import.meta.env.VITE_AUTH_API + '/users/email/' + email
      );
      return result;

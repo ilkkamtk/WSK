@@ -15,11 +15,11 @@
 ## Lab assignment 1
 
 1. Continue last exercise. Create a new branch 'custom-hooks' with git.
-2. Create `hooks` folder in the `src` of your project. Add `apiHooks.ts` file to the `hooks` folder.
+2. Create `hooks` folder in the `src` of your project. Add `apiHooks.js` file to the `hooks` folder.
 3. The idea is to make hooks for each path in the APIs we are using: login, users, media, etc.
-4. Create a custom hook `useMedia` to `ApiHooks.ts` and move the functionalities from `Home.tsx` that are used to fetch
+4. Create a custom hook `useMedia` to `ApiHooks.js` and move the functionalities from `Home.jsx` that are used to fetch
    media from the APIs to the useMedia hook:
-   ```tsx
+   ```jsx
    // TODO: add necessary imports
    const useMedia = () => {
    // TODO: move mediaArray state here
@@ -31,9 +31,9 @@
    export {useMedia};
    ```
 5. `Home` component after refactoring:
-   ```tsx
+   ```jsx
    const Home = () => {
-        const [selectedItem, setSelectedItem] = useState<MediaItemWithOwner | null>(
+        const [selectedItem, setSelectedItem] = useState(
         null,
     );
     

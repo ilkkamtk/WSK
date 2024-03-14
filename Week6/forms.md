@@ -13,13 +13,13 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 
 1. Continue last exercise. Create a new branch 'forms' with git.
 2. Create files:
-    - `Login.tsx` and `Logout.tsx` to `views`
-    - `FormHooks.ts` to `hooks`
-    - `LoginForm.tsx` and `RegisterForm.tsx` to `components`
-3. Login.tsx will hold LoginForm and RegisterForm components
-    * Add the usual imports, component function and export to Login.tsx, LoginForm.tsx and RegisterForm.tsx
-    * Login.tsx:
-    ```tsx
+    - `Login.jsx` and `Logout.jsx` to `views`
+    - `FormHooks.js` to `hooks`
+    - `LoginForm.jsx` and `RegisterForm.jsx` to `components`
+3. Login.jsx will hold LoginForm and RegisterForm components
+    * Add the usual imports, component function and export to Login.jsx, LoginForm.jsx and RegisterForm.jsx
+    * Login.jsx:
+    ```jsx
     // imports
    
     const Login = () => {
@@ -33,14 +33,14 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
     
     export default Login;
    ```
-4. Add `login` to routing in App.tsx
+4. Add `login` to routing in App.jsx
     * Add `Login` to imports
     * Add `<Route path="/login" element={<Login/>}/>` to `Routes`
-    * Add `<Link to="/login">Login</Link>` to `Nav` in `Layout.tsx`
-5. Do the same for `Logout.tsx` and `logout` route
-6. Add `<form>` to LoginForm.tsx with username and password fields and submit button:
-   ```tsx
-   // LoginForm.tsx
+    * Add `<Link to="/login">Login</Link>` to `Nav` in `Layout.jsx`
+5. Do the same for `Logout.jsx` and `logout` route
+6. Add `<form>` to LoginForm.jsx with username and password fields and submit button:
+   ```jsx
+   // LoginForm.jsx
    const LoginForm = () => {
         return (
             <>
@@ -72,11 +72,11 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
         );
    };
    ```
-7. In `FormHooks.ts` create a new hook `useForm`:
-   ```typescript
+7. In `FormHooks.js` create a new hook `useForm`:
+   ```javascript
    import React, { useState } from 'react';
 
-   const useForm = (callback: () => void, initState: Record<string, string>) => {
+   const useForm = (callback: () => void, initState) => {
         const [inputs, setInputs] = useState(initState);
 
         const handleSubmit = (event: React.SyntheticEvent) => {
@@ -108,29 +108,13 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
         - `useForm` takes two parameters: a callback function and an initial state object
             - The callback function is called when the form is submitted. That function is made in E.g. LoginForm to
               send the form data to the API. See `handleSubmit` below.
-            - Note the type of the callback function: `() => void`. This means that the function does not take any
-              parameters and does not return anything because it is an event handler function.
-            - The type of `initState` is `Record<string, string>`. This means that the object can have any number of
-              properties, but the value of each property must be a string. The values come from the form fields and are
-              always strings.
         - `handleSubmit` is a function that prevents the default form submission and then calls the callback function
         - `handleInputChange` is a function that takes an event as a parameter and updates the state
-            - Note the type of the event: `React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>`. This means that
-              the event can be fired from either an input or a textarea element. The type of the event is important
-              because the event has a `target` property which is an input or textarea element. The `target` property has
-              a `name` and `value` property. These are used to update the state.
-            - Also note that the argument for `setInputs` is a function. This is because we need to add to the existing
+            - Note that the argument for `setInputs` is a function. This is because we need to add to the existing
               state, not replace it.
 
-8. We are already using shared types, but often you need some types that are only used this project. Create a new file `src/types/LocalTypes.ts`. Add type for credentials:
-   ```typescript
-   import { User } from '@sharedTypes/DBTypes';
-   type Credentials = Pick<User, 'username' | 'password'>;
-   export { Credentials };
-   ```
-   - The reason for using `Pick` instead of creating a new type is that if the `User` type changes, the `Credentials` type will change as well.
-9. Then in LoginForm add these to the component function:
-   ```typescript
+8. Then in LoginForm add these to the component function:
+   ```javascript
    const initValues: Credentials = {
       username: '',
       password: '',
@@ -145,10 +129,10 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
    
    console.log(inputs);
    ```
-10. Add `handleInputChange` and `doLogin` to the `<form>` and `<input>` components. Which one goes where?
-11. Test the form. Check the console. What is happening?
-12. In APiHooks.ts create a new hook `useAuthentication`. Create `postLogin` function to `useAuthentication`:
-     ```typescript
+9. Add `handleInputChange` and `doLogin` to the `<form>` and `<input>` components. Which one goes where?
+10. Test the form. Check the console. What is happening?
+11. In APiHooks.js create a new hook `useAuthentication`. Create `postLogin` function to `useAuthentication`:
+     ```javascript
      const postLogin = async (inputs) => {
        const fetchOptions = {
          method: 'POST',
@@ -161,11 +145,10 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
        return loginResult;
      };
      ```
-    - Fix the possible type errors. What should be the type of loginResult?
     - Make `doLogin` function call `postLogin` and pass the form data as a parameter. Then `postLogin` should log the result to the console. Use the username and password you created earlier.
-13. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
-14. display user's info (username, email etc.) in Profile.js. For this functionality you need to add a new hook `useUser` to `apiHooks`. Create a new function `getUserByToken` to `useUser` hook. `getUserByToken` should get the user data from the Auth API from this endpoint: [/users/token](http://media.mw.metropolia.fi/wbma/docs/#api-User-GetCurrentUser). Use the token from localStorage as a parameter for the `fetchData` function. Then use `getUserByToken` in Profile.js to get the user data and display it.
-15. Make `RegisterForm` component have similar functionality as `LoginForm`, but it should create a new user, so it also features an `email` field. Use the same `useForm` hook to get the values from input fields.
+12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
+13. display user's info (username, email etc.) in Profile.js. For this functionality you need to add a new hook `useUser` to `apiHooks`. Create a new function `getUserByToken` to `useUser` hook. `getUserByToken` should get the user data from the Auth API from this endpoint: [/users/token](http://media.mw.metropolia.fi/wbma/docs/#api-User-GetCurrentUser). Use the token from localStorage as a parameter for the `fetchData` function. Then use `getUserByToken` in Profile.js to get the user data and display it.
+14. Make `RegisterForm` component have similar functionality as `LoginForm`, but it should create a new user, so it also features an `email` field. Use the same `useForm` hook to get the values from input fields.
     - Instead of `doLogin` use `doRegister` as the name for the function that is called when the form is submitted.
     - Create `postRegister` function to `useUser` hook. `postRegister` should post the form data to the Auth API to this endpoint: [/users](http://media.mw.metropolia.fi/wbma/docs/#api-User-CreateUser).
     - Then `doRegister` should log the result to the console.

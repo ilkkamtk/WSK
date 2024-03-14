@@ -97,14 +97,10 @@ graph TD;
     - Create a new state variable `selectedItem` in the `Home` component using the `useState` hook with a initial value `null` : `const [selectedItem, setSelectedItem] = useState<MediaItem | undefined>();`
 1. Use `SingleView` component in the `Home` component and pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `SingleView` component.
 
-    ```js
-    // SingleView.tsx
-    import {MediaItem} from '../types/DBTypes';
+    ```javascript
+    // SingleView.jsx
 
-    const SingleView = (props: {
-      item: MediaItem;
-      setSelectedItem: (item: MediaItem | undefined) => void;
-    }) => {
+    const SingleView = (props) => {
       const {item, setSelectedItem} = props;
       return (
         // TODO: Add JSX for displaying a mediafile here
@@ -116,7 +112,7 @@ graph TD;
     };
     export default SingleView;
 
-    // Home.tsx
+    // Home.jsx
     import SingleView from './SingleView';
     ...
     <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
