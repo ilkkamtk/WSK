@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Media query with media range, part 2</title>
+    <style>
+      div {
+        padding: 20px;
+        margin: 10px;
+      }
+
+      @media screen and (width <= 500px) {
+        .item-1 {
+          background-color: lightcoral;
+        }
+      }
+
+      @media screen and (width >= 500px) {
+        .item-1 {
+          background-color: lightgray;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .item-2 {
+          background-color: lightcoral;
+        }
+      }
+      @media screen and (min-width: 500px) {
+        .item-2 {
+          background-color: lightgray;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item-1">Some content, <code>.item-1</code>. Media range.</div>
+    <div class="item-2">Some content, <code>.item-2</code>. Traditional.</div>
+  </body>
+</html>

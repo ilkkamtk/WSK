@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Title</title>
+
+    <style>
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #333;
+      }
+
+      input {
+        padding: 0.25rem;
+      }
+
+      button[type="submit"] {
+        margin-top: 1rem;
+      }
+
+      /* Small screens */
+      @media (max-width: 600px) {
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        form {
+          margin-bottom: 2rem;
+        }
+
+        input,
+        button {
+          font-size: 1.5rem;
+          padding: 0.5rem;
+        }
+
+        label {
+          margin-top: 0.5rem;
+        }
+
+        button[type="submit"] {
+          padding: 1rem;
+        }
+      }
+
+      /* Medium & large screens */
+      @media (min-width: 601px) {
+        form {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-gap: 10px;
+        }
+      }
+
+      /* Medium screens */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        /* Add styles here */
+      }
+
+      /* Large screens */
+      @media (min-width: 1025px) {
+        /* Add styles here */
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="first-name">First name:</label>
+      <input type="text" id="first-name" name="first-name" required />
+
+      <label for="last-name">Last name:</label>
+      <input type="text" id="last-name" name="last-name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="date">Today's date:</label>
+      <input type="date" id="date" name="date" />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="18" max="100" />
+
+      <label for="file">Upload a file:</label>
+      <input type="file" id="file" name="file" />
+
+      <div>
+        <!-- Empty div added for grid layout. -->
+      </div>
+      <div>
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms">I agree to the terms and conditions</label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

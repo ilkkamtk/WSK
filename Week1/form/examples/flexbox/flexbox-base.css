@@ -1,0 +1,19 @@
+.flex-container {
+  background-color: chocolate;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.flex-item {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}

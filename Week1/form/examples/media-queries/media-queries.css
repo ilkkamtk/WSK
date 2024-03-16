@@ -1,0 +1,108 @@
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 50%;
+  margin: 5rem auto;
+  padding: 4rem;
+  border: 1px solid #000;
+  background-color: mediumpurple;
+}
+
+.continue {
+  display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Styling can be applied to any element, even body */
+  body {
+    background-color: bisque;
+  }
+
+  /* Class selector */
+  .container {
+    width: 70%;
+    color: beige;
+  }
+
+  /* Element selector */
+  h1 {
+    font-size: 3rem;
+  }
+
+  /* Attribute selector */
+  [href="media-queries.css"] {
+    color: rgb(0, 55, 138);
+  }
+  /* Notice how this styling follows all the other breakpoints: the styling cascades from here to any other selector which match the media query. */
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .container {
+    width: 90%;
+    color: lightgreen;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    background-color: lightcoral;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 30rem;
+    color: rgb(57, 219, 219);
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .continue {
+    display: inherit;
+    margin: 1rem;
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .container {
+    width: 100%;
+    color: black;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Grouping selector */
+  .info,
+  .continue,
+  p {
+    display: none;
+  }
+}

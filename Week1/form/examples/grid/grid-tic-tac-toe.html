@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid - Tic tac toe example</title>
+
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        grid-auto-flow: column;
+      }
+
+      .grid-item {
+        background-color: #fff;
+        font-size: 85px;
+        text-align: center;
+      }
+
+      .grid-item:nth-child(odd) {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">X</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item">O</div>
+      <div class="grid-item">X</div>
+      <div class="grid-item"></div>
+      <div class="grid-item">O</div>
+      <div class="grid-item"></div>
+      <div class="grid-item">X</div>
+    </div>
+  </body>
+</html>

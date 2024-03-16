@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid template areas</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "sidebar content content"
+          "footer footer footer";
+      }
+
+      .grid-container > div {
+        padding: 20px;
+      }
+
+      .header {
+        background-color: lightblue;
+        grid-area: header;
+      }
+
+      .sidebar {
+        background-color: aquamarine;
+        grid-area: sidebar;
+      }
+
+      .content {
+        background-color: lightgreen;
+        grid-area: content;
+      }
+
+      .footer {
+        background-color: lightcoral;
+        grid-area: footer;
+      }
+
+      @media (800px > width > 400px) {
+        .grid-container {
+          grid-template-areas:
+            "header header"
+            "sidebar content"
+            "none footer";
+        }
+      }
+
+      @media (width <= 400px) {
+        .grid-container {
+          grid-template-areas:
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Resize the browser window to see the effect.</h2>
+    <p>Protip: Open dev tools, open device simulation.</p>
+    <div class="grid-container">
+      <div class="header">Header</div>
+      <div class="sidebar">Sidebar</div>
+      <div class="content">Content</div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>

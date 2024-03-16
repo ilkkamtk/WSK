@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Container Query example</title>
+    <style>
+      .container {
+        container-type: inline-size;
+      }
+
+      .content {
+        width: 50%;
+        background-color: lightgray;
+        padding: 20px;
+      }
+
+      @container (300px <= width <= 600px) {
+        .content {
+          width: 100%;
+          background-color: lightcoral;
+        }
+
+        .avatar {
+          width: 7rem;
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <p>Some content</p>
+        <img
+          class="avatar"
+          src="https://placekitten.com/300/300"
+          alt="A cute kitten"
+        />
+      </div>
+    </div>
+  </body>
+</html>

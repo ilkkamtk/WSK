@@ -13,14 +13,14 @@
 - [Toolchain](Week1/tools_pt1.md)
 - [HTML recap](Week1/HTML-recap.md)
 - [CSS recap](Week1/CSS-recap.md)
-- Forms
-  - CSS Box model
-  - CSS Flexbox
-  - CSS Responsive design
+- [Forms](Week1/form/form.md)
+  - [CSS Box model](Week1/form/css/box-model.md)
+  - [CSS Flexbox](Week1/form/css/flexbox.md)
+  - [CSS Responsive design](Week1/form/css/media-queries.md)
 - Semantic HTML
-- CSS Grid
+- [CSS Grid](Week1/form/css/grid.md)
 
-Tässä vaiheessa voisivat aloittaa tekemään ykislötehtävän alustavaa HTML leiskaa.
+Start the initial work on the personal project HTML user interface.
 
 ---
 

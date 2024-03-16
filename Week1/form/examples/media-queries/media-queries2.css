@@ -1,0 +1,58 @@
+html {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 2rem;
+}
+
+.grid-item {
+  border: 1px solid #000;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.great-success {
+  display: none;
+}
+
+/* Media Queries, pixel values in this example are chosen at random, some pixel values for devices can be found in https://saucelabs.com/resources/blog/css-breakpoints-media-query-breakpoints-responsive-design */
+@media screen and (max-width: 800px) {
+  .item3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .item2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .item1 {
+    display: none;
+  }
+
+  .great-success {
+    display: inherit;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  .first-goal {
+    color: green;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .second-goal {
+    color: green;
+    font-weight: bold;
+  }
+}

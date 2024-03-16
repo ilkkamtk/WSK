@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Container Query example</title>
+    <style>
+      .container {
+        container-type: inline-size;
+      }
+
+      .content {
+        width: 50%;
+        background-color: lightgray;
+        padding: 20px;
+      }
+
+      @container (max-width: 600px) {
+        /* styles for small containers */
+        .content {
+          width: 100%;
+          background-color: lightcoral;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <p>Some content</p>
+      </div>
+    </div>
+  </body>
+</html>

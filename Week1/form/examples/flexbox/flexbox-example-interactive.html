@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Layout - Interactive example</title>
+    <link rel="stylesheet" href="flexbox-base.css" />
+
+    <!-- internal styles -->
+    <style>
+      .flex-container {
+        justify-content: space-around;
+        flex-direction: row;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Flexbox Layout - Interactive example</h1>
+    <code>justify-content</code>:
+    <select>
+      <option value="space-around">space-around</option>
+      <option value="space-between">space-between</option>
+      <option value="space-evenly">space-evenly</option>
+      <option value="baseline">baseline</option>
+      <option value="center">center</option>
+      <option value="flex-end">flex-end</option>
+      <option value="flex-start">flex-start</option>
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="left">left</option>
+      <option value="right">right</option>
+      <option value="normal">normal</option>
+      <option value="stretch">stretch</option>
+      <option value="unsafe">unsafe</option>
+      <option value="inherit">inherit</option>
+      <option value="initial">initial</option>
+      <option value="unset">unset</option>
+    </select>
+    <code>flex-direction</code>:
+    <select>
+      <option value="row">row</option>
+      <option value="row-reverse">row-reverse</option>
+      <option value="column">column</option>
+      <option value="column-reverse">column-reverse</option>
+    </select>
+
+    <p>&lt;style&gt;</p>
+    <p>
+      <code class="justify-content"
+        >justify-content: <span>space-around</span>;</code
+      >
+    </p>
+    <p>
+      <code class="flex-direction">flex-direction: <span>row</span>;</code>
+    </p>
+    <p>&lt;/style&gt;</p>
+
+    <p>Resize window. Inspect elements.</p>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+      <div class="flex-item">9</div>
+    </div>
+    <p><a href="flexbox-base.css">Have a look at the base CSS</a></p>
+    <p>Have a look at the source code.</p>
+    <p><a href="flexbox-example4.html">Go to the previous example</a></p>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container"
+        >MDN - Aligning items in a flex container</a
+      >
+    </p>
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+        >MDN - Basic Concepts of Flexbox</a
+      >
+    </p>
+    <p>
+      <a href="https://www.w3schools.com/css/css3_flexbox.asp"
+        >W3Schools - CSS Flexbox</a
+      >
+    </p>
+    <p>
+      <a href="https://www.w3.org/TR/css-flexbox-1/"
+        >W3C - CSS Flexible Box Layout Module Level 1</a
+      >
+    </p>
+
+    <script>
+      const selectJustifyContent = document.querySelectorAll("select")[0];
+      const codeJustifyContent = document.querySelector(
+        "code.justify-content span"
+      );
+      const codeFlexDirection = document.querySelector(
+        "code.flex-direction span"
+      );
+      const flexContainer = document.querySelector(".flex-container");
+
+      selectJustifyContent.addEventListener("change", function () {
+        codeJustifyContent.textContent = this.value;
+        flexContainer.style.justifyContent = this.value;
+      });
+
+      const selectFlexDirection = document.querySelectorAll("select")[1];
+      selectFlexDirection.addEventListener("change", function () {
+        codeFlexDirection.textContent = this.value;
+        flexContainer.style.flexDirection = this.value;
+      });
+    </script>
+  </body>
+</html>

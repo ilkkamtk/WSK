@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- NOTE: meta viewport tag is required for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries - Part 2</title>
+    <link rel="stylesheet" href="media-query-range.css" />
+  </head>
+
+  <body>
+    <p>
+      Resize window to see the effect.
+      <a
+        href="https://developer.chrome.com/docs/devtools/device-mode"
+        target="_blank"
+        >Device simulation</a
+      >
+      might be useful.
+    </p>
+    <p>
+      Make sure you resize to two resolutions:
+      <span class="first-goal">First all numbers must be visible</span>, then
+      <span class="second-goal">no numbers should be visible</span>.
+    </p>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="item1">1</div>
+      </div>
+      <div class="grid-item">
+        <div class="item2">2</div>
+      </div>
+      <div class="grid-item">
+        <div class="item3">3</div>
+      </div>
+    </div>
+
+    <div class="great-success">
+      <p>
+        <strong>Great!</strong> You've reached the smallest resolution and all
+        the numbers are hidden. CSS property <code>display: hidden;</code> is
+        applied to the number elements in given breakpoints.
+      </p>
+      <p>
+        Have a look at the
+        <a href="media-queries-range.css">media-queries-range.css</a> css file
+        to see how it's done.
+      </p>
+    </div>
+  </body>
+</html>

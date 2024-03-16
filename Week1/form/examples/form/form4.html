@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Title</title>
+
+    <style>
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #333;
+      }
+
+      button[type="submit"] {
+        margin-top: 1rem;
+      }
+
+      input {
+        padding: 0.25rem;
+      }
+
+      /* Small screens */
+      @media (max-width: 600px) {
+        /* Add styles here */
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        input,
+        button {
+          padding: 0.5rem;
+          font-size: 1.5rem;
+        }
+
+        label {
+          margin-top: 0.5rem;
+        }
+
+        button[type="submit"] {
+          padding: 1rem;
+        }
+      }
+
+      /* Medium & large screens */
+      @media (min-width: 601px) {
+        form {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-gap: 10px;
+        }
+      }
+
+      /* Medium screens */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        /* Add styles here */
+      }
+
+      /* Large screens */
+      @media (min-width: 1025px) {
+        /* Add styles here */
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

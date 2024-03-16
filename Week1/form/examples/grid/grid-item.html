@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid item example</title>
+    <style>
+      .grid-container {
+        display: grid;
+        display: grid;
+        height: 200px;
+        grid-template-columns: 200px;
+        grid-template-rows: repeat(6, 1fr);
+        background-color: cornflowerblue;
+      }
+      .grid-item-1 {
+        background-color: lightslategray;
+        grid-row: 1 / 3;
+      }
+      .grid-item-2 {
+        background-color: lightgreen;
+        grid-row: 2 / 4;
+      }
+      .grid-item-3 {
+        background-color: lightblue;
+        grid-row: 3 / 5;
+      }
+      .grid-item-4 {
+        background-color: lightcoral;
+        grid-row: 1 / 3;
+        grid-column: 1 / 3;
+      }
+      .grid-item-5 {
+        background-color: lightyellow;
+        grid-row: 2 / 4;
+        grid-column: 1 / 3;
+      }
+
+      .grid-item-6 {
+        background-color: lightpink;
+        grid-row: 3 / 5;
+        grid-column: 2 / 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item-1">1</div>
+      <div class="grid-item-2">2</div>
+      <div class="grid-item-3">3</div>
+      <div class="grid-item-4">4</div>
+      <div class="grid-item-5">5</div>
+      <div class="grid-item-6">6</div>
+    </div>
+  </body>
+</html>
