@@ -10,7 +10,6 @@
 
 - [How web application works](Week1/architecture.md)
 - [HTTP request - response](Week1/http-request-response.md)
-- [Toolchain](Week1/tools_pt1.md)
 - [HTML recap](Week1/HTML-recap.md)
 - [CSS recap](Week1/CSS-recap.md)
 - [Forms](Week1/form/form.md)
@@ -26,11 +25,13 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 2 - JavaScript recap
 
-1. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
-2. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
-3. [JavaScript recap - DOM](Week2/JS-recap3.md)
-4. [JavaScript recap - Event handling](Week2/JS-recap4.md)
-5. [JavaScript recap - AJAX](Week2/JS-recap5.md)
+1. [JS Toolchain](Week2/tools_pt2.md)
+2. [Node.js](Week2/node.md)
+3. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
+4. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
+5. [JavaScript recap - DOM](Week2/JS-recap3.md)
+6. [JavaScript recap - Event handling](Week2/JS-recap4.md)
+7. [JavaScript recap - AJAX](Week2/JS-recap5.md)
 
 ---
 
