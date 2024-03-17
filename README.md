@@ -2,6 +2,8 @@
 
 ![Hartman](images/Sgt.Hartman.webp)
 
+What is your major malfunction?
+
 ---
 
 ## Table of Contents
