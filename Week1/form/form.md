@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial, we will create a simple HTML form with a few inputs and a submit button. We will then add labels to the inputs, add responsive design to the form through media queries, and use grid and flexbox to layout the form. We will also explain the difference between input submit and button submit, and utilise input types and attributes to create a more interactive form.
+In this material, we will create a simple HTML form with a few inputs and a submit button. We will then add labels to the inputs, add responsive design to the form through media queries, and use grid and flexbox to layout the form. We will also explain the difference between input submit and button submit, and utilise input types and attributes to create a more interactive form.
 
 ## Creating the Form
 
@@ -28,7 +28,7 @@ Let's start by creating a simple HTML form with a few inputs and a submit button
 - [examples/form/form0.html](examples/form/form0.html)
 
 
-The form contains the required fields, but looking at it, it does not make any sense. Let's add some labels for clarity and accessibility.
+The form contains some fields, but looking at it, it does not make much sense. Let's add some labels for clarity and accessibility.
 
 ```html
 <!DOCTYPE html>
@@ -1439,17 +1439,20 @@ Full set of changes and the example can be found in:
 
 The form is now complete. The user can fill in the form and submit it. The form will be sent to the server, and the server can process the form data.
 
-The form does not contain the `action` or `method` attributes, let's add them so that the form can actually be submitted. (note: these attributes should be added to the form in the very beginning, not at this point. Keep this in mind in the future.)
+The form does not contain the `action` or `method` attributes, let's add them so that the form can actually be submitted. (note: these attributes really should be added to the form in the very beginning, not at this point. Keep this in mind in the future.)
 
 ```html
-<form action="http://10.120.32.94/test/" method="post">
+<form action="https://10.120.32.94/test/form-submission/" method="post">
   <!-- ... -->
 </form>
 ```
 
-Note: `http://10.120.32.94/test/` this example url needs the trailing slash in order to work.
+### Note:
+- [https://10.120.32.94/test/form-submission/](https://10.120.32.94/test/form-submission/) this example url needs the trailing slash in order to work.
+- Make sure to navigate to the test url before submission, as the https has a self-signed certificate.
+- Most important! For this url to work, you must be in Metropolia wifi or use the VPN.
 
-Now open the form and click submit. Some of the fields are required, which means that you actually need to fill in the form to be able to submit it.
+Now open the form in browser and click submit. Some of the fields are required, which means that you actually need to fill in the form to be able to submit it.
 
 After the submit button is clicked, the form data is sent to the server. The browser will navigate to the form submission URL by using the HTTP method specified in the form. The server will then process the form data and send a response back to the browser.
 
