@@ -7,7 +7,7 @@
     <rect width="380" height="140" x="10" y="50" fill="red" />
     <text x="20" y="70" font-size="14" fill="white">Host: example.com</text>
     <text x="20" y="90" font-size="14" fill="white">User-Agent: Mozilla/5.0</text>
-    <text x="20" y="110" font-size="14" fill="white">Accept: application/json</text>
+    <text x="20" y="110" font-size="14" fill="white">Content-type: application/json</text>
 
     <!-- Body (Green) -->
     <rect width="380" height="100" x="10" y="200" fill="green" />
