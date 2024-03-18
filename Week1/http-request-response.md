@@ -16,6 +16,9 @@ Host: example.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
 Accept: text/html,application/xhtml+xml
 Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+
+{"username": "frank", "password": "12345"}
 ```
 
 - **POST**: The HTTP method used to retrieve a resource.
@@ -25,6 +28,7 @@ Accept-Language: en-US,en;q=0.9
 - **User-Agent**: The user agent string identifying the client.
 - **Accept**: The types of content the client can understand.
 - **Accept-Language**: The preferred languages for the response.
+- **Content-Type**: Tell what kind of data is in the body.
 - **Body**: for sending data with POST and PUT methods
 
 ---
