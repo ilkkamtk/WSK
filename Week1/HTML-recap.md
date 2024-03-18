@@ -21,6 +21,7 @@
 
 - To get started with HTML coding, all you need is a simple text editor and a web browser.
 - Recommended editors: Visual Studio Code, WebStorm, NeoVim...
+- [Toolchain](tools_pt1.md)
 
 ## 4. Example HTML Document
 
