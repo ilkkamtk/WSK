@@ -1,4 +1,4 @@
-# Lecture Notes: Introduction to HTML
+# Introduction to HTML
 
 ## 1. What is HTML?
 
