@@ -6,7 +6,7 @@ Study the material from the first year course:
    - Study only the BOM & DOM parts
 
 ## Assignments:
-[Download this ZIP-file](zip/dom-assignments.zip), extract it and move the content to the folder where you have your other files for this course.
+[Download this ZIP-file](https://github.com/ilkkamtk/WSK/tree/main/zip), extract it and move the content to the folder where you have your other files for this course.
 1. Open t1 folder in your IDE/editor. In `t1.js` there is an array of todo items called `todoList`. Add the todo items to `ul` element in `t1.html` by using [insertAdjacentHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) method. The structure of the end result should be this: 
    ```html
    <li>
