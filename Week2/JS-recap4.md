@@ -7,7 +7,7 @@ Study the material from the first year course:
 
 ## Assignments:
 
-[Download this ZIP-file](zip/event-assignments.zip), extract it and move the content to the folder where you have your other files for this course.
+[Download this ZIP-file](https://github.com/ilkkamtk/WSK/raw/main/zip/event-assignments.zip), extract it and move the content to the folder where you have your other files for this course.
 
 1. Open t1 folder in your IDE/editor. In this assignment, you will build upon the previous TODO list assignment and
    implement new features to enhance its functionality. You will continue working with the DOM, event handling, and
