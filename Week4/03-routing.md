@@ -102,6 +102,17 @@ Both of the folder structures has its benefits. The type-based structure is simp
 [express.Router](https://expressjs.com/en/guide/routing.html#express-router) is a middleware and more advanced routing system that allows you to modularize your routes into separate files.
 
 ### Example
+_src/app.js:_
+
+```js
+...
+import api from './api';
+...
+
+app.use('/api/v1', api);
+...
+```
+
 
 _src/api/index.js:_
 
