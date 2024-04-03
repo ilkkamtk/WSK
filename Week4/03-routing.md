@@ -245,5 +245,26 @@ export {listAllCat, findCatById, addCat};
    - `PUT /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item updated.'}`
    - `DELETE /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item deleted.'}`
 8. Test the endpoints in Postman. Get cats, add a new cat, then get cats again to see if the new cat is added.
-9. Commit and push your branch changes to the remote repository.
-10. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
+9. Use the above examples to create routes for users. Create similar dummy data:
+    ```javascript
+    const userItems = [
+      {
+         user_id: 3609,
+         name: 'John Doe',
+         username: 'johndoe',
+         email: 'john@metropolia.fi',
+         role: 'user',
+         password: 'password',
+      },
+      etc...
+    ];
+    
+    ```
+10. Add the following endpoints:
+11. `GET /api/v1/user` - returns all users
+12. `GET /api/v1/user/:id` - returns one user by id
+13. `POST /api/v1/user` - adds a new user
+14. `PUT /api/v1/user/:id` - return hard coded json response: `{message: 'User item updated.'}`
+15. `DELETE /api/v1/user/:id` - return hard coded json response: `{message: 'User item deleted.'}`
+16. Commit and push your branch changes to the remote repository.
+17. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
