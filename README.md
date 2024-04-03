@@ -48,8 +48,9 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 4 - Node.js, Express
 
-- Server side programming, Restful API, Node.js, NPM, Express
-- Express - Routing
+- [Server side programming, Restful API, Node.js, NPM](Week4/01-server-side-programming.md)
+- [Express - intro](Week4/02-express.md)
+- [Express - Routing](Week4/03-routing.md)
 - Express - Middleware, File upload
 - Express - Database access
 - Authentication, JWT
