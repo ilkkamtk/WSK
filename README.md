@@ -51,7 +51,7 @@ Start the initial work on the personal project HTML user interface.
 - [Server side programming, Restful API, Node.js, NPM](Week4/01-server-side-programming.md)
 - [Express - intro](Week4/02-express.md)
 - [Express - Routing](Week4/03-routing.md)
-- Express - Middleware, File upload
+- [Express - Middleware, File upload](Week4/04-middleware.md)
 - Express - Database access
 - Authentication, JWT
 - Validation, error handling

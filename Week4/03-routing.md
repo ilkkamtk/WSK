@@ -172,14 +172,13 @@ const getCatById = (req, res) => {
 };
 
 const postCat = (req, res) => {
-  const {filename, title, description, user_id} = req.body;
-  if (filename && title && description && user_id) {
-    addCat(req.body);
-    res.status(201);
-    res.json({message: 'New cat item added.'})
-  } else {
-    res.sendStatus(400);  
-  }
+    const result = addCat(req.body);
+    if (result.cat_id) {
+      res.status(201);
+      res.json({message: 'New cat added.', result});
+    } else {
+      res.sendStatus(400);  
+    }
 };
 
 const putCat = (req, res) => {
@@ -207,8 +206,6 @@ const catItems = [
     owner: 3609,
     filename: 'f3dbafakjsdfhg4',
     birthdate: '2021-10-12',
-    lat: 60.192059,
-    lng: 24.945831,
   },
   {
     cat_id: 9590,
@@ -217,12 +214,10 @@ const catItems = [
     owner: 3602,
     filename: 'f3dasdfkjsdfhgasdf',
     birthdate: '2021-10-12',
-    lat: 60.192059,
-    lng: 24.945831,
   },
 ];
 
-const listAllCat = () => {
+const listAllCats = () => {
   return catItems;
 };
 
@@ -233,10 +228,11 @@ const findCatById = (id) => {
 const addCat = (cat) => {
   const {filename, title, description, user_id} = cat;
   const newId = catItems[0].cat_id + 1;
-  catItems.unshift({cat_id: newId, filename, title, description, user_id});
+  catItems.unshift({cat_id: newId, cat_name, weight, owner, filename, birthdate});
+  return {cat_id: newId};
 };
 
-export {listAllCat, findCatById, addCat};
+export {listAllCats, findCatById, addCat};
 
 ```
 ---
@@ -255,7 +251,7 @@ export {listAllCat, findCatById, addCat};
    - `POST /api/v1/cat` - adds a new cat
    - `PUT /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item updated.'}`
    - `DELETE /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item deleted.'}`
-8. Test the endpoints in Postman. Get cats, add a new cat, then get cats again to see if the new cat is added.
+8. Test the endpoints in [Postman](https://www.postman.com/downloads/). Get cats, add a new cat, then get cats again to see if the new cat is added.
 9. Use the above examples to create routes for users. Create similar dummy data:
     ```javascript
     const userItems = [
