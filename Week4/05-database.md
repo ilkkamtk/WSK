@@ -1,12 +1,13 @@
 # Database connection in Express
 
-1. Import the [example database]() to your MySQL database on Metropolia's server.
+1. Create a new branch `Assignment5` from `main`.
+2. Import the [example database]() to your MySQL database on Metropolia's server.
    1. Create a database in https://amme.metropolia.fi/mysql/. Login with your Metropolia username and password. When creating the database **DO NOT USE THE SAME PASSWORD AS YOUR METROPOLIA ACCOUNT.**
    1. Open https://users.metropolia.fi/phpMyAdmin/
    2. Select your database from the left sidebar
    3. Click on the `SQL` tab
    4. Copy the content of the `example-database.sql` file and paste it into the SQL query window and press `Go`
-1. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
+3. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
     - `.env` file is used to store sensitive data like database credentials and should not be committed to version control (remember to add to `.gitignore`).
     - Add `.env` file to the project root folder and add the following content to it:
 
@@ -17,8 +18,8 @@
     DB_NAME=databasename
     ```
 
-1. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
-1. Create a new file `src/utils/database.js` and add the following code to it:
+4. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
+5. Create a new file `src/utils/database.js` and add the following code to it:
 
     ```js
     import mysql from 'mysql2';
@@ -97,10 +98,27 @@ const modifyCat = async (cat, id) => {
   }
 };
 
-export {listAllCats, findCatById, addCat};
+const deleteCat = async (id) => {
+  try {
+    const [rows] = await promisePool.query('DELETE FROM cats WHERE cat_id = ?', [id]);
+    console.log('rows', rows);
+    return {cat_id: id};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {listAllCats, findCatById, addCat, modifyCat, deleteCat};
 ```
 
 ---
 
-## Assignment 
+### Continue assignment
+
+Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference. Also update the user routes to use the database.
+
+Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
+
+
 
