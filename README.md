@@ -20,7 +20,7 @@ What is your major malfunction?
   - [CSS Box model](Week1/form/css/box-model.md)
   - [CSS Flexbox](Week1/form/css/flexbox.md)
   - [CSS Responsive design](Week1/form/css/media-queries.md)
-- Semantic HTML
+- [Semantic HTML](https://webaim.org/resources/htmlcheatsheet/HTML%20Semantics%20and%20Accessibility%20Cheat%20Sheet.pdf)
 - [CSS Grid](Week1/form/css/grid.md)
 
 Start the initial work on the personal project HTML user interface.

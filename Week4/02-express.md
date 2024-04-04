@@ -141,6 +141,20 @@ Environment variables are used to store configuration settings outside your code
 2. Add a `.gitignore` file to the project folder. Exclude `node_modules` and `.env` files from the repository. You can use [gitignore.io](https://www.toptal.com/developers/gitignore) to generate `.gitignore` files.
 3. Create a new branch 'Assignment1' and switch to it: `git checkout -b 'Assignment1'`
 4. Make sure to commit your changes and push to the Git repository regularly.
+5. Init [eslint, editorconfig and prettier](../Week2/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project.
+   - Eslint initialization settings:
+   ```text
+   ✔ How would you like to use ESLint? · style
+   ✔ What type of modules does your project use? · esm
+   ✔ Which framework does your project use? · none
+   ✔ Does your project use TypeScript? · No / Yes
+   ✔ Where does your code run? · browser
+   ✔ How would you like to define a style for your project? · guide
+   ✔ Which style guide do you want to follow? · google
+   ✔ What format do you want your config file to be in? · JavaScript
+   ✔ Would you like to install them now? · No / Yes
+   ✔ Which package manager do you want to use? · npm
+   ```
 5. Create a new Express project in the project folder based on the 'Hello world' example above.
    - run `npm init -y` to create a `package.json` file
    - install Express: `npm install express`
