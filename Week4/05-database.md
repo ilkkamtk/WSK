@@ -1,12 +1,12 @@
 # Database connection in Express
 
 1. Create a new branch `Assignment5` from `main`.
-2. Import the [example database]() to your MySQL database on Metropolia's server.
+2. Import the [example database](https://gist.github.com/ilkkamtk/b03f47baea5fb83c06141038160cefaa) to your MySQL database on Metropolia's server.
    1. Create a database in https://amme.metropolia.fi/mysql/. Login with your Metropolia username and password. When creating the database **DO NOT USE THE SAME PASSWORD AS YOUR METROPOLIA ACCOUNT.**
-   1. Open https://users.metropolia.fi/phpMyAdmin/
-   2. Select your database from the left sidebar
-   3. Click on the `SQL` tab
-   4. Copy the content of the `example-database.sql` file and paste it into the SQL query window and press `Go`
+   2. Open https://users.metropolia.fi/phpMyAdmin/
+   3. Select your database from the left sidebar
+   4. Click on the `SQL` tab
+   5. Copy the content of the `example-database.sql` file and paste it into the SQL query window and press `Go`
 3. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
     - `.env` file is used to store sensitive data like database credentials and should not be committed to version control (remember to add to `.gitignore`).
     - Add `.env` file to the project root folder and add the following content to it:
@@ -15,7 +15,7 @@
     DB_HOST=mysql.metropolia.fi
     DB_USER=myusername
     DB_PASSWORD=mypassword
-    DB_NAME=databasename
+    DB_NAME=myusername
     ```
 
 4. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
@@ -47,7 +47,7 @@ _cat-model.js:_
 ```js
 // Note: db functions are async and must be called with await from the controller
 // How to handle errors in controller?
-import promisePool from '../utils/database.js';
+import promisePool from '../../utils/database.js';
 
 const listAllCats = async () => {
   try {
@@ -62,7 +62,7 @@ const listAllCats = async () => {
 
 const findCatById = async (id) => {
   try {
-    const [rows] = await promisePool.query('SELECT * FROM cats WHERE cats_id = ?', [id]);
+    const [rows] = await promisePool.execute('SELECT * FROM cats WHERE cats_id = ?', [id]);
     console.log('rows', rows);
     return rows[0];
   } catch (e) {
@@ -77,7 +77,7 @@ const addCat = async (cat) => {
                VALUES (?, ?, ?, ?, ?)`;
   const params = [cat_name, weight, owner, filename, birthdate];
   try {
-    const rows = await promisePool.query(sql, params);
+    const rows = await promisePool.execute(sql, params);
     console.log('rows', rows);
     return {cat_id: rows[0].insertId};
   } catch (e) {
@@ -89,34 +89,44 @@ const addCat = async (cat) => {
 const modifyCat = async (cat, id) => {
   const sql = promisePool.format(`UPDATE cats SET ? WHERE cat_id = ?`, [cat, id]);
   try {
-    const rows = await promisePool.query(sql);
+    const rows = await promisePool.execute(sql);
     console.log('rows', rows);
-    return {cat_id: cat_id};
+     if (rows[0].affectedRows === 0) {
+        return {error: 'not found'};
+     }
+     return {message: 'success'};
   } catch (e) {
     console.error('error', e.message);
     return {error: e.message};
   }
 };
 
-const deleteCat = async (id) => {
+const removeCat = async (id) => {
   try {
-    const [rows] = await promisePool.query('DELETE FROM cats WHERE cat_id = ?', [id]);
+    const [rows] = await promisePool.execute('DELETE FROM cats WHERE cat_id = ?', [id]);
     console.log('rows', rows);
-    return {cat_id: id};
+     if (rows.affectedRows === 0) {
+        return {error: 'not found'};
+     }
+     return {message: 'success'};
   } catch (e) {
     console.error('error', e.message);
     return {error: e.message};
   }
 };
 
-export {listAllCats, findCatById, addCat, modifyCat, deleteCat};
+export {listAllCats, findCatById, addCat, modifyCat, removeCat};
 ```
 
 ---
 
 ### Continue assignment
 
-Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference. Also update the user routes to use the database.
+Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference. Also update the user routes to use the database. When deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](https://gist.github.com/ilkkamtk/b87666ed682c2c6faea182ca215afaf5) to ensure data integrity.
+
+Get owners name when getting cats.
+
+Add endpoint to get cats by user id.
 
 Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
 

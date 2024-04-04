@@ -68,7 +68,7 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 1. Create a new branch `Assignment4` from `main`.
 2. Create a new file `./src/middlewares.js` and add a new middleware function `createThumbnail` that creates a thumbnail image from the uploaded image.
     - Use [sharp](https://sharp.pixelplumbing.com/) to create the thumbnail.
-       - Mac users install version 0.31.3 of sharp to avoid issues _(not fixed yet, spring 2024)_
+       - Mac/linux users install version 0.32.6 of sharp to avoid issues _(not fixed yet, spring 2024)_
     - The middleware should be used after the file upload middleware.
     - The middleware should save the thumbnail image to the `uploads` folder with the same filename but with the suffix `_thumb`.
     - Use the promise version of sharp.
