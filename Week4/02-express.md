@@ -162,6 +162,7 @@ Environment variables are used to store configuration settings outside your code
 10. Create new folder 'public' and add a some image file there. Serve the static files from the 'public' folder: `app.use('/public', express.static('public'));`
 11. Test that the image is served correctly by navigating to `http://localhost:3000/public/your-image.jpg`
 12. Add a start script to `package.json` to run the server with `node` instead of `nodemon`: `"start": "node app.js"`
-13. Merge the 'Assignment1' branch to the 'main' branch.
-14. Push your changes to a remote repository (e.g. GitHub, GitLab, etc.).
-15. Serve the project on a server (e.g. [Azure](https://www.youtube.com/playlist?list=PLKenVLUxjmH_1obN-sz7KvOcBHbRuTdiO), [Metropolia ecloud](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo), etc.) and test that it works.
+13. Commit and push branch 'Assignment1' to the remote repository.
+14. Merge the 'Assignment1' branch to the 'main' branch.
+15. Push your 'main' to a remote repository.
+16. Serve the project on a server (e.g. [Azure](https://www.youtube.com/playlist?list=PLKenVLUxjmH_1obN-sz7KvOcBHbRuTdiO), [Metropolia ecloud](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo), etc.) and test that it works.
