@@ -104,16 +104,17 @@ code analysis and identifying potential issues.
 - enforces a consistent code style by handling tasks such as indentation, spacing, line breaks, and wrapping.
 - provides configuration options to customize the formatting rules according to project requirements.
 - helps maintain code readability and improves code maintainability by providing a consistent and clean codebase.
+- sample `.prettierrc` file:
 
-    ```javascript
-    // sample .prettierrc.js
-    module.exports = {
-      semi: true,
-      singleQuote: true,
-      bracketSpacing: false,
-      singleQuote: true,
-      trailingComma: 'es5',
-    };
+
+    ```json
+    
+    {
+      "semi": true,
+      "singleQuote": true,
+      "bracketSpacing": false,
+      "trailingComma": "es5"
+    }
     ```
 
 ## [ESLint](https://eslint.org/)
@@ -143,21 +144,21 @@ code analysis and identifying potential issues.
    - Where does your code run? **Browser**
    - How would you like to define a style for your project? **Use a popular style guide**
    - Which style guide do you want to follow? **Google: https://github.com/google/eslint-config-google**
-   - What format do you want your config file to be in? **JavaScript**
+   - What format do you want your config file to be in? **JSON**
    - Would you like to install them now? **Yes**
    - Which package manager do you want to use? **npm**
 5. Install Prettier plugin for ESLint: `npm i -D eslint-plugin-prettier eslint-config-prettier`
 6. You should have new file `.eslintrc.js`. Modify _extends_ and _rules_ properties:
-   ```javascript
+   ```json
    ...
-   extends: ['google', 'eslint:recommended', 'plugin:prettier/recommended'],  // if using WebStorm, omit plugin:prettier/recommended
+   "extends": ["google", "eslint:recommended", "plugin:prettier/recommended"],  // if using WebStorm, omit plugin:prettier/recommended
    ...
-   rules: {
-      'require-jsdoc': 0,
+   "rules": {
+      "require-jsdoc": 0
    },
    ...
    ```
-7. Write `.editorconfig` and `.prettierrc.js` files according to the examples earlier in this page.
+7. Write `.editorconfig` and `.prettierrc` files according to the examples earlier in this page.
 8. Open the settings in Visual Studio Code by clicking on "File" -> "Preferences" -> "Settings" or using the shortcut Ctrl + ,.
 9. In the search bar, type "Format On Save" and check the box to enable it. This ensures that your code will be automatically formatted when you save the file.
    - If you are using Webstorm, enable ESLint in your WebStrom project
