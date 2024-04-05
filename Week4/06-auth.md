@@ -21,8 +21,8 @@ Choosing the right method for maintaining state depends on the specific requirem
 ### Cookies
 
 - Small pieces of data stored on the client's browser. Cookies are sent back to the server with every HTTP request.
-- Cookies store variables as name and value pairs, plus additional information such as expiration time and the name of web site where the cookie came form.
-- By default web site can modify only it's own cookies
+- Cookies store variables as name and value pairs, plus additional information such as expiration time and the name of website where the cookie came form.
+- By default, website can modify only its own cookies
   Use Cases: Remembering user preferences, authentication tokens, tracking sessions.
   Limitations: Size is limited (typically 4KB), and they can pose security and privacy concerns if not handled correctly.
 
@@ -115,6 +115,16 @@ sequenceDiagram
         Server->>Client: Unauthorized Response
     end
 ```
+--- 
+
+## Bcrypt
+
+- Bcrypt is a password-hashing function designed to be slow and computationally intensive to protect against brute-force attacks.
+- Bcrypt is a one-way hash function, meaning that it is not possible to reverse the hash to obtain the original password.
+- Bcrypt is commonly used for securely storing passwords in databases.
+- Usage in Node.js: [bcrypt](https://www.npmjs.com/package/bcrypt)
+
+---
 
 ### Client-Side State Management
 
@@ -144,130 +154,163 @@ In web applications, authentication is typically done by verifying a username an
 
 1. Create new branch `Assignment6` based on `main`
 2. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-1. Generate a secret key for signing the tokens and store it in the `.env` file: `JWT_SECRET=...`
+3. Install [bcrypt](https://www.npmjs.com/package/bcrypt)
+4. Generate a secret key for signing the tokens and store it in the `.env` file: `JWT_SECRET=...`
     - use a long random string, e.g. from [random.org](https://www.random.org/strings/)
     - or use the `crypto` module to generate a random string
-1. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
+5. Modify `postUser()` in `user-controller.js` to hash the password before saving it to the database:
+    
+    ```js
+    import bcrypt from 'bcrypt';
+    ...
+   const postUser = async (req, res) => {
+      // modify req.body.password:
+      req.body.password = bcrypt.hashSync(req.body.password, 10);
+    ...
+    ```
+6. Create a new user and check that the password is hashed in the database.
+7. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
     - add a new route handler to `routes/auth-router.js`, controller method to `controllers/auth-controller.js`, and use the user model to query the database or create a new model for authentication.
-1. In the model implement a method for verifying the username and password combination and returning the user object if found:
+8. In the user model implement a method for getting user by username and returning the user object if found:
 
    ```js
    ...
    const login = async (user) => {
-     try {
-       const sql = `SELECT user_id, username, email, role, name
-                 FROM Users WHERE username = ? AND password = ?`;
+       const sql = `SELECT *
+                 FROM wsk_users 
+                 WHERE username = ?`;
    ...
    ...
    ```
 
-1. In the controller implement token generation for the logged in user, something like this:
+9. In the `auth-controller.js` implement token generation for the logged-in user, something like this:
 
     ```js
     import jwt from 'jsonwebtoken';
-    import {login} from '../models/user-model.js';
+    import bcrypt from 'bcrypt';
+    import {getUserByUsername} from '../models/user-model.js';
     import 'dotenv/config';
-
+    
     const postLogin = async (req, res) => {
       console.log('postLogin', req.body);
-      const user = await login(req.body);
-      if (user) {
-        const token = jwt.sign(user, process.env.JWT_SECRET, {expiresIn: '24h'});
-        res.json({...user, token});
-      } else {
+      const user = await getUserByUsername(req.body.username);
+      if (!user) {
         res.sendStatus(401);
+        return;
       }
+    
+      if (!bcrypt.compareSync(req.body.password, user.password)) {
+        res.sendStatus(401);
+        return;
+      }
+      
+      const userWithNoPassword = {
+        user_id: user.user_id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+      };
+
+      const token = jwt.sign(userWithNoPassword, process.env.JWT_SECRET, {
+        expiresIn: '24h',
+      });
+      res.json({user: userWithNoPassword, token});
     };
-    ...
+    
+    export {postLogin};
     ```
 
     - if the user is found, `jsonwebtoken` is used to generate a JWT token and then token is sent back to the client along with the user object.
+    - Remember to not send the password back to the client.
 
-1. Create a middleware for handling requests to endpoints where authentication is needed `middlewares.js`
+10. Create a middleware for handling requests to endpoints where authentication is needed `middlewares.js`
 
-    ```js
-    import jwt from 'jsonwebtoken';
-    import 'dotenv/config';
+     ```js
+     import jwt from 'jsonwebtoken';
+     import 'dotenv/config';
+    
+     ...
+    
+     const authenticateToken = (req, res, next) => {
+       console.log('authenticateToken', req.headers);
+       const authHeader = req.headers['authorization'];
+       const token = authHeader && authHeader.split(' ')[1];
+       console.log('token', token);
+       if (token == null) {
+         return res.sendStatus(401);
+       }
+       try {
+         res.locals.user = jwt.verify(token, process.env.JWT_SECRET);
+         next();
+       } catch (err) {
+         res.status(403).send({message: 'invalid token'});
+       }
+     };
 
-    const authenticateToken = (req, res, next) => {
-      console.log('authenticateToken', req.headers);
-      const authHeader = req.headers['authorization'];
-      const token = authHeader && authHeader.split(' ')[1];
-      console.log('token', token);
-      if (token == null) {
-        return res.sendStatus(401);
-      }
-      try {
-        res.locals.user = jwt.verify(token, process.env.JWT_SECRET);
-        next();
-      } catch (err) {
-        res.status(403).send({message: 'invalid token'});
-      }
-    };
+     export {authenticateToken, andOthersIfYouHave};
+     ```
 
-    export {authenticateToken};
-    ```
+11. Add a new route handler for `GET /api/auth/me` that returns the user object based on the token in the request header:
 
-1. Add a new route handler for `GET /api/auth/me` that returns the user object based on the token in the request header:
+     ```js
+     // controller:
+     const getMe = async (req, res) => {
+       console.log('getMe', res.locals.user);
+       if ( res.locals.user) {
+         res.json({message: 'token ok', user:  res.locals.user});
+       } else {
+         res.sendStatus(401);
+       }
+     };
+    
+     // router:
+     ...
+     import {getMe, postLogin} from '../controllers/auth-controller.js';
+     import {authenticateToken} from '../middlewares/authentication.js';
+     ...
+     authRouter.route('/me').get(authenticateToken, getMe);
+     ...
+     ```
 
-    ```js
-    // router:
-    ...
-    import {getMe, postLogin} from '../controllers/auth-controller.js';
-    import {authenticateToken} from '../middlewares/authentication.js';
-    ...
-    authRouter.route('/me').get(authenticateToken, getMe);
-    ...
+12. Test login and the protected route with Postman or VS Code REST Client:
 
-    // controller:
-    const getMe = async (req, res) => {
-      console.log('getMe', res.locals.user);
-      if ( res.locals.user) {
-        res.json({message: 'token ok', user:  res.locals.user});
-      } else {
-        res.sendStatus(401);
-      }
-    };
-    ```
+     ```http
+     ### Post login
+     POST http://localhost:3000/api/v1/auth/login
+     content-type: application/json
 
-1. Test login and the protected route with Postman or VS Code REST Client:
+     {
+       "username": "JohnDoe",
+       "password": "to-be-hashed-pw1"
+     }
+     ```
 
-    ```http
-    ### Post login
-    POST http://localhost:3000/api/v1/auth/login
-    content-type: application/json
+     - Check the response and copy the token from the response body.
 
-    {
-      "username": "JohnDoe",
-      "password": "to-be-hashed-pw1"
-    }
-    ```
+     ```http
+     ### Get my user info
+     GET http://localhost:3000/api/v1/auth/me
+     Authorization: Bearer <put-your-token-from-login-response-here>
+     ```
 
-    - Check the response and copy the token from the response body.
+     - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
 
-    ```http
-    ### Get my user info
-    GET http://localhost:3000/api/v1/auth/me
-    Authorization: Bearer <put-your-token-from-login-response-here>
-    ```
+13. Now you can use the authentication middleware with any route where needed.
+     - Information about the authenticated user is passed to the controller in `res.locals.user` object.
 
-    - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
-
-1. Now you can use the authentication middleware with any route where needed.
-    - Information about the authenticated user is passed to the controller in `res.locals.user` object.
-
-1. Implement authorization for protected routes, e.g.:
-    - `PUT /api/media/:id` - only file owner can update media items
-    - `DELETE /api/media/:id` - only file owner can delete media item
-    - `PUT /api/users/` - users can update only their own user info
-    - and so on...
-    - describe your rules in report/readme/docs
-1. Implement user roles (e.g. admin, user) with different permissions (role based resource authorization)
-    - Regular users can only delete and edit their own data, media items, comments, etc.
-        - Modify the `DELETE` and `UPDATE` SQL queries in models so that queries will also check that the owner of the item (user_id) matches the `user_id` property in the `req.user` object. `req.user` is decoded from the token and needs to be passed as a parameter from controller to corresponding model method.
-    - Admin level users can update or delete any media items, user info, etc.
-        - Add another `DELETE` and `UPDATE` SQL queries into model functions that do not check the `user_id` property.
-        - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
-1. Test the authorization rules with Postman or VS Code REST Client.
-2. Commit your changes to version control.
-3. Merge the `Assignment6` branch to the `main` branch and push the changes to the remote repository.
+14. Implement authorization for protected routes, e.g.:
+     - `PUT /api/cat/:id` - only file owner can update cats
+     - `DELETE /api/cat/:id` - only file owner can delete cat
+     - `PUT /api/users/` - users can update only their own user info
+     - and so on...
+     - describe your rules in report/readme/docs
+15. Implement user roles (e.g. admin, user) with different permissions (role based resource authorization)
+     - Regular users can only delete and edit their own userdata and cats.
+         - Modify the `DELETE` and `UPDATE` SQL queries in models so that queries will also check that the owner of the item (user_id) matches the `owner` property in the `req.locals.user` object. `req.locals.user` is decoded from the token and needs to be passed as a parameter from controller to corresponding model method.
+     - Admin level users can update or delete any cat, user info, etc.
+         - Add second `DELETE` and `UPDATE` SQL queries into model functions that do not check the `user_id` property when role is admin.
+         - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
+16. Test the authorization rules with Postman or VS Code REST Client.
+17. Commit your changes to version control.
+18. Merge the `Assignment6` branch to the `main` branch and push the changes to the remote repository.

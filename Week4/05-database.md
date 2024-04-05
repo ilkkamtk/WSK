@@ -50,25 +50,18 @@ _cat-model.js:_
 import promisePool from '../../utils/database.js';
 
 const listAllCats = async () => {
-  try {
     const [rows] = await promisePool.query('SELECT * FROM cats');
     console.log('rows', rows);
     return rows;
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
 };
 
 const findCatById = async (id) => {
-  try {
     const [rows] = await promisePool.execute('SELECT * FROM cats WHERE cats_id = ?', [id]);
     console.log('rows', rows);
-    return rows[0];
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
+     if (rows.length === 0) {
+        return false;
+     }
+     return rows[0];
 };
 
 const addCat = async (cat) => {
@@ -76,43 +69,31 @@ const addCat = async (cat) => {
   const sql = `INSERT INTO cats (cat_name, weight, owner, filename, birthdate)
                VALUES (?, ?, ?, ?, ?)`;
   const params = [cat_name, weight, owner, filename, birthdate];
-  try {
     const rows = await promisePool.execute(sql, params);
     console.log('rows', rows);
+     if (rows[0].affectedRows === 0) {
+        return false;
+     }
     return {cat_id: rows[0].insertId};
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
 };
 
 const modifyCat = async (cat, id) => {
   const sql = promisePool.format(`UPDATE cats SET ? WHERE cat_id = ?`, [cat, id]);
-  try {
     const rows = await promisePool.execute(sql);
     console.log('rows', rows);
      if (rows[0].affectedRows === 0) {
-        return {error: 'not found'};
+        return false;
      }
      return {message: 'success'};
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
 };
 
 const removeCat = async (id) => {
-  try {
     const [rows] = await promisePool.execute('DELETE FROM cats WHERE cat_id = ?', [id]);
     console.log('rows', rows);
      if (rows.affectedRows === 0) {
-        return {error: 'not found'};
+        return false;
      }
      return {message: 'success'};
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
 };
 
 export {listAllCats, findCatById, addCat, modifyCat, removeCat};
