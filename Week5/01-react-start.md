@@ -92,7 +92,7 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
 
     - `src/App.css`: remove unused styles
     - `src/index.css`: remove unused styles
-1. Create a new project in Github and push your code branches there
+1. Create a new project in GitHub and push your code branches there
     - `git init`, `git add .`, `git commit -m "Initial commit"`, `git branch -M main`, `git remote add origin ...`, `git push -u origin main`
 
 ## React development basics
@@ -228,7 +228,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
 ## Exercise: First Components
 
 1. Create and checkout a new branch for the exercise `git checkout -b first-component`
-1. `App()` is the root component of the application, let's create a new component for displaying some media content into `src/components/Home.jsx`:
+2. `App()` is the root component of the application, let's create a new component for displaying some media content into `src/components/Home.jsx`:
 
     ```js
     const Home = () => {
@@ -241,7 +241,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default Home;
     ```
 
-1. Now you can use the new component in the JSX code in `App.jsx`:
+3. Now you can use the new component in the JSX code in `App.jsx`:
 
     ```js
     import Home from './components/Home';
@@ -256,10 +256,10 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default App;
     ```
 
-1. Add some mock data inside the `Home` component before the JSX section:
+4. Add some mock data inside the `Home` component before the JSX section:
 
     ```js
-    const mediaArray: MediaItem[] = [
+    const mediaArray = [
       {
         media_id: 8,
         user_id: 5,
@@ -297,13 +297,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
     ];
     ```
 
-1. To use the `MediaItem` type, copy the types from the [hybrid-types repo](https://github.com/ilkkamtk/hybrid-types) to `src/types` folder and import from there:
-
-    ```js
-    import {MediaItem} from '../types/DBTypes';
-    ```
-
-1. Create a `<table>` element and add rows for displaying all of the media items in the array.
+5. Create a `<table>` element and add rows for displaying all the media items in the array.
     - Use the `map()` function to iterate over the array and create a new `<tr>` element for each item.
     - Use the unique `media_id` value as the `key` attribute for each row.
     - Use the `filename` as the `src` attribute for the `<img>` element.
@@ -347,19 +341,19 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default Home;
     ```
 
-1. We can split the JSX code to separate logical components. Let's creta a new reusable for displaying all the media rows for each item in the array. Create a new file `src/components/MediaRow.jsx` and add the following code:
+6. We can split the JSX code to separate logical components. Let's crete a new reusable for displaying all the media rows for each item in the array. Create a new file Media`src/components/MediaRow.jsx` and add the following code:
 
     ```js
     // src/components/MediaRow.jsx
-    const MediaRow = (props: {item: MediaItem}) => {
+    const MediaRow = (props) => {
       const {item} = props;
       return (
-        // TODO: move <tr> element  for each item property from Home.jsx here
+        // TODO: move <tr> element in foreach from Home.jsx here
       );
     };
     ```
 
-1. Import the new component to `Home.jsx` and use it instead of the `<tr>` element:
+7. Import the new component to `Home.jsx` and use it instead of the `<tr>` element:
 
     ```js
     import MediaRow from './MediaRow';
@@ -373,5 +367,6 @@ Props and JSX work together in React to create dynamic and reusable components. 
 
     - Note that the `key` attribute is now passed to the `MediaRow` component instead of the `<tr>` element.
     - The item data is passed to the component as a `prop` named `item`.
-1. You can use `index.css` for adding styles to your components.
-1. Commit your changes and push the branch to GitHub `git push origin first-component`
+    - Add propType validation for the `item` prop in the `MediaRow` component.
+8. You can use `index.css` for adding styles to your components.
+9. Commit your changes and push the branch to GitHub `git push origin first-component`

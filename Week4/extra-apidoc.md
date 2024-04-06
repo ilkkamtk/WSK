@@ -75,6 +75,7 @@
 
 ### Setup
 
+- Install APIDoc: `npm install apidoc`
 - Create a `apidoc.json` file with the configuration settings: 
     
     ```json
@@ -96,7 +97,15 @@
         "files": ["src/**/*.js"]
     }
     ```
-- Run APIDoc to generate the documentation: `npx apidoc -i src/ -o docs/`
+- Add script to `package.json` to generate the documentation: 
+    
+    ```json
+    "scripts": {
+        ...
+        "apidoc": "apidoc -i src/ -o docs/"
+    }
+    ```
+- Generate the documentation: `npm run apidoc`
 - Serve `/docs` with express in `app.js`: 
 
     ```javascript

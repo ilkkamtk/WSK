@@ -23,7 +23,7 @@ import { useState, useEffect, useRef } from 'react';
 
 function Example() {
     const [count, setCount] = useState<number>(0);
-    const testElement = useRef<HTMLDivElement>(null);
+    const testElement = useRef(null);
 
     useEffect(() => {
         // Update div element's color based on count
@@ -61,7 +61,7 @@ export default Example;
 import {useState} from 'react';
 
 function Example() {
-    const [name, setName] = useState<string>('');
+    const [name, setName] = useState('');
 
     return (
         <div>
@@ -99,7 +99,7 @@ export default Example;
 import {useState, useEffect} from 'react';
 
 function Example() {
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         const timer = setTimeout(() => {

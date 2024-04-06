@@ -70,6 +70,7 @@ td a {
 /* media item dialog */
 dialog {
   position: fixed;
+  top: 5%;
   height: 90%;
   background: rgba(0, 0, 0, 0.8);
   z-index: 9999;
