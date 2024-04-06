@@ -158,7 +158,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
 1. Install React Router: `npm install react-router-dom`
 1. Create a new folder `src/views` and move the `Home` component to it.
 1. Create new components `Profile`, `Upload` and `Single` and place them in the `src/views` folder.
-   - Add just some placeholder JSX to the components for now.
+   - Add just some placeholder JSX to the components for now. (snippet: `rafcp`)
 1. Create a `Layout` component in `src/components` folder. This is the shared layout for all views.
    - Add a navigation bar with Links to `Home`, `Profile` and `Upload` components.
    - Add a `<Outlet>` component to the `Layout` component for rendering child routes/views.
@@ -254,7 +254,7 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     ...
     export default defineConfig({
       plugins: [react()],
-      base: '/~your-username/hybrid-week3/',
+      base: '/~your-username/routing/',
     });
     ```
 
@@ -265,9 +265,9 @@ Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
     ```
 
 1. Run `npm build` or `npm run build`
-1. Copy contents of build folder (`dist/*`) to your home dir's `public_html/hybrid-week3/` (shell.metropolia.fi)
-    - Can be done with scp tool in terminal: `scp -r dist/* your-username@shell.metropolia.fi:~/public_html/hybrid-week3/`
-1. Test your app: <https://users.metropolia.fi/~your-username/hybrid-week3/>
-1. Modify `README.md`. Add a text paragraph and link: `Open [link text here](https://users.metropolia.fi/~your-username/hybrid-week3/) to view it in the browser.`
+1. Copy contents of build folder (`dist/*`) to your home dir's `public_html/wsk-routing/` (shell.metropolia.fi)
+    - Can be done with scp tool in terminal: `scp -r dist/* your-username@shell.metropolia.fi:~/public_html/wsk-routing/`
+1. Test your app: <https://users.metropolia.fi/~your-username/wsk-routing/>
+1. Modify `README.md`. Add a text paragraph and link: `Open [link text here](https://users.metropolia.fi/~your-username/wsk-routing/) to view it in the browser.`
 1. git add, commit & push current branch to the remote repository (GitHub)
 1. Submit the link to correct branch of your repository to Oma
