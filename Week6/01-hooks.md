@@ -22,7 +22,7 @@ specific events or points in the program's execution.
 import { useState, useEffect, useRef } from 'react';
 
 function Example() {
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState(0);
     const testElement = useRef(null);
 
     useEffect(() => {
@@ -140,7 +140,7 @@ export default Example;
 1. Continue last exercise. Create a new branch 'hooks' with git.
 2. Delete the hard coded `mediaArray` from `Home`component.
     - The data for the media items will be fetched from a static JSON file using
-      the [fetchData](https://gist.github.com/ilkkamtk/0ef1b6b740e8f3a23a3fce2bd8233bd5) function and the `useEffect`
+      the [fetchData](https://gist.github.com/ilkkamtk/cb8230539e10f103c36613c338851a5c) function and the `useEffect`
       hook.
 3. Create a new state `mediaArray` and a function `setMediaArray` using the `useState` hook:
     - `const [mediaArray, setMediaArray] = useState([]);`
@@ -151,7 +151,7 @@ export default Example;
       the `public` folder.
     ```jsx
     const getMedia = async () => {
-       const json = await fetchData<MediaItem[]>('test.json');
+       const json = await fetchData('test.json');
        setMediaArray(json);
    };
    getMedia();
@@ -177,11 +177,16 @@ export default Example;
 ## Lab assignment 2
 
 1. Continue last exercise. Now we get the data from the Media API.
-2. Add and edit `.env.local` file to include `VITE_MEDIA_API=https://osotetähän` environment variable.
+2. Add and edit `.env.local` file to include `VITE_MEDIA_API=https://10.120.32.94/media-api/api/v1` environment variable.
+   - [APIDoc is here](https://10.120.32.94/media-api/)
+   - Works only in Metropolia's network or VPN.
+   - Open the APIDoc to accept the self-signed certificate.
 3. Replace `test.json` with `import.meta.env.VITE_MEDIA_API + '/media'` in `getMedia` function.
 4. Next we want to display the owner's username with the media item. The owner's id is in the media item, but we need to
    fetch the username from the User API.
-5. Edit `.env.local` to include `VITE_AUTH_API=https://osotetähän` environment variable.
+5. Edit `.env.local` to include `VITE_AUTH_API=https://10.120.32.94/auth-api/api/v1` environment variable.
+   - [APIDoc is here](https://10.120.32.94/auth-api/)
+   - Open the APIDoc to accept the self-signed certificate.
 6. Each media item has `user_id` property, which means that we need to make multiple requests to the API. We can
    use [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to
    make multiple requests and combine the results to a single array. Example:
@@ -201,7 +206,7 @@ export default Example;
     - Then you can use object spread to add the user data to the media
       item: `{ ...item, username: result.username }`.
 8. Use the `setMediaArray` function to update the `mediaArray` state with the new array.
-9. Add the owner's username to the `MediaItemCard` and `Single`/`SingleView` components.
+9. Add the owner's username to the `MediaRow` and `Single`/`SingleView` components.
 
 ## Submit
 1. Run `npm build` or `npm run build`

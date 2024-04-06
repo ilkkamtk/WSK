@@ -69,11 +69,11 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 6 - React
 
-- [Hooks](Week6/hooks.md)
-- [Custom hooks](Week6/custom-hooks.md)
-- [Forms](Week6/forms.md)
-- [Shared State](Week6/context.md)
-- [File upload](Week6/upload.md)
+- [Hooks](Week6/01-hooks)
+- [Custom hooks](Week6/02-custom-hooks)
+- [Forms](Week6/03-forms)
+- [Shared State](Week6/04-context)
+- [File upload](Week6/05-upload)
 
 ---
 
