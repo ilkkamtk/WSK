@@ -12,9 +12,9 @@
 
 ## API documentation tools
 
-- **[APIDoc](https://apidocjs.com/)** is a popular tool for generating API documentation from comments in the source code.
+- **[APIDoc](https://apidocjs.com/)**  generates API documentation from predefined comments in the source code.
    - [Real life example](https://10.120.32.94/media-api/) (requires Metropolia VPN)
-- **[Swagger](https://swagger.io/solutions/api-documentation/)** is a popular tool for designing, documenting, and testing APIs. It uses a YAML or JSON file to describe the API.
+- **[Swagger](https://swagger.io/solutions/api-documentation/)** is a tool for designing, documenting, and testing APIs. It uses a YAML or JSON file to describe the API.
    - [Real life example](http://lipas.cc.jyu.fi/api/index.html)
 
 ## APIDoc example
@@ -92,7 +92,7 @@
             "withCompare": true,
             "withGenerator": true
         },
-        "exclude": ["node_modules/", "public/"],
+        "exclude": ["node_modules/", "uploads/"],
         "files": ["src/**/*.js"]
     }
     ```

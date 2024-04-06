@@ -347,7 +347,7 @@ Props and JSX work together in React to create dynamic and reusable components. 
     export default Home;
     ```
 
-1. We can split the JSX code to separate logical components. Let's creta a new reusable for displaying all of the media rows for each item in the array. Create a new file `src/components/MediaRow.jsx` and add the following code:
+1. We can split the JSX code to separate logical components. Let's creta a new reusable for displaying all the media rows for each item in the array. Create a new file `src/components/MediaRow.jsx` and add the following code:
 
     ```js
     // src/components/MediaRow.jsx
