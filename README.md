@@ -54,7 +54,7 @@ Start the initial work on the personal project HTML user interface.
 - [Express - Middleware, File upload](Week4/04-middleware.md)
 - [Express - Database access](Week4/05-database.md)
 - [Authentication, JWT](Week4/06-auth.md)
-- Validation, error handling
+- [Validation, error handling](Week4/07-validation.md)
 
 ---
 
