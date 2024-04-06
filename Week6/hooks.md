@@ -128,7 +128,7 @@ export default Example;
 
 ## useRef
 - `useRef` is usually used to access DOM elements or to store mutable values.
-   - in React you should avoid using DOM-related APIs directly, such as `document.getElementById` or `document.querySelector`
+   - in React, you should avoid using DOM-related APIs directly, such as `document.getElementById` or `document.querySelector`
 - `useRef` can also be used to store mutable values that are not part of the state like the previous value of a prop or state
   variable. When the value changes, the ref will not re-render the component.
 - `useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). For example:

@@ -91,11 +91,11 @@ graph TD;
 ```
 
 1. Create a git branch `state-management` from the previous exercise and checkout to it.
-1. Create a new component `SingleView` for rendering a single media item. It should display the title, description, and media content itself.
+2. Create a new component `SingleView` for rendering a single media item. It should display the title, description, and media content itself.
     - The `SingleView` component should be rendered when a user chooses a media item in the `MediaRow` component. The `SingleView` component could be displayed e.g. on top of the `MediaRow` component.
-1. The choice between the `MediaRow` and `SingleView` components should be controlled by a state variable `selectedItem` in the `Home` component. The `selectedItem` should be initialized to `null` and updated when a user clicks a media item in the `MediaRow` component.
+3. The choice between the `MediaRow` and `SingleView` components should be controlled by a state variable `selectedItem` in the `Home` component. The `selectedItem` should be initialized to `null` and updated when a user clicks a media item in the `MediaRow` component.
     - Create a new state variable `selectedItem` in the `Home` component using the `useState` hook with a initial value `null` : `const [selectedItem, setSelectedItem] = useState<MediaItem | undefined>();`
-1. Use `SingleView` component in the `Home` component and pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `SingleView` component.
+4. Use `SingleView` component in the `Home` component and pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `SingleView` component.
 
     ```javascript
     // SingleView.jsx
@@ -119,11 +119,13 @@ graph TD;
     ...
     ```
 
-1. Pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `MediaRow` component too (similarly as with the `SingleView` component) Note that the item value should be required when passed as a prop.
-1. Add a button for each file in the `MediaRow` component that calls the `setSelectedItem` function with the corresponding media item as a parameter.
+5. Pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `MediaRow` component too (similarly as with the `SingleView` component) Note that the item value should be required when passed as a prop.
+6. Add a button for each file in the `MediaRow` component that calls the `setSelectedItem` function with the corresponding media item as a parameter.
     - Use the `setSelectedItem` function to update the `selectedItem` state variable in the `MediaRow` component.
     - Use the `selectedItem` state variable to [conditionally render](https://react.dev/learn/conditional-rendering) the `SingleView` component in the `Home` component.
-1. Add a button to the `SingleView` component that hides the `SingleView` component (calls the `setSelectedItem` function with `null` as a parameter).
-1. Use the item's `media_type` property to determine whether to render an image or a video in the `SingleView` component (use condiotinal rendering).
-1. Add your own styling to the `index.css` file to make the `SingleView` component look better. (or use [Teacher's example](./sample-index.css))
-1. Commit your changes and push the branch to GitHub `git push origin state-management`.
+7. To open/close the `<dialog>` component, use `open` attribute with a boolean value. The dialog is opened when the attribute is present and closed when it is not present. Use the `selectedItem` state variable to control the `open` attribute of the `<dialog>` element in the `SingleView` component.
+    - Optionally you can use `useRef` [hook](../Week6/hooks.md#useref) to access the dialog element in the `SingleView` component and use `openModal` and `closeModal` functions to open and close the dialog.
+8. Add a button to the `SingleView` component that hides the `SingleView` component (calls the `setSelectedItem` function with `null` as a parameter).
+9. Use the item's `media_type` property to determine whether to render an image or a video in the `SingleView` component (use condiotinal rendering).
+10. Add your own styling to the `index.css` file to make the `SingleView` component look better. (or use [Teacher's example](./sample-index.css))
+11. Commit your changes and push the branch to GitHub `git push origin state-management`.
