@@ -60,19 +60,19 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 5 - React
 
-- [Getting started, Components, JSX and Props](Week3/01-react-start.md)
-- [State management](Week3/02-react-state.md)
-- [Routing, Views and Navigation](Week3/03-react-routing.md)
+- [Getting started, Components, JSX and Props](Week5/01-react-start.md)
+- [State management](Week5/02-react-state.md)
+- [Routing, Views and Navigation](Week5/03-react-routing.md)
 
 ---
 
 ## Week 6 - React
 
-- [Hooks](Week4/hooks.md)
-- [Custom hooks](Week4/custom-hooks.md)
-- [Forms](Week4/forms.md)
-- [Shared State](Week4/context.md)
-- [File upload](Week4/upload.md)
+- [Hooks](Week6/hooks.md)
+- [Custom hooks](Week6/custom-hooks.md)
+- [Forms](Week6/forms.md)
+- [Shared State](Week6/context.md)
+- [File upload](Week6/upload.md)
 
 ---
 
