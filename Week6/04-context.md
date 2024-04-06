@@ -150,8 +150,8 @@ export default Profile;
 4. Create `contexts` folder in the `src` of your project. Add `UserContext.jsx` file to the `contexts` folder.
     ```jsx
     // UserContext.jsx
-    import React, { createContext, useState } from 'react';
-    import { useAuthentication, useUser } from '../hooks/ApiHooks';
+    import { createContext, useState } from 'react';
+    import { useAuthentication, useUser } from '../hooks/apiHooks';
     import { useNavigate } from 'react-router-dom';
     
     const UserContext = createContext(null);
@@ -206,9 +206,9 @@ export default Profile;
    ```
     - Note that in this case we don't make a custom hook in the context file, because linter will recommend to create
       the custom hook in a separate file.
-5. Create `ContextHooks.js` to `hooks` folder:
+5. Create `contextHooks.js` to `hooks` folder:
    ```jsx
-   // ContextHooks.js
+   // contextHooks.js
    import { useContext } from 'react';
    import { UserContext } from '../contexts/UserContext';
     
@@ -245,17 +245,17 @@ export default Profile;
 7. Now we can use the context in our components. For example in `LoginForm.jsx`:
    ```jsx
    // LoginForm.jsx
-   import { useUserContext } from '../hooks/ContextHooks';
+   import { useUserContext } from '../hooks/contextHooks';
    
    ...
    
    const { handleLogin } = useUserContext();
    
-   const doSubmit = async () => {
+   const doLogin = async () => {
         try {
             handleLogin(inputs);
         } catch (e) {
-            console.log(e.message);
+            alert(e.message);
         }
     };
    ```
@@ -269,7 +269,7 @@ export default Profile;
     ```jsx
     // ProtectedRoute.jsx
     import { Navigate, useLocation } from 'react-router-dom';
-    import { useUserContext } from '../hooks/ContextHooks';
+    import { useUserContext } from '../hooks/contextHooks';
 
     const ProtectedRoute = ({ children }) => {
         const { user } = useUserContext();

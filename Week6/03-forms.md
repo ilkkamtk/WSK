@@ -14,7 +14,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 1. Continue last exercise. Create a new branch 'forms' with git.
 2. Create files:
     - `Login.jsx` and `Logout.jsx` to `views`
-    - `FormHooks.js` to `hooks`
+    - `formHooks.js` to `hooks`
     - `LoginForm.jsx` and `RegisterForm.jsx` to `components`
 3. Login.jsx will hold LoginForm and RegisterForm components
     * Add the usual imports, component function and export to Login.jsx, LoginForm.jsx and RegisterForm.jsx
@@ -47,11 +47,11 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
                 <h1>Login</h1>
                 <form onSubmit={ () => {} }>
                      <div>
-                         <label htmlFor="UserWithLevelname">Username</label>
+                         <label htmlFor="loginuser">Username</label>
                         <input
                             name="username"
                             type="text"
-                            id="UserWithLevelname"
+                            id="loginuser"
                             onChange={ () => {} }
                             autoComplete="username"
                         />
@@ -72,21 +72,21 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
         );
    };
    ```
-7. In `FormHooks.js` create a new hook `useForm`:
+7. In `formHooks.js` create a new hook `useForm`:
    ```javascript
-   import React, { useState } from 'react';
+   import { useState } from 'react';
 
-   const useForm = (callback: () => void, initState) => {
+   const useForm = (callback, initState) => {
         const [inputs, setInputs] = useState(initState);
 
-        const handleSubmit = (event: React.SyntheticEvent) => {
+        const handleSubmit = (event) => {
             if (event) {
                 event.preventDefault();
             }
             callback(); 
         };
 
-        const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const handleInputChange = (event) => {
             event.persist();
             console.log(event.target.name, event.target.value);
             setInputs((inputs) => ({
@@ -115,7 +115,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 
 8. Then in LoginForm add these to the component function:
    ```javascript
-   const initValues: Credentials = {
+   const initValues = {
       username: '',
       password: '',
    };
@@ -129,7 +129,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
    
    console.log(inputs);
    ```
-9. Add `handleInputChange` and `doLogin` to the `<form>` and `<input>` components. Which one goes where?
+9. Add `handleInputChange` and `handleSubmit` to the `<form>` and `<input>` components. Which one goes where?
 10. Test the form. Check the console. What is happening?
 11. In APiHooks.js create a new hook `useAuthentication`. Create `postLogin` function to `useAuthentication`:
      ```javascript
@@ -145,15 +145,30 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
        return loginResult;
      };
      ```
-    - Make `doLogin` function call `postLogin` and pass the form data as a parameter. Then `postLogin` should log the result to the console. Use the username and password you created earlier.
-12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
-13. display user's info (username, email etc.) in Profile.js. For this functionality you need to add a new hook `useUser` to `apiHooks`. Create a new function `getUserByToken` to `useUser` hook. `getUserByToken` should get the user data from the Auth API from this endpoint: [/users/token](http://media.mw.metropolia.fi/wbma/docs/#api-User-GetCurrentUser). Use the token from localStorage as a parameter for the `fetchData` function. Then use `getUserByToken` in Profile.js to get the user data and display it.
-14. Make `RegisterForm` component have similar functionality as `LoginForm`, but it should create a new user, so it also features an `email` field. Use the same `useForm` hook to get the values from input fields.
+    - Make `doLogin` function call `postLogin` and pass the form data as a parameter. Then `postLogin` should log the
+      result to the console. 
+       - Register new user using Postman. Endpoint: `http://10.120.32.94/auth-api/api/v1/users`.
+       - [Documentation](https://10.120.32.94/auth-api/#api-User-CreateUser).
+    - remember to handle errors from promises with try/catch
+12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+    Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
+13. display user's info (username, email etc.) in Profile.js. For this functionality you need to add a new
+    hook `useUser` to `apiHooks`. Create a new function `getUserByToken` to `useUser` hook. `getUserByToken` should get
+    the user data from the Auth API from this
+    endpoint: [/users/token](http://media.mw.metropolia.fi/wbma/docs/#api-User-GetCurrentUser). Use the token from
+    localStorage as a parameter for the `fetchData` function. Then use `getUserByToken` in Profile.js to get the user
+    data and display it.
+14. Make `RegisterForm` component have similar functionality as `LoginForm`, but it should create a new user, so it also
+    features an `email` field. Use the same `useForm` hook to get the values from input fields.
     - Instead of `doLogin` use `doRegister` as the name for the function that is called when the form is submitted.
-    - Create `postRegister` function to `useUser` hook. `postRegister` should post the form data to the Auth API to this endpoint: [/users](http://media.mw.metropolia.fi/wbma/docs/#api-User-CreateUser).
+    - Create `postUser` function to `useUser` hook. `postUser` should post the form data to the Auth API to this
+      endpoint: [/users](http://media.mw.metropolia.fi/wbma/docs/#api-User-CreateUser).
     - Then `doRegister` should log the result to the console.
+15. Use conditional rendering to show either `LoginForm` or `RegisterForm` in `Login.jsx`. Add a button to switch between
+    the two forms.
 
 ## Submit
+
 1. Run `npm build` or `npm run build`
 2. Move build folder to your public_html
 3. Test your app: `http://users.metropolia.fi/~username/forms`

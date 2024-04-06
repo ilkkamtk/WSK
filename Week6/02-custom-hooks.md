@@ -45,7 +45,7 @@
                 <table>
                     <tbody>
                         {mediaArray.map((mediaItem) => (
-                            <MediaItemCard
+                            <MediaRow
                                 key={mediaItem.media_id}
                                 item={mediaItem}
                                 setSelectedItem={setSelectedItem}
