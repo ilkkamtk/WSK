@@ -137,6 +137,10 @@ Environment variables are used to store configuration settings outside your code
 ---
 
 ## Assignment
+
+In the labs we are going to build a REST API with Express. The API will serve data in JSON format and static files. [Example API documentation here](http://10.120.32.98/cats/docs/) (Metropolia network / VPN only).
+
+
 1. Create a new project folder for this week's assignments and initialize a new Git repository.
 2. Add a `.gitignore` file to the project folder. Exclude `node_modules` and `.env` files from the repository. You can use [gitignore.io](https://www.toptal.com/developers/gitignore) to generate `.gitignore` files.
 3. Create a new branch 'Assignment1' and switch to it: `git checkout -b 'Assignment1'`

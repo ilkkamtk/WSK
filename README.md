@@ -77,7 +77,7 @@ Start the initial work on the personal project HTML user interface.
 
 ---
 
-## Week 7 - SSR, Next.js
+## Week 7 - React
 
-- Next.js - introduction
-- Tailwind CSS, shadcn/ui
+- Delete + Update
+- Tailwind CSS
