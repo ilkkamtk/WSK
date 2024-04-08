@@ -81,16 +81,16 @@ Type-based folder structure (typical for Express applications):
 src 
   ├── api/
 app.js  ├── controllers/
-        │   ├── authConroller.js
-        │   └── userController.js
-        │   └── catController.js
+        │   ├── auth-conroller.js
+        │   └── user-controller.js
+        │   └── cat-controller.js
         ├── models/
-        │   ├── userModel.js
-        │   └── catModel.js
+        │   ├── user-model.js
+        │   └── cat-model.js
         ├── routes/
-        │   ├── authRoutes.js
-        │   └── userRoutes.js
-        │   └── catRoutes.js
+        │   ├── auth-routes.js
+        │   └── user-routes.js
+        │   └── cat-routes.js
         └── index.js
 ```
 
