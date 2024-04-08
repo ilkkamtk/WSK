@@ -259,7 +259,7 @@ export {listAllCats, findCatById, addCat};
 2. Create a new folder `src` in your project folder and move your `app.js` file there.
 3. To make the express app easier to test, create `src/index.js` file and import `app.js` from the `src` folder:
     ```javascript
-    import app from './app';
+    import app from './app.js';
    
     const hostname = '127.0.0.1';
     const port = 3000;
