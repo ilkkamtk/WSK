@@ -88,9 +88,9 @@ app.js  ├── controllers/
         │   ├── user-model.js
         │   └── cat-model.js
         ├── routes/
-        │   ├── auth-routes.js
-        │   └── user-routes.js
-        │   └── cat-routes.js
+        │   ├── auth-router.js
+        │   └── user-router.js
+        │   └── cat-router.js
         └── index.js
 ```
 
