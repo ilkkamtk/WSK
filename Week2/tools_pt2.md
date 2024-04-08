@@ -148,7 +148,7 @@ code analysis and identifying potential issues.
    - Would you like to install them now? **Yes**
    - Which package manager do you want to use? **npm**
 5. Install Prettier plugin for ESLint: `npm i -D eslint-plugin-prettier eslint-config-prettier`
-6. You should have new file `.eslintrc.js`. Modify _extends_ and _rules_ properties:
+6. You should have new file `.eslintrc.json`. Modify _extends_ and _rules_ properties:
    ```json
    ...
    "extends": ["google", "eslint:recommended", "plugin:prettier/recommended"],  // if using WebStorm, omit plugin:prettier/recommended
