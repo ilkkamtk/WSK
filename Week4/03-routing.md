@@ -131,6 +131,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 ...
 app.use('/api/v1', api);
+
 ...
 ```
 
@@ -143,8 +144,9 @@ import catRouter from './routes/cat-router.js';
 const router = express.Router();
 
 // bind base url for all cat routes to catRouter
-router.use('/cat', catRouter);
+router.use('/cats', catRouter);
 
+export default router;
 ```
 
 _src/api/routes/cat-router.js:_
