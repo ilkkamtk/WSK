@@ -313,6 +313,10 @@ In web applications, authentication is typically done by verifying a username an
          - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
          - With users, it is easier to block unauthorized access in the controller. If `res.locals.user.user_id` is the same as `req.params.id`  or if `res.locals.user.role` is 'admin' then continue, else return 403. Note that `res.locals.user` is number and `req.params.id` is string
 16. Test the authorization rules with Postman or VS Code REST Client.
+17. Test the app with the front end from [this ZIP](../zip/cat-ui.zip).
+   - Unzip and use VSCode Live Server to open the `index.html` folder.
+   - You'll notice that nothing works. Look at the console and network tabs in the browser developer tools to see what's going on. You'll see some CORS errors (scroll down this page for more info on CORS).
+   - Fix the CORS errors by adding `cors` middleware to your Express app: `npm i cors`. Then add `app.use(cors())` to your `app.js` file.
 17. Commit your changes to version control.
 18. Merge the `Assignment6` branch to the `main` branch and push the changes to the remote repository.
 
