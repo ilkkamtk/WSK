@@ -94,7 +94,7 @@ graph TD;
 2. Create a new component `SingleView` for rendering a single media item. It should display the title, description, and media content itself.
     - The `SingleView` component should be rendered when a user chooses a media item in the `MediaRow` component. The `SingleView` component could be displayed e.g. on top of the `MediaRow` component.
 3. The choice between the `MediaRow` and `SingleView` components should be controlled by a state variable `selectedItem` in the `Home` component. The `selectedItem` should be initialized to `null` and updated when a user clicks a media item in the `MediaRow` component.
-    - Create a new state variable `selectedItem` in the `Home` component using the `useState` hook with a initial value `null` : `const [selectedItem, setSelectedItem] = useState<MediaItem | undefined>();`
+    - Create a new state variable `selectedItem` in the `Home` component using the `useState` hook with a initial value `null` : `const [selectedItem, setSelectedItem] = useState(null);`
 4. Use `SingleView` component in the `Home` component and pass the `selectedItem` state variable and the `setSelectedItem` function as props to the `SingleView` component.
 
     ```javascript
