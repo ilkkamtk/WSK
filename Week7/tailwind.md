@@ -3,7 +3,7 @@
 ## What is Tailwind CSS?
 
 - Tailwind CSS is a utility-first CSS framework for building custom user interfaces.
-  - Utility-firs means that you can use the classes to style your components. You don't need to write CSS yourself.
+  - Utility-first means that you can use the classes to style your components. You don't need to write CSS yourself.
 - It is not opinionated. Tailwind CSS doesn't tell you how your site should look like. You can use it to build your own
   design.
 - However, it is not a UI kit. It doesn't provide you with ready-made components. You can use it to build your own
