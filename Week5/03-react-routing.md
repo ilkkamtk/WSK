@@ -5,8 +5,7 @@ resources on a server or within a web application.
 
 ## Routing in Full-Stack Development
 
-- **Path Navigation:** Routing manages how a web application responds to different URLs or paths requested by a client (
-  usually a web browser).
+- **Path Navigation:** Routing manages how a web application responds to different URLs or paths requested by a client (usually a web browser).
 - **Client-Side and Server-Side Routing:** In full-stack development, routing occurs both on the client side (in the
   browser) and the server side (on the server handling requests).
 
@@ -140,7 +139,7 @@ const Layout = () => (
 );
 ```
 
-`<Outlet />` is placed within the `<main>` tag. This setup means that when a user navigates to `/about`, the `AboutPage` component will be rendered inside the `<main>` element of the La`yout component, utilizing the same navigation bar and footer defined in Layout.
+`<Outlet />` is placed within the `<main>` tag. This setup means that when a user navigates to `/about`, the `AboutPage` component will be rendered inside the `<main>` element of the Layout component, utilizing the same navigation bar and footer defined in Layout.
 
 Benefits of Using Outlet:
 
