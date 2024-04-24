@@ -113,7 +113,7 @@
         // TODO: return the data
     };
     ```
-    - Finally, add `PostFile` and `postMedia` to `doUpload` function.
+    - Finally, add `postFile` and `postMedia` function calls to `doUpload` function.
     - Test the app. Upload a file and check that it is added to the media list.
 
 ## Submit
