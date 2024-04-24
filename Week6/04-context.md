@@ -117,7 +117,7 @@ export const useUser = () => useContext(UserContext);
 ```
 
 ```jsx
-// Pofile.jsx
+// Profile.jsx
 import {useUser} from '../contexts/UserContext';
 
 const Profile = () => {
