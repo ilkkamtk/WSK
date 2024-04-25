@@ -81,3 +81,8 @@ Start the initial work on the personal project HTML user interface.
 
 - Delete + Update
 - Tailwind CSS
+
+---
+
+## Testing
+- 
