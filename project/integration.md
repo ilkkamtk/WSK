@@ -35,6 +35,19 @@
 
 15. **Regression Testing**: Regularly run tests to detect regressions when new features or changes are introduced to the codebase.
 
-## [Exercise](https://github.com/ilkkamtk/integration-testing-exercise#rest-api-integration-testing)
+## [Exercise](https://github.com/ilkkamtk/integration-testing-exercise-js?tab=readme-ov-file#rest-api-integration-testing-and-end-to-end-testing)
 
 ---
+
+
+
+
+
+
+ 
+
+
+
+
+
+
