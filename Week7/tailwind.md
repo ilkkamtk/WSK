@@ -63,9 +63,9 @@
 ## Lab assignment 2
 
 1. Continue in the same branch.
-2. In this exercise we'll add two buttons to `MediaItemRow` component: `Modify` and `Delete` which are shown only when the user is logged in. At this point the buttons don't do anything but console.log something.
+2. In this exercise we'll add two buttons to `MediaRow` component: `Modify` and `Delete` which are shown only when the user is logged in. At this point the buttons don't do anything but console.log something.
 3. Use `useUserContext()` to get the `user` from the context.
-4. Add the buttons to the `MediaItemRow` component. Use Tailwind CSS classes to style the buttons the same way as the `Show` button/`View` link is styled.
+4. Add the buttons to the `MediaRow` component. Use Tailwind CSS classes to style the buttons the same way as the `Show` button/`View` link is styled.
 5. Use conditional rendering to show the buttons only when the user is logged in and the user is the owner of the media. If user is admin, the buttons are shown always. If the user is not logged in, the buttons are not shown at all.
 6. Add event listeners to the buttons. Something like this:
 
@@ -77,31 +77,21 @@
    ```
 
 7. Test that the buttons are shown only when the user is logged in and that the event listeners work.
+8. Add functions for deleting and modifying media items to `apiHooks.js`: `deleteMedia` and `modifyMedia`. Use the same URL as in the `MediaAPI` for deleting and modifying media items.
+9. For now, you can use `useNavigate` hook to refresh the page after deleting or modifying the media item.
 
 ## Lab assignment 3
 
 1. Continue in the same branch.
-2. Check if the username and/or email are available. If not, show an error message below the input field.
-3. Add two new functions to `useUser` hook in `apiHooks.js`: `getUsernameAvailable` and `getEmailAvailable`:
-
-   ```ts
-   const getUsernameAvailable = async (username: string) => {
-     const result = await fetchData(
-       import.meta.env.VITE_AUTH_API + '/users/username/' + username
-     );
-     return result;
-   };
-
-   const getEmailAvailable = async (email: string) => {
-     const result = await fetchData(
-       import.meta.env.VITE_AUTH_API + '/users/email/' + email
-     );
-     return result;
-   };
-   ```
-
-4. Add two new states with boolean values to `RegisterForm` component: `usernameAvailable` and `emailAvailable`. Set the default value to `true`.
-5. Use `getUsernameAvailable` and `getEmailAvailable` in `doRegister` function to check if the username and email are available. Set the state values to the return values of the functions. If the username or email is not available, don't send the form data to the server. Also show an error message below the input field by using conditional rendering. Use Tailwind CSS classes to style the error messages.
+2. Now we add likes to the media items. The user can like a media item only once.
+3. Create a new component `Likes.jsx` in the `components` folder.
+4. Add a button to the `Likes` component. The button can have just text or a heart icon. You can decide. It also needs to show the number of likes.
+5. Add new hook `useLike` to `apiHooks.js`. The hook should have functions `postLike`, `deleteLike`, `getLikesByMediaId` and `getLikesByUser`. Use the same URL as in the `MediaAPI` for liking media items.
+6. Create states for `likes` and `userLikes` in the `Likes` component. These are used to store all the likes of the media item and whether the user has liked the media item.
+7. Use `useEffect` to get the likes of the media item when the component is mounted.
+8. Add event listener to the button. If the user has liked the media item, the button should show that the user has liked the media item. If the user hasn't liked the media item, the button should show that the user can like the media item.
+9. Add a function to the button that posts a like to the media item if the user hasn't liked the media item. If the user has liked the media item, the function should delete the like.
+10. Add the `Like` component to the `SingleView` component. The button should be active only when the user is logged in. The number of likes should be shown always.
 
 ## Submit
 
