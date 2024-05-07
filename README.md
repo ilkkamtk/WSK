@@ -82,6 +82,3 @@ Start the initial work on the personal project HTML user interface.
 - [Extra: Tailwind CSS, Delete + Update + Likes](Week7/tailwind.md)
 
 ---
-
-## Testing
-- 
