@@ -43,7 +43,7 @@ Ruby on Rails, often referred to as Rails, is a web application framework writte
 - The ECMAScript standard does not include any input/output (I/O), such as networking, storage, text, or graphics. In practice, the web browser or other runtime system provides APIs for I/O.
 - Node.js is a popular runtime environment that allows developers to write server-side code in JavaScript. It is known for its non-blocking, event-driven architecture, making it well-suited for building scalable and high-performance web applications.
 - Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications. It is often used for creating RESTful APIs.
-- Recap: [Node.js](../Week2/node.md)
+- Recap: [Node.js](../Week1/node.md)
 
 ---
 

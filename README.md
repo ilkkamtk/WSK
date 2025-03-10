@@ -23,30 +23,31 @@ What is your major malfunction?
 - [Semantic HTML](https://webaim.org/resources/htmlcheatsheet/HTML%20Semantics%20and%20Accessibility%20Cheat%20Sheet.pdf)
 - [CSS Grid](Week1/form/css/grid.md)
 
+---
+
+- [JS Toolchain](Week1/tools_pt2.md)
+- [Node.js](Week1/node.md)
+- Self Study: [JavaScript recap - Conditional expressions and loops](Week1/JS-recap1.md)
+- Self Study: [JavaScript recap - Arrays and functions](Week1/JS-recap2.md)
+
+--- 
+
 Start the initial work on the personal project HTML user interface.
 
 ---
 
-## Week 2 - JavaScript recap
+## Week 2 - JavaScript
 
-1. [JS Toolchain](Week2/tools_pt2.md)
-2. [Node.js](Week2/node.md)
-3. [JavaScript recap - Conditional expressions and loops](Week2/JS-recap1.md)
-4. [JavaScript recap - Arrays and functions](Week2/JS-recap2.md)
-5. [JavaScript recap - DOM](Week2/JS-recap3.md)
-6. [JavaScript recap - Event handling](Week2/JS-recap4.md)
-7. [JavaScript recap - AJAX](Week2/JS-recap5.md)
 
----
-
-## Week 3 - Advanced JavaScript
-
-1. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
-2. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
+1. [JavaScript recap - DOM](Week2/JS-recap3.md)
+2. [JavaScript recap - Event handling](Week2/JS-recap4.md)
+3. [JavaScript recap - AJAX](Week2/JS-recap5.md)
+4. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
+5. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
 
 ---
 
-## Week 4 - Node.js, Express
+## Week 3 - Node.js, Express
 
 - [Server side programming, Restful API, Node.js, NPM](Week4/01-server-side-programming.md)
 - [Express - intro](Week4/02-express.md)
@@ -59,7 +60,7 @@ Start the initial work on the personal project HTML user interface.
 
 ---
 
-## Week 5 - React
+## Week 4 - React
 
 - [Getting started, Components, JSX and Props](Week5/01-react-start.md)
 - [State management](Week5/02-react-state.md)
@@ -67,7 +68,7 @@ Start the initial work on the personal project HTML user interface.
 
 ---
 
-## Week 6 - React
+## Week 5 - React
 
 - [Hooks](Week6/01-hooks.md)
 - [Custom hooks](Week6/02-custom-hooks.md)
@@ -77,8 +78,9 @@ Start the initial work on the personal project HTML user interface.
 
 ---
 
-## Week 7 - React
+## Week 6 - React
 
 - [Extra: Tailwind CSS, Delete + Update + Likes](Week7/tailwind.md)
 
 ---
+

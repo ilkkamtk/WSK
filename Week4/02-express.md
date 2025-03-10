@@ -145,7 +145,7 @@ In the labs we are going to build a REST API with Express. The API will serve da
 2. Add a `.gitignore` file to the project folder. Exclude `node_modules` and `.env` files from the repository. You can use [gitignore.io](https://www.toptal.com/developers/gitignore) to generate `.gitignore` files.
 3. Create a new branch 'Assignment1' and switch to it: `git checkout -b 'Assignment1'`
 4. Make sure to commit your changes and push to the Git repository regularly.
-5. Init [eslint, editorconfig and prettier](../Week2/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project. Note that now we are running code in Node, not browser.
+5. Init [eslint, editorconfig and prettier](../Week1/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project. Note that now we are running code in Node, not browser.
 6. Enable ES Modules in Node.js by adding `"type": "module"` to `package.json`.
 7. Create a new Express project in the project folder based on the 'Hello world' example above.
    - install Express: `npm install express`

@@ -5,9 +5,9 @@ Study the material from the first year course:
 1. [Arrays and functions](https://github.com/ilkkamtk/JavaScript-english/blob/main/taulukot-funktiot.md)
 
 ## Assignments:
-Use the starter repository you made in the first class as a template to create a new repository for these assignments.
+Use the starter repository you made in [the first class](tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) as a template to create a new repository for these assignments.
 Clone the new repository to your local computer. Put each assignment into its own folder. Write separate HTML and JS files for each assignment. Use the
-assignment number in file and folder names.
+assignment number in file and folder names. **You need to get at least 10 points from these assignments.**
 
 1. Write a JavaScript program that focuses on the basic concepts of arrays. Your program
    should include the following requirements:
