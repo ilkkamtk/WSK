@@ -81,7 +81,7 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 6 - React
 
-- [Extra: Tailwind CSS, Delete + Update + Likes](Week7/tailwind.md)
+- [Tailwind CSS, Delete + Update + Likes](Week7/tailwind.md)
 
 ---
 
