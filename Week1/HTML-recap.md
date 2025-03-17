@@ -180,7 +180,7 @@ https://www.w3schools.com/images/picture.jpg"
 - It checks the code for syntax errors, and it checks the code for compliance with the standards set by the W3 Consortium.
 - You can validate your HTML code using the W3C Markup Validation Service: <https://validator.w3.org/>
 
-## Exercise
+## Assignment
 
 1. Create a simple HTML document. Requrements:
    - The document should have a title.
