@@ -1442,13 +1442,13 @@ The form is now complete. The user can fill in the form and submit it. The form 
 The form does not contain the `action` or `method` attributes, let's add them so that the form can actually be submitted. (note: these attributes really should be added to the form in the very beginning, not at this point. Keep this in mind in the future.)
 
 ```html
-<form action="https://10.120.32.94/test/form-submission/" method="post">
+<form action="https://media2.edu.metropolia.fi/test/form-submission/" method="post">
   <!-- ... -->
 </form>
 ```
 
 ### Note:
-- [https://10.120.32.94/test/form-submission/](https://10.120.32.94/test/form-submission/) this example url needs the trailing slash in order to work.
+- [https://media2.edu.metropolia.fi/test/form-submission/](https://10.120.32.94/test/form-submission/) this example url needs the trailing slash in order to work.
 - Make sure to navigate to the test url before submission, as the https has a self-signed certificate.
 - Most important! For this url to work, you must be in Metropolia wifi or use the VPN.
 
