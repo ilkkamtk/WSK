@@ -145,7 +145,7 @@
   }
   ```
 
-## Exercise
+## Assignment
 
 1. Create a simple CSS file for the previous HTML exercise. Requirements:
    - Use external style sheet.
