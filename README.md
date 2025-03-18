@@ -13,6 +13,7 @@ What is your major malfunction?
 ## Week 1
 
 - [How web application works](Week1/architecture.md)
+- [IDE etc.](Week1/tools_pt2.md)
 - [HTTP request - response](Week1/http-request-response.md)
 - [HTML recap](Week1/HTML-recap.md)
 - [CSS recap](Week1/CSS-recap.md)
