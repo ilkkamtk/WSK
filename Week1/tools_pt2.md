@@ -145,11 +145,12 @@ code analysis and identifying potential issues.
 5. You should have new file `eslint.config.mjs` which has the basic configuration for ESLint.
 6. Write `.editorconfig` and `.prettierrc` files according to the examples earlier in this page.
 7. Open the settings in Visual Studio Code by clicking on "File" -> "Preferences" -> "Settings" or using the shortcut Ctrl + ,.
-8. In the search bar, type "Format On Save" and check the box to enable it. This ensures that your code will be automatically formatted when you save the file.
+8. In the search bar, type "Default Formatter", choose "Prettier" in "Editor: Default Formatter"
+9. In the search bar, type "Format On Save" and check the box to enable it. This ensures that your code will be automatically formatted when you save the file.
    - If you are using Webstorm, enable ESLint in your WebStrom project
    - [Instructions](https://www.jetbrains.com/help/webstorm/eslint.html)
        - [Importing code style](https://www.jetbrains.com/help/webstorm/eslint.html#ws_js_linters_eslint_import_code_style_from_eslint) is the most interesting part
-9. Write new JavaScript file `main.js`:
+10. Write new JavaScript file `main.js`:
    ```javascript
    function greeting () 
    {
@@ -158,9 +159,9 @@ code analysis and identifying potential issues.
     
    greeting();
    ```
-10. Save the file. Note how VSCode fixes formatting errors automatically.
-11. If you are using WebStorm, right click somewhere over .eslintrc.js, choose 'Apply ESlint Code Style Rules'. Enable format on save on [WebStorm](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
-12. Write index.html:
+11. Save the file. Note how VSCode fixes formatting errors automatically.
+12. If you are using WebStorm, right click somewhere over .eslintrc.js, choose 'Apply ESlint Code Style Rules'. Enable format on save on [WebStorm](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
+13. Write index.html:
     ```html
     <!DOCTYPE html>
     <html lang="en">
@@ -179,16 +180,16 @@ code analysis and identifying potential issues.
     
     </html>
     ```
-13. Write `.gitignore` file:
+14. Write `.gitignore` file:
     ```gitignore
     .vscode
     .idea
     node_modules
     .DS_Store
     ```
-14. Create new repository on GitHub and push current project there.
-15. [Set the repository to be a template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
-16. Now you can easily make new JavaScript projects with the same settings with ´Use this template/Create a new repository`.
+15. Create new repository on GitHub and push current project there.
+16. [Set the repository to be a template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
+17. Now you can easily make new JavaScript projects with the same settings with ´Use this template/Create a new repository`.
     - After creating a new repository get the files to your local computer by cloning the new repository: `git clone https://address/to/repository.git`
        - You can easily get the address to the repository from the `<> Code` button in GitHub
     - [Here is the teacher's version](https://github.com/ilkkamtk/javascript-starter)
