@@ -28,7 +28,7 @@ Search and install:
 - ESLint
 - vscode-icons
 - Live Server
-- ES7+ React/Redux/React-Native 
+- ES7+ React/Redux/React-Native snippets
 - *Optional:* JavaScript (ES6) Code Snippets
 
 #### VSCode - Basic Usage
