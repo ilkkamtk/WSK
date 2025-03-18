@@ -21,7 +21,7 @@ assignment number in file and folder names. **You need to get at least 10 points
    Distance = √((x2 - x1)^2 + (y2 - y1)^2)
    ```
      - In total, there will be four prompts to input the x and y coordinates for the two points.
-     - You can do it also with fewer promts if you use string methods like [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split).
+     - You can do it also with fewer prompts if you use string methods like [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split).
      - 3p
 3. Write a program that prompts the user to enter the lengths of three sides of a triangle and determines the type of
    triangle based on the side lengths. The program should classify the triangle as equilateral (all sides are equal),
