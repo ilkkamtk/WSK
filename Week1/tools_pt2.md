@@ -161,7 +161,7 @@ code analysis and identifying potential issues.
    ```
 11. Save the file. Note how VSCode fixes formatting errors automatically.
 12. If you are using WebStorm, right click somewhere over .eslintrc.js, choose 'Apply ESlint Code Style Rules'. Enable format on save on [WebStorm](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
-13. Write index.html:
+13. Write example.html:
     ```html
     <!DOCTYPE html>
     <html lang="en">
