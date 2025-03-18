@@ -143,7 +143,7 @@ code analysis and identifying potential issues.
     - Does your project use TypeScript? **No**
     - Where does your code run? **Browser**
 5. You should have new file `eslint.config.mjs` which has the basic configuration for ESLint.
-6. Write `.editorconfig` and `.prettierrc.js` files according to the examples earlier in this page.
+6. Write `.editorconfig` and `.prettierrc` files according to the examples earlier in this page.
 7. Open the settings in Visual Studio Code by clicking on "File" -> "Preferences" -> "Settings" or using the shortcut Ctrl + ,.
 8. In the search bar, type "Format On Save" and check the box to enable it. This ensures that your code will be automatically formatted when you save the file.
    - If you are using Webstorm, enable ESLint in your WebStrom project
