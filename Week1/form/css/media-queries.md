@@ -130,7 +130,7 @@ Logical operators can be combined to create complex media queries that apply sty
 
 ## Media ranges
 
-Media ranges can be used with mathematical operators such as `>`, `<`, `>=`, and `<=` to define the range of sizes for which the styles should be applied.
+Media ranges can be used with comparison operators such as `>`, `<`, `>=`, and `<=` to define the range of sizes for which the styles should be applied.
 
 [Read more in media-range.md](media-range.md).
 
