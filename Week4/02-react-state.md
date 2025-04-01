@@ -124,7 +124,7 @@ graph TD;
     - Use the `setSelectedItem` function to update the `selectedItem` state variable in the `MediaRow` component.
     - Use the `selectedItem` state variable to [conditionally render](https://react.dev/learn/conditional-rendering) the `SingleView` component in the `Home` component.
 7. To open/close the `<dialog>` component, use `open` attribute with a boolean value. The dialog is opened when the attribute is present and closed when it is not present. Use the `selectedItem` state variable to control the `open` attribute of the `<dialog>` element in the `SingleView` component.
-    - Optionally you can use `useRef` [hook](../Week6/01-hooks#useref) to access the dialog element in the `SingleView` component and use `openModal` and `closeModal` functions to open and close the dialog.
+    - Optionally you can use `useRef` [hook](../Week5/01-hooks#useref) to access the dialog element in the `SingleView` component and use `openModal` and `closeModal` functions to open and close the dialog.
 8. Add a button to the `SingleView` component that hides the `SingleView` component (calls the `setSelectedItem` function with `null` as a parameter).
 9. Use the item's `media_type` property to determine whether to render an image or a video in the `SingleView` component (use condiotinal rendering).
 10. Add your own styling to the `index.css` file to make the `SingleView` component look better. (or use [Teacher's example](./sample-index.css))

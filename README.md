@@ -43,46 +43,46 @@ Start the initial work on the personal project HTML user interface.
 1. [JavaScript recap - DOM](Week2/JS-recap3.md)
 2. [JavaScript recap - Event handling](Week2/JS-recap4.md)
 3. [JavaScript recap - AJAX](Week2/JS-recap5.md)
-4. [JavaScript - Arrow functions, special operators, destructuring, modules](Week3/AdvancedJavaScript1.md)
-5. [JavaScript - Array methods, foreach, map, filter reduce](Week3/AdvancedJavascript2.md)
+4. [JavaScript - Arrow functions, special operators, destructuring, modules](Week2/AdvancedJavaScript1.md)
+5. [JavaScript - Array methods, foreach, map, filter reduce](Week2/AdvancedJavascript2.md)
 
 ---
 
 ## Week 3 - Node.js, Express
 
-- [Server side programming, Restful API, Node.js, NPM](Week4/01-server-side-programming.md)
-- [Express - intro](Week4/02-express.md)
-- [Express - Routing](Week4/03-routing.md)
-- [Express - Middleware, File upload](Week4/04-middleware.md)
-- [Express - Database access](Week4/05-database.md)
-- [Authentication, JWT](Week4/06-auth.md)
-- [Validation, error handling](Week4/07-validation.md)
-- [Self study: APIDoc, Swagger](Week4/extra-apidoc.md)
+- [Server side programming, Restful API, Node.js, NPM](Week3/01-server-side-programming.md)
+- [Express - intro](Week3/02-express.md)
+- [Express - Routing](Week3/03-routing.md)
+- [Express - Middleware, File upload](Week3/04-middleware.md)
+- [Express - Database access](Week3/05-database.md)
+- [Authentication, JWT](Week3/06-auth.md)
+- [Validation, error handling](Week3/07-validation.md)
+- [Self study: APIDoc, Swagger](Week3/extra-apidoc.md)
 
 ---
 
 ## Week 4 - React
 
-- [Getting started, Components, JSX and Props](Week5/01-react-start.md)
-- [State management](Week5/02-react-state.md)
-- [Routing, Views and Navigation](Week5/03-react-routing.md)
-- [Hooks](Week6/01-hooks.md)
+- [Getting started, Components, JSX and Props](Week4/01-react-start.md)
+- [State management](Week4/02-react-state.md)
+- [Routing, Views and Navigation](Week4/03-react-routing.md)
+- [Hooks](Week5/01-hooks.md)
 
 ---
 
 ## Week 5 - React
 
 
-- [Custom hooks](Week6/02-custom-hooks.md)
-- [Forms](Week6/03-forms.md)
-- [Shared State](Week6/04-context.md)
-- [File upload](Week6/05-upload.md)
+- [Custom hooks](Week5/02-custom-hooks.md)
+- [Forms](Week5/03-forms.md)
+- [Shared State](Week5/04-context.md)
+- [File upload](Week5/05-upload.md)
 
 ---
 
 ## Week 6 - React
 
-- [Tailwind CSS, Delete + Update + Likes](Week7/tailwind.md)
+- [Tailwind CSS, Delete + Update + Likes](Week6/tailwind.md)
 
 ---
 
