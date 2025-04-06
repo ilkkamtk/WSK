@@ -147,8 +147,8 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
      ```
     - Make `doLogin` function call `postLogin` and pass the form data as a parameter. Then `postLogin` should log the
       result to the console. 
-       - Register new user using Postman. Endpoint: `http://10.120.32.94/auth-api/api/v1/users`.
-       - [Documentation](https://10.120.32.94/auth-api/#api-User-CreateUser).
+       - Register new user using Postman. Endpoint: `https://media2.edu.metropolia.fi/auth-api/api/v1/users`.
+       - [Documentation](https://https://media2.edu.metropolia.fi/auth-api/#api-User-CreateUser).
     - remember to handle errors from promises with try/catch
 12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
     Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'

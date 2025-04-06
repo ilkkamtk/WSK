@@ -138,7 +138,7 @@ Environment variables are used to store configuration settings outside your code
 
 ## Assignment
 
-In the labs we are going to build a REST API with Express. The API will serve data in JSON format and static files. [Example API documentation here](http://10.120.32.98/cats/docs/) (Metropolia network / VPN only).
+In the labs we are going to build a REST API with Express. The API will serve data in JSON format and static files. [Example API documentation here](http://https://media.edu.metropolia.fi/cats/docs/) (Metropolia network / VPN only).
 
 
 1. Create a new project folder for this week's assignments and initialize a new Git repository.

@@ -13,7 +13,7 @@
 ## API documentation tools
 
 - **[APIDoc](https://apidocjs.com/)**  generates API documentation from predefined comments in the source code.
-   - [Real life example](https://10.120.32.94/media-api/) (requires Metropolia VPN)
+   - [Real life example](https://https://media2.edu.metropolia.fi/media-api/) (requires Metropolia VPN)
 - **[Swagger](https://swagger.io/solutions/api-documentation/)** is a tool for designing, documenting, and testing APIs. It uses a YAML or JSON file to describe the API.
    - [Real life example](http://lipas.cc.jyu.fi/api/index.html)
 
