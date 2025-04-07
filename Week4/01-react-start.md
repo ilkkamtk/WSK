@@ -93,7 +93,10 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
     - `src/App.css`: remove unused styles
     - `src/index.css`: remove unused styles
 1. Create a new project in GitHub and push your code branches there
-    - `git init`, `git add .`, `git commit -m "Initial commit"`, `git branch -M main`, `git remote add origin ...`, `git push -u origin main`
+    - `git init`, `git add .`, `git commit -m "Initial commit"`, `git branch -M main`, `git remote add origin <YOUR-GIT-REPOSITORY-URL>`, `git push -u origin main`
+      - replace `<YOUR-GIT-REPOSITORY-URL>` with the GitHub repository url
+      - ![copy-git-repo-url](https://github.com/user-attachments/assets/e88553b0-2668-448d-9b0c-f4701d7ecc05)
+
 
 ## React development basics
 
