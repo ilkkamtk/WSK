@@ -53,11 +53,11 @@ Routing involves managing navigation from one view or component to another withi
 In a simple React application with React Router, you might have a layout with a navigation bar and several pages represented by components like `Home`, `About`, and `Users`.
 
 ```jsx
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link} from 'react-router';
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <nav>
           <ul>
@@ -74,7 +74,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 // Very simple view components
@@ -101,10 +101,10 @@ Consider an application with a common layout for several sections, each with its
 First, define your routes with nesting:
 
 ```jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router';
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -113,7 +113,7 @@ const App = () => (
         {/* Add more nested routes as needed */}
       </Route>
     </Routes>
-  </Router>
+  </BrowserRouter>
 );
 ```
 
@@ -122,7 +122,7 @@ const App = () => (
 `Layout` component with `<Outlet>`:
 
 ```jsx
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 
 const Layout = () => (
   <div>
@@ -151,7 +151,7 @@ Benefits of Using Outlet:
 
 ## Assignment: Implementing Routing with React Router
 
-Study: [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
+Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-book)
 
 1. Create a git branch `routing` based on the previous exercise and checkout to it.
 1. Install React Router: `npm install react-router-dom`
