@@ -234,7 +234,7 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 1. You can navigate back to listing with browser's back button or by using React Router's [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook with a button (more about hooks in the next week):
 
     ```jsx
-    import {NavigateFunction, useNavigate} from "react-router-dom";
+    import {useNavigate} from "react-router";
     ...
 
     const Single = () => {
