@@ -154,7 +154,7 @@ Benefits of Using Outlet:
 Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-book)
 
 1. Create a git branch `routing` based on the previous exercise and checkout to it.
-1. Install React Router: `npm install react-router-dom`
+1. Install React Router: `npm install react-router`
 1. Create a new folder `src/views` and move the `Home` component to it.
 1. Create new components `Profile`, `Upload` and `Single` and place them in the `src/views` folder.
    - Add just some placeholder JSX to the components for now. (snippet: `rafcp`)
@@ -185,13 +185,13 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 
 1. In `App.jsx`, replace the `Home` component with `BrowserRouter`, `Routes` and `Route` components.
 
-   - `BrowserRouter` is imported as `Router` from `react-router-dom` and wraps the `Routes` component.
+   - `BrowserRouter` is imported from `react-router` and wraps the `Routes` component.
    - import `Layout`, use it as a parent `Route` for the view `Route`s
    - import all view components and add as `Route`s inside the parent layout `Route` component.
    - `Route` `path` props should match the `to` props of the `Link` components in the `Layout` component.
 
     ```jsx
-    import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+    import {Route, BrowserRouter, Routes} from 'react-router';
     import Layout from './views/Layout';
     import Home from './views/Home';
     ...
@@ -221,7 +221,7 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 1. Copy the JSX needed for displaying the media item from `components/SingleView.jsx` to `views/Single.jsx` and modify it to use the `item` from `useLocation().state` instead of `selectedItem` state variable.
 
     ```jsx
-    import {useLocation} from "react-router-dom";
+    import {useLocation} from "react-router";
 
     const Single = () => {
       const {state} = useLocation();
