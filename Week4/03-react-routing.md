@@ -198,14 +198,14 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 
     const App = () => {
       return (
-        <Router>
+        <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
               {/* TODO: add missing routes */}
             </Route>
           </Routes>
-        </Router>
+        </BrowserRouter>
       );
     };
     ```
