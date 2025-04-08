@@ -257,10 +257,10 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
     });
     ```
 
-    Then add the same path to the `basename` prop of the `Router` component in `App.jsx` by reading it from the config:
+    Then add the same path to the `basename` prop of the `BrowserRouter` component in `App.jsx` by reading it from the config:
 
     ```jsx
-    <Router basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
     ```
 
 1. Run `npm build` or `npm run build`
