@@ -66,7 +66,7 @@ Start the initial work on the personal project HTML user interface.
 - [Getting started, Components, JSX and Props](Week4/01-react-start.md)
 - [State management](Week4/02-react-state.md)
 - [Routing, Views and Navigation](Week4/03-react-routing.md)
-- [Hooks](Week4/04-hooks)
+- [Hooks](Week4/04-hooks.md)
 
 ---
 
