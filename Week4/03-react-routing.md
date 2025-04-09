@@ -257,11 +257,16 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
     });
     ```
 
+| :exclamation:  Note! The trailing slash must exist in the `base` path, otherwise issues will arise.   |
+|--|
+
     Then add the same path to the `basename` prop of the `BrowserRouter` component in `App.jsx` by reading it from the config:
 
     ```jsx
     <BrowserRouter basename={import.meta.env.BASE_URL}>
     ```
+
+    
 
 1. Run `npm build` or `npm run build`
 1. Copy contents of build folder (`dist/*`) to your home dir's `public_html/wsk-routing/` (shell.metropolia.fi)
