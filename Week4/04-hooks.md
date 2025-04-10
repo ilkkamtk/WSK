@@ -184,7 +184,7 @@ export default Example;
 3. Replace `test.json` with `import.meta.env.VITE_MEDIA_API + '/media'` in `getMedia` function.
 4. Next we want to display the owner's username with the media item. The owner's id is in the media item, but we need to
    fetch the username from the User API.
-5. Edit `.env.local` to include `VITE_AUTH_API=https://https://media2.edu.metropolia.fi/auth-api/api/v1` environment variable.
+5. Edit `.env.local` to include `VITE_AUTH_API=https://media2.edu.metropolia.fi/auth-api/api/v1` environment variable.
    - [APIDoc is here](https://media2.edu.metropolia.fi/auth-api/)
    - Open the APIDoc to accept the self-signed certificate.
 6. Each media item has `user_id` property, which means that we need to make multiple requests to the API. We can
