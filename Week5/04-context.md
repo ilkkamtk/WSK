@@ -268,7 +268,7 @@ export default Profile;
 12. Add new component `ProtectedRoute.jsx` to `src/components` folder:
     ```jsx
     // ProtectedRoute.jsx
-    import { Navigate, useLocation } from 'react-router';
+    import { Navigate } from 'react-router';
     import { useUserContext } from '../hooks/contextHooks';
 
     const ProtectedRoute = ({ children }) => {
@@ -304,20 +304,8 @@ export default Profile;
 14. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page
     anymore.
 15. Login, open one of the protected routes and then refresh the page. What happens? Why?
-16. If you want to automatically redirect to the same page you can use the useLocation hook in ProtectedRoute:
-    ```jsx
-    // ProtectedRoute.jsx
-    import { Navigate, useLocation } from 'react-router';
+16. If you want to automatically redirect to the same page you can use the useLocation hook in UserContext.jsx:
     
-    ...
-    const location = useLocation();
-    if (!user) {
-        // console.log(user);
-        // replace and state are used to redirect to origin when page is refreshed
-        return <Navigate to="/" state={{ from: location }} />;
-    }
-    ...
-    ```
     ```jsx
     // UserContext.jsx
     import { useLocation, useNavigate } from 'react-router';
@@ -334,9 +322,9 @@ export default Profile;
             if (token) {
                 const userResult = await getUserByToken(token);
                 setUser(userResult.user);
-                // when page is refreshed, the user is redirected to origin (see ProtectedRoute.jsx)
-                const origin = location.state.from.pathname || '/';
-                navigate(origin);
+                
+                console.log('location', location);
+                navigate(location.pathname);
             }
         } catch (e) {
             console.log(e.message);
