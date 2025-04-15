@@ -314,7 +314,7 @@ export default Profile;
     if (!user) {
         // console.log(user);
         // replace and state are used to redirect to origin when page is refreshed
-        return <Navigate to="/" replace state={{ from: location }} />;
+        return <Navigate to="/" state={{ from: location }} />;
     }
     ...
     ```
