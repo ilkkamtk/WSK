@@ -152,7 +152,7 @@ export default Profile;
     // UserContext.jsx
     import { createContext, useState } from 'react';
     import { useAuthentication, useUser } from '../hooks/apiHooks';
-    import { useNavigate } from 'react-router-dom';
+    import { useNavigate } from 'react-router';
     
     const UserContext = createContext(null);
     
@@ -268,7 +268,7 @@ export default Profile;
 12. Add new component `ProtectedRoute.jsx` to `src/components` folder:
     ```jsx
     // ProtectedRoute.jsx
-    import { Navigate, useLocation } from 'react-router-dom';
+    import { Navigate, useLocation } from 'react-router';
     import { useUserContext } from '../hooks/contextHooks';
 
     const ProtectedRoute = ({ children }) => {
@@ -307,7 +307,7 @@ export default Profile;
 16. If you want to automatically redirect to the same page you can use the useLocation hook in ProtectedRoute:
     ```jsx
     // ProtectedRoute.jsx
-    import { Navigate, useLocation } from 'react-router-dom';
+    import { Navigate, useLocation } from 'react-router';
     
     ...
     const location = useLocation();
@@ -320,7 +320,7 @@ export default Profile;
     ```
     ```jsx
     // UserContext.jsx
-    import { useLocation, useNavigate } from 'react-router-dom';
+    import { useLocation, useNavigate } from 'react-router';
     
     ...
 
