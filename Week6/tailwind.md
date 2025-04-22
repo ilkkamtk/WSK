@@ -20,32 +20,9 @@
 ## Lab assignment 1
 
 1. Continue last exercise. Create a new branch 'tailwind' with git.
-2. Download the full version of the [MediaAPI](https://github.com/ilkkamtk/hybrid-media-api). Put it in the same main folder as the rest of this course's projects.
-3. Also check if the [common types](https://github.com/ilkkamtk/hybrid-types) have been updated and need to be downloaded.
-4. [Install Tailwind CSS to your project.](https://tailwindcss.com/docs/guides/vite#react)
-5. [Editor setup.](https://tailwindcss.com/docs/editor-setup)
-   - Add plugins to `prettier.config.js`:
-
-   ```js
-   export default {
-      ...
-      plugins: ["prettier-plugin-tailwindcss"],
-   };
-   ```
-
-   - Or in json format to `.prettierrc` file if it's in use: `"plugins": ["prettier-plugin-tailwindcss"]`
-
-6. Rename `index.css` to `index_old.css`. Create a new blank `index.css` and add the following the beginning of the
-   file:
-
-   ```css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
-   ```
-
-   - These are the [default styles](https://tailwindcss.com/docs/preflight) that Tailwind CSS provides.
-7. Copy `:root` rule from `index_old.css` to `index.css` to get the basic styles back to the app.
+3. [Install Tailwind CSS to your project.](https://tailwindcss.com/docs/guides/vite#react)
+4. [Editor setup.](https://tailwindcss.com/docs/editor-setup)
+5. Use [@layer base](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles) to convert `:root` and `#root` rules from `index_old.css` to Tailwind (in index.css) to get the basic styles back to the app.
 8. Open `Layout.jsx` and add the same styles to the `Layout` component as you had before, but use Tailwind CSS classes
    instead of CSS.
    - Start with `ul` and `li` elements in `Nav` component. Use [Tailwind CSS docs](https://tailwindcss.com/docs) to
