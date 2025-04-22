@@ -20,6 +20,7 @@
 ## Lab assignment 1
 
 1. Continue last exercise. Create a new branch 'tailwind' with git.
+2. Rename `index.css` to `index-old.css`, then create new `index.css`
 3. [Install Tailwind CSS to your project.](https://tailwindcss.com/docs/guides/vite#react)
 4. [Editor setup.](https://tailwindcss.com/docs/editor-setup)
 5. Use [@layer base](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles) to convert `:root` and `#root` rules from `index_old.css` to Tailwind (in index.css) to get the basic styles back to the app.
