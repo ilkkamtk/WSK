@@ -56,7 +56,7 @@ The box model properties are used to control the layout of the elements in the H
 
 For these properties, the `value` can be specified in many different units, such as `px`, `em`, `rem`, `%`, and others.
 
-![Box model, image credit by MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model/box-model.png)
+![Box model, image credit by MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/boxmodel.png)
 
 Example image credit by [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model). The image showcases the box model properties and how they are used to control the layout of the elements in the HTML document.
 
