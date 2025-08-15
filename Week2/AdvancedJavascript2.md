@@ -55,7 +55,7 @@ with arrays, promoting a modern and functional approach to solving the problem.
 1. Refactor your previous restaurant assignment code to make effective use of array methods like `forEach`, `map`
    and `filter`.
 
-2. Implement the feature to filter and display only Sodexho or Compass restaurants using the `filter` method. Use arrow
+2. Implement the feature to filter and display only Sodexo or Compass restaurants using the `filter` method. Use arrow
    functions to streamline the filtering process.
 
 3. Implement robust error handling for user interactions, such as displaying informative messages in case of failures.
