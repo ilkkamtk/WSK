@@ -182,7 +182,7 @@ https://www.w3schools.com/images/picture.jpg"
 
 ## Assignment
 
-1. Create a simple HTML document. Requrements:
+1. Create a simple HTML document. Requirements:
    - The document should have a title.
    - The document should have a heading.
    - The document should have a paragraph.
