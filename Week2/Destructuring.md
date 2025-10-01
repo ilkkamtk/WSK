@@ -64,8 +64,8 @@ In this section, we'll explore destructuring in different contexts and scenarios
       console.log(a, b); // 10, 5
       ```
 
-8. **Rest Operator:**
-    - Destructuring can use the rest operator (`...`) to capture remaining elements.
+8. **Spread Operator:**
+    - Destructuring can use the spread operator (`...`) to capture remaining elements.
     - Example:
       ```javascript
       const [first, ...rest] = [1, 2, 3, 4, 5];
