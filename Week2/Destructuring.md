@@ -25,7 +25,7 @@ In this section, we'll explore destructuring in different contexts and scenarios
     - You can provide default values during destructuring in case the property is undefined or missing.
     - Example:
       ```javascript
-      const { role = 'Guest' } = user;
+      const { role = 'Guest' } = person;
       console.log(role); // 'Guest'
       ```
 
