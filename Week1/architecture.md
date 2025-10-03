@@ -85,7 +85,7 @@ sequenceDiagram
 
 ![HTTP request](../images/request.svg)
 
-```http request
+```http
 POST /index.html HTTP/1.1
 Host: example.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
@@ -121,7 +121,7 @@ Common HTTP request methods include:
 
 ![HTTP response](../images/response.svg)
 
-```http request
+```response
 HTTP/1.1 200 OK
 Server: Apache/2.4.41 (Unix)
 Content-Type: text/html
