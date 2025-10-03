@@ -14,7 +14,6 @@ What is your major malfunction?
 
 - [How web application works](Week1/architecture.md)
 - [IDE etc.](Week1/tools_pt1.md)
-- [HTTP request - response](Week1/http-request-response.md)
 - [HTML recap](Week1/HTML-recap.md)
 - [CSS recap](Week1/CSS-recap.md)
 - [Forms](Week1/form/form.md)
@@ -31,14 +30,13 @@ What is your major malfunction?
 - Self Study: [JavaScript recap - Conditional expressions and loops](Week1/JS-recap1.md)
 - Self Study: [JavaScript recap - Arrays and functions](Week1/JS-recap2.md)
 
---- 
+---
 
 Start the initial work on the personal project HTML user interface.
 
 ---
 
 ## Week 2 - JavaScript
-
 
 1. [JavaScript recap - DOM](Week2/JS-recap3.md)
 2. [JavaScript recap - Event handling](Week2/JS-recap4.md)
@@ -72,7 +70,6 @@ Start the initial work on the personal project HTML user interface.
 
 ## Week 5 - React
 
-
 - [Custom hooks](Week5/02-custom-hooks.md)
 - [Forms](Week5/03-forms.md)
 - [Shared State](Week5/04-context.md)
@@ -85,4 +82,3 @@ Start the initial work on the personal project HTML user interface.
 - [Tailwind CSS, Delete + Update + Likes](Week6/tailwind.md)
 
 ---
-
