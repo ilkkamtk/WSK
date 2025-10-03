@@ -294,3 +294,14 @@ Ruby on Rails, often referred to as Rails, is a web application framework writte
 - Web applications facilitate collaboration and communication among users.
 - They may include features like discussion boards, messaging systems, and shared document repositories.
 - Web applications enhance convenience by enabling access from anywhere with an internet connection.
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
