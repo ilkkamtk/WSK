@@ -44,7 +44,6 @@ In this example:
 
 - Use the `filter` method when you need to create a new array containing elements that satisfy a given condition.
 - Unlike `forEach`, the `filter` method returns a new array and doesn't modify the original array.
-  Certainly! Here's a concise comparison in one sentence:
 - The `map` method returns a new array with the same length as the original, applying a transformation to each element;
   whereas, the `filter` method returns a new array with selected elements based on a condition, potentially resulting in
   a shorter array.
