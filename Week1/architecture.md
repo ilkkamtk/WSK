@@ -151,7 +151,7 @@ Date: Sat, 10 Jun 2023 15:30:00 GMT
 
 ### HTTP response with an image (or any binary file)
 
-```http request
+```http
 HTTP/1.1 200 OK
 Server: Apache/2.4.41 (Unix)
 Content-Type: image/jpeg
