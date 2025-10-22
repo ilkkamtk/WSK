@@ -27,8 +27,8 @@ What is your major malfunction?
 
 - [JS Toolchain](Week1/tools_pt2.md)
 - [Node.js](Week1/node.md)
-- Self Study: [JavaScript recap - Conditional expressions and loops](Week1/JS-recap1.md)
-- Self Study: [JavaScript recap - Arrays and functions](Week1/JS-recap2.md)
+- [JavaScript recap - Conditional expressions and loops](Week1/JS-recap1.md)
+- [JavaScript recap - Arrays and functions](Week1/JS-recap2.md)
 
 ---
 
