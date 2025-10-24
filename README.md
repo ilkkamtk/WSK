@@ -32,10 +32,6 @@ What is your major malfunction?
 
 ---
 
-Start the initial work on the personal project HTML user interface.
-
----
-
 ## Week 2 - JavaScript
 
 1. [JavaScript recap - DOM](Week2/JS-recap3.md)
