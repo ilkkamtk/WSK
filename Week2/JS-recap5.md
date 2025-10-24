@@ -77,4 +77,3 @@ using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
    9. Make effective use of CSS for styling and layout.
    - 10p
 
-M3tr0p0l14!
