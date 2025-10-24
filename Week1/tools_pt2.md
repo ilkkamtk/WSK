@@ -104,7 +104,7 @@ code analysis and identifying potential issues.
 - enforces a consistent code style by handling tasks such as indentation, spacing, line breaks, and wrapping.
 - provides configuration options to customize the formatting rules according to project requirements.
 - helps maintain code readability and improves code maintainability by providing a consistent and clean codebase.
-- sample `.prettierrc` file:
+- sample `.prettierrc.json` file:
 
 
     ```json
@@ -142,8 +142,10 @@ code analysis and identifying potential issues.
     - Which framework does your project use? **None of these**
     - Does your project use TypeScript? **No**
     - Where does your code run? **Browser**
-5. You should have new file `eslint.config.mjs` which has the basic configuration for ESLint.
-6. Write `.editorconfig` and `.prettierrc` files according to the examples earlier in this page.
+    - Would you like to install them now? **Yes**
+    - Which package manager do you want to use? **NPM**
+5. You should have new file `eslint.config.js` which has the basic configuration for ESLint.
+6. Write `.editorconfig` and `.prettierrc.json` files according to the examples earlier in this page.
 7. Open the settings in Visual Studio Code by clicking on "File" -> "Preferences" -> "Settings" or using the shortcut Ctrl + ,.
 8. In the search bar, type "Default Formatter", choose "Prettier" in "Editor: Default Formatter"
 9. In the search bar, type "Format On Save" and check the box to enable it. This ensures that your code will be automatically formatted when you save the file.
@@ -193,6 +195,6 @@ code analysis and identifying potential issues.
 17. Now you can easily make new JavaScript projects with the same settings with ´Use this template/Create a new repository`.
     - After creating a new repository get the files to your local computer by cloning the new repository: `git clone https://address/to/repository.git`
        - You can easily get the address to the repository from the `<> Code` button in GitHub
-    - [Here is the teacher's version](https://github.com/ilkkamtk/javascript-starter)
+    - Teacher's example repository is found in Oma documents
 
 
