@@ -79,7 +79,7 @@ Help for Linux usage:
    - NOTE: you have 100 USD of student credits to spend in total (for a one year)
    - Allow access to SSH, HTTP and HTTPS ports
 
-   ![Basic example setup](assets/azure-vm-settings.png)
+   ![Basic example setup](../images/azure-vm-settings.png)
 
    - Finally hit the _CREATE_ button and wait for the VM deployment to finish
    - After successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_ for your public IP address.
@@ -183,7 +183,7 @@ Help for Linux usage:
 
 This can be done later when you have your Express application ready for deployment, but here are the instructions in advance.
 
-![Apache reverse proxy](./assets/apache-node-proxy.png)
+![Apache reverse proxy](../images/apache-node-proxy.png)
 
 1. Install _node.js_ and _npm_  from [nodesource package repository](https://github.com/nodesource/distributions#ubuntu-versions):
 
