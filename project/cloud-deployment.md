@@ -48,6 +48,8 @@ In server-side applications, the running environment, often referred to as the "
 
 - **Server hardware**: The physical or virtual server where the application runs. It includes CPU, memory (RAM), storage (disk space), and network connectivity. The server hardware's capacity and configuration impact the application's performance and scalability.
 - **Operating system (OS)**: The server typically runs on an operating system (OS), such as Linux, Windows Server, or macOS Server. The OS manages system resources, handles hardware communication, and provides a platform for running software.
+  - _Guest OS_ is a term used when the OS is running inside a virtual machine (VM) or container.
+  - _Host OS_ is the underlying OS that runs on the physical server and hosts the VMs or containers.
 - **Web server**: In web applications, a web server software (e.g., Apache, Nginx, IIS) often serves as an intermediary between client requests and the server-side application. It handles tasks like request routing, load balancing, and static file serving.
 - **Runtime for the programming language**: The specific runtime environment for the chosen programming language. For example:
   - For Python applications, the Python runtime environment is necessary, which includes the Python interpreter.
@@ -65,8 +67,7 @@ In server-side applications, the running environment, often referred to as the "
 
 The choice of the running environment components depends on factors like the type of application, expected traffic, scalability requirements, and the technology stack being used. Designing a robust and efficient running environment is essential for ensuring the reliable operation of server-side applications.
 
-
-## Installing a Virtual Server on Azure cloud environmnent (IaaS)
+## Installing a Virtual Server on Azure cloud environment (IaaS)
 
 ### Materials & links
 
@@ -90,15 +91,25 @@ Help for Linux usage:
 
 1. Sign up for a free [student account](https://azure.microsoft.com/en-us/free/students/) using your school email address & login, you should get some free credits (100 USD), [more info](https://docs.microsoft.com/en-us/azure/education-hub/azure-dev-tools-teaching/program-faq)
 1. Go to [Azure portal](https://portal.azure.com/)
-1. Create a resource: Virtual machine (VM), use server instance, e.g. latest Ubuntu server LTS)
-
-   - select [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) & disks according your needs (Think about what is the minimum for a web server? Check the OS system requirements, etc.)
-   - 'Standard_B1ms' is the teacher's recommendation for this course
-   - NOTE: you have 100 USD of student credits to spend in total (for a one year)
-   - Allow access to SSH, HTTP and HTTPS ports
-
-   ![Basic example setup](../images/azure-vm-settings.png)
-
+1. Create a resource: **Virtual machine (VM)** with following settings:
+   - Choose your subscription (Azure for Students)
+   - Create new resource group, e.g. `web-project-rg`
+   - Virtual machine name: e.g. `my-web-server`
+   - Region: choose the closest one
+     - Note: with free student account you may have limited options and you might need to check which regions are available for you, more info: <https://learn.microsoft.com/en-us/answers/questions/5549511/student-account-in-which-regions-can-i-deploy-a-vm>
+   - Availability options: No infrastructure redundancy required
+   - Security type: Standard
+   - Image: Choose a Linux server image, e.g. latest Ubuntu Server LTS
+   - Select [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) & disks according your needs (Think about what is the minimum for a web server? Check the OS system requirements, etc.)
+     - 'Standard_B1ms' is the teacher's recommendation for this course
+     - NOTE: you have 100 USD of student credits to spend in total (for a one year)
+   - Authentication type: Password (or SSH public key if you prefer that), this is the admin user account for the VM
+   - Public inbound ports: Allow access to SSH, HTTP and HTTPS ports
+   - For other settings you can leave the default values
+   - Disk tab: Change OS disk type to Standard SSD
+   - Networking tab: Make sure that a new public IP address & subnet is created, default settings are ok
+   - Management tab: default settings are ok, automatic shutdown can be useful in order to save credits
+   - Click _Review + create_ and check that all settings are ok
    - Finally hit the _CREATE_ button and wait for the VM deployment to finish
    - After successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_ for your public IP address.
    - Note: VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
