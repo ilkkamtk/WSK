@@ -24,6 +24,24 @@ Cloud computing models provide different levels of control, flexibility, and man
 PaaS is like renting the land and building your house - you control the house but not the land it’s on.
 IaaS is like leasing/buying a plot of land - you have full control over the land and what you build on it, but you don’t own the land.
 
+## Public vs. Private
+
+Cloud services can be deployed in different ways, primarily categorized as public, private, or hybrid clouds.
+
+![Cloud deployment models](../images/hybrid-cloud.png)
+
+- **Public Cloud**
+  - Public cloud services are provided by third-party providers over the public internet, making them available to anyone who wants to use or purchase them.
+  - Resources such as servers and storage are owned and operated by the cloud provider and shared among multiple organizations (tenants).
+  - Examples: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).
+  - Benefits: Cost-effective, scalable, and easy to access. Ideal for businesses that want to avoid the complexity of managing their own infrastructure.
+- **Private Cloud**
+  - Private cloud services are used exclusively by a single organization. The cloud infrastructure can be hosted on-premises or by a third-party provider.
+  - Resources are not shared with other organizations, providing greater control over security and compliance.
+- **Hybrid Cloud**
+  - Hybrid cloud combines public and private cloud elements, allowing data and applications to be shared between them.
+  - Organizations can take advantage of the scalability and cost-effectiveness of public clouds while maintaining control over sensitive data in private clouds.
+
 ## Running environment
 
 In server-side applications, the running environment, often referred to as the "runtime environment" or simply the "runtime," is the software and hardware infrastructure where the server-side code of an application executes. This environment provides the necessary resources and services for the server-side code to run, handle requests, process data, and generate responses. The choice of a running environment depends on various factors, including the programming language, framework, and the specific requirements of the application.
