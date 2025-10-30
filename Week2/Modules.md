@@ -148,9 +148,11 @@ considerations to keep in mind:
     - When using ES6 modules in a browser environment, you need to specify the `type="module"` attribute in the script
       tag.
     - Example:
+
       ```html
       <script type="module" src="app.js"></script>
       ```
+
     - In this case the `defer` attribute is not required, since the processing of the script contents is deferred.
 
 3. **CORS Considerations:**
@@ -164,31 +166,27 @@ Node.js introduced support for ES6 modules starting from version 12. However, th
 
 1. **ESM vs. CommonJS:**
     - Node.js supports both the ES6 module syntax (ESM) and the CommonJS module syntax.
-    - To use ES6 modules, you need to use the `.mjs` extension for module files, or enable ESM in `.js` files by
-      adding `"type": "module"` to your `package.json`.
+    - To use ES6 modules, you need to use the `.mjs` extension for module files, or enable ESM in `.js` files by adding `"type": "module"` to your `package.json`.
 
 2. **ESM Syntax:**
     - When using ESM syntax in Node.js, you can use `import` and `export` similar to the browser environment.
     - Example:
+  
       ```javascript
       // app.mjs (or with "type": "module" in package.json)
       import { add } from './math';
       console.log(add(5, 3));
       ```
+
     - **Note** that in Node.js `./math` does **not** have `.js` extension
 
 3. **CommonJS Compatibility:**
-    - You can still use CommonJS `require` and `module.exports` syntax in Node.js. However, mixing ESM and CommonJS
-      syntax in the same file can lead to confusion.
+    - You can still use CommonJS `require` and `module.exports` syntax in Node.js. However, mixing ESM and CommonJS syntax in the same file can lead to confusion.
 
 4. **Interoperability:**
-    - ESM and CommonJS modules can interoperate to some extent, but there might be challenges when it comes to cyclic
-      dependencies or other differences in behavior.
+    - ESM and CommonJS modules can interoperate to some extent, but there might be challenges when it comes to cyclic dependencies or other differences in behavior.
 
 5. **Node.js Version:**
-    - Ensure that your Node.js version is 12 or later to take advantage of ES6 module support. You can check your
-      Node.js version using `node -v` in the command line.
+    - Ensure that your Node.js version is 12 or later to take advantage of ES6 module support. You can check your Node.js version using `node -v` in the command line.
 
-Remember that while modern browsers and Node.js versions support ES6 modules, there might be scenarios where you need to
-transpile your code using tools like Babel to ensure compatibility with older environments. Always consider the target
-environments when using ES6 module syntax in your projects.
+Remember that while modern browsers and Node.js versions support ES6 modules, there might be scenarios where you need to transpile your code using tools like Babel to ensure compatibility with older environments. Always consider the target environments when using ES6 module syntax in your projects.

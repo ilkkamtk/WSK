@@ -11,13 +11,12 @@
 
 ## Higher-Order Functions
 
-- A higher-order function is a function that either takes one or more functions as arguments or returns a function as
-  its result.
-- This concept is derived from functional programming and is widely used in modern programming languages like TypeScript
-  and JavaScript.
+- A higher-order function is a function that either takes one or more functions as arguments or returns a function as its result.
+- This concept is derived from functional programming and is widely used in modern programming languages like TypeScript and JavaScript.
 - Higher-order functions provide a way to create more abstract, modular, and reusable code.
 
 ### Using Higher-Order Functions to Write More Modular and Reusable Code:
+
 - **Abstraction**: Higher-order functions allow you to encapsulate behavior that can be reused across different contexts. This helps in abstracting complex logic and making code more understandable.
 -  **Modularity**: By breaking down behavior into smaller functions, you can create more modular code that can be combined to create more complex behaviors.
 -  **Reusability**: Higher-order functions enable you to create reusable components that can be used in different parts of your codebase, promoting DRY (Don't Repeat Yourself) principles.
@@ -54,9 +53,6 @@ with arrays, promoting a modern and functional approach to solving the problem.
 
 1. Refactor your previous restaurant assignment code to make effective use of array methods like `forEach`, `map`
    and `filter`.
-
 2. Implement the feature to filter and display only Sodexo or Compass restaurants using the `filter` method. Use arrow
    functions to streamline the filtering process.
-
 3. Implement robust error handling for user interactions, such as displaying informative messages in case of failures.
-

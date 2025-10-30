@@ -18,8 +18,7 @@ array.forEach(callback(element, index, array) {
 
 **Example using Arrow Function and Destructuring:**
 
-Suppose you have an array of student objects, and you want to log each student's name and grade. You can use
-the `forEach` method with an arrow function to achieve this:
+Suppose you have an array of student objects, and you want to log each student's name and grade. You can use the `forEach` method with an arrow function to achieve this:
 
 ```javascript
 const students = [
@@ -60,15 +59,13 @@ In this example:
 
 - Unlike some other array methods, `forEach` doesn't return a new array; it simply iterates over the existing array.
 
-The `forEach` method is a fundamental tool for iterating over arrays and performing actions on their elements. It's
-particularly useful when you want to process each element without altering the array's structure.
+The `forEach` method is a fundamental tool for iterating over arrays and performing actions on their elements. It's particularly useful when you want to process each element without altering the array's structure.
 
 ---
 
 **`forEach` and `for...of` Comparison:**
 
-Both `forEach` and `for...of` are used to iterate over elements in an array, but they have differences in syntax, use
-cases, and performance characteristics.
+Both `forEach` and `for...of` are used to iterate over elements in an array, but they have differences in syntax, use cases, and performance characteristics.
 
 1. **`forEach` Loop:**
     - Syntax: `array.forEach(callback(currentValue, index, array) {...})`

@@ -5,13 +5,11 @@ Study the material from the first year course:
 1. [Event Handling](https://github.com/ilkkamtk/JavaScript-english/blob/main/BOM-DOM-event.md#event-handling)
     - Study only the Event Handling part
 
-## Assignments:
+## Assignments
 
 [Download this ZIP-file](https://github.com/ilkkamtk/WSK/raw/main/zip/event-assignments.zip), extract it and move the content to the folder where you have your other files for this course.
 
-1. Open t1 folder in your IDE/editor. In this assignment, you will build upon the previous TODO list assignment and
-   implement new features to enhance its functionality. You will continue working with the DOM, event handling, and
-   array manipulation in JavaScript. <br> **Tasks:**
+1. Open t1 folder in your IDE/editor. In this assignment, you will build upon the previous TODO list assignment and implement new features to enhance its functionality. You will continue working with the DOM, event handling, and array manipulation in JavaScript. <br> **Tasks:**
     - **Update `todoList` Array on Item Completion:**
         - Modify the existing TODO list so that users can mark items as completed by checking a checkbox.
         - Update the `todoList` array when a user checks an item to be done. Set the `completed` property of the
@@ -39,10 +37,7 @@ Study the material from the first year course:
           correctly.
         - 6p
 
-2. Open t2 folder in your IDE/editor. In the t2.js file, you will find an array containing restaurant data. Your
-   objective is to develop an application that displays a list of restaurants in alphabetical order based on their
-   names. The displayed list should include the names and addresses of the restaurants. Implement the following features
-   in your application:
+2. Open t2 folder in your IDE/editor. In the t2.js file, you will find an array containing restaurant data. Your objective is to develop an application that displays a list of restaurants in alphabetical order based on their names. The displayed list should include the names and addresses of the restaurants. Implement the following features in your application:
 
    a. Display the list of restaurants in alphabetical order, showing the restaurant names and addresses.
 

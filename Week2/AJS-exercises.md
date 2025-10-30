@@ -1,34 +1,44 @@
 # Advanced JavaScript Exercises
-Do these exercises for "fun". No need to submit to Oma.
+
+Do these exercises for "fun". No need to submit to Oma. It's also a good idea to use these techniques in your own project.
 
 ## Exercise 1: IIFE with Closures
+
 Build an IIFE that creates a simple counter with increment and reset functionalities. The IIFE should return an object with two methods: `increment()` and `reset()`. The `increment()` method should increase the counter value by 1, and the `reset()` method should reset the counter to 0. The counter should not be directly accessible from outside the IIFE.
 
 **Step 1: Set Up the IIFE**
+
 1. Start by defining an IIFE (Immediately Invoked Function Expression) that will encapsulate the counter functionality and provide the necessary methods to interact with it.
 2. The IIFE should be structured as an anonymous function that's immediately invoked. This will ensure that the code inside the function runs immediately without the need for a separate function call.
 
 **Step 2: Create the Counter Variable**
+
 3. Within the IIFE, create a variable (let's call it `counter`) that will store the current count value. Initialize this variable with an initial value, like 0.
 
 **Step 3: Define the Increment Method**
+
 4. Inside the IIFE, define a function (let's call it `increment()`) that will increase the value of the `counter` variable by 1 each time it's called. This function should not take any parameters.
 
 **Step 4: Define the Reset Method**
+
 5. Similarly, define another function (let's call it `reset()`) inside the IIFE that will reset the `counter` variable back to its initial value. This function should not take any parameters either.
 
 **Step 5: Return an Object with Methods**
+
 6. Create an object within the IIFE that contains the `increment()` and `reset()` methods as properties.
 7. Associate the `increment()` and `reset()` functions you defined earlier with the corresponding properties of the object.
 
 **Step 6: Return the Object**
+
 8. Finally, return the object from the IIFE. This is what the IIFE will effectively expose to the outside world when it's invoked.
 
 **Step 7: Test the IIFE**
+
 9. Outside of the IIFE (in the main script), invoke the IIFE and capture the returned object.
 10. Use the methods of the returned object (`increment()` and `reset()`) to interact with the counter and observe how it behaves.
 
 **Step 8: Closure Concept**
+
 11. Study the meaning of [Closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures). The `counter`, even though defined within the IIFE, remains accessible by the `increment()` and `reset()` methods due to closure. Closure allows inner functions to retain access to the variables of their outer functions even after the outer function has finished executing.
 
 ## Exercise 2: Special Operators
@@ -36,6 +46,7 @@ Build an IIFE that creates a simple counter with increment and reset functionali
 You are building a user information processing module for a web application. Users' names and ages are stored as objects in an array. However, not all users provide both pieces of information. Your task is to create a function that processes the user data and provides meaningful default values if some information is missing.
 
 Fill the TODOs in this code:
+
 ```javascript
 // Sample user data array
 const userArray = [
@@ -68,7 +79,6 @@ for (const user of userArray) {
 // Welcome, Bob! You are 18 years old.
 // Welcome, Guest! You are 30 years old.
 // Welcome, Eve! You are 18 years old.
-
 ```
 
 ## Exercise 3: Destructuring
@@ -78,6 +88,7 @@ You are working on a project that involves handling data related to books in a l
 **Note:** Use the provided semi-ready code as a starting point. Fill in the TODOs with the necessary destructuring syntax and code logic to complete the functions as described in each step. Test your functions using the provided data to ensure they work correctly in various scenarios.
 
 **Step 1: Object Destructuring**
+
 1. An object `book` with properties such as `title`, `author`, `year`, and `genre` has been created for you. This object represents a book's information.
 
 2. Implement the function `displayBookInfo` which takes the `book` object as an argument.
@@ -85,6 +96,7 @@ You are working on a project that involves handling data related to books in a l
     - Print a formatted string using the extracted information in the following format: "Title: [title], Author: [author], Year: [year]".
 
 **Step 2: Array Destructuring**
+
 3. An array `bookList` containing multiple `book` objects has been initialized.
     - Each object has properties such as `title`, `author`, `year`, and `genre`.
 
@@ -94,6 +106,7 @@ You are working on a project that involves handling data related to books in a l
     - Return the array of extracted titles.
 
 **Step 3: Nested Object Destructuring**
+
 5. A `bookWithPublisher` object contains a nested `publisher` object with properties: `name` and `location`.
 
 6. Implement the function `displayPublisherLocation` which takes the `book` object as an argument.
@@ -101,6 +114,7 @@ You are working on a project that involves handling data related to books in a l
     - Print a formatted string that displays the extracted location.
 
 **Step 4: Default Values in Destructuring**
+
 7. An `incompleteBook` object is provided. It simulates incomplete book data.
 
 8. Implement the function `fillMissingInfo` which takes the `book` object as an argument.
@@ -109,6 +123,7 @@ You are working on a project that involves handling data related to books in a l
     - Print a formatted string that displays the extracted information, including default values.
 
 **Step 5: Challenge (Optional)**
+
 9. Implement the function `swapProperties` which takes a `book` object as an argument.
     - Use object destructuring to swap the values of the `title` and `author` properties.
     - Create a new object to avoid modifying the original `book` object.
@@ -195,10 +210,10 @@ console.log(listBookTitles(bookList));
 displayPublisherLocation(bookWithPublisher);
 fillMissingInfo(incompleteBook);
 // TODO: Test the swapProperties function
-
 ```
 
 ## Exercise 4: forEach
+
 You are working on a project that involves managing tasks in a to-do list. Your task is to refactor the code to use the forEach loop instead of the traditional for loop for better readability and simplicity.
 
 ```javascript
@@ -233,6 +248,7 @@ console.log(formattedTasks);
 ```
 
 ## Exercise 5: map
+
 You are working on a project that involves processing student information. An array called `students` contains student objects, each with properties `name`, `age`, and `grade`. Your task is to implement the function `getStudentNames` that transforms the `students` array using the `map` function.
 - Use the `map` function to extract only the `name` property from each student object.
 - Return an array containing only the student names.
@@ -320,4 +336,5 @@ console.log(totalExpenses);
 ```
 
 ## Exercise 7: Arrow Functions
+
 Rewrite all functions in the previous exercises as arrow functions.

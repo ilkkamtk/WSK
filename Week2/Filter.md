@@ -23,9 +23,7 @@ an arrow function to achieve this:
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 const oddNumbers = numbers.filter(number => number % 2 !== 0);
-
 console.log(oddNumbers);
 ```
 
@@ -46,8 +44,6 @@ In this example:
 - Unlike `forEach`, the `filter` method returns a new array and doesn't modify the original array.
   Certainly! Here's a concise comparison in one sentence:
 - The `map` method returns a new array with the same length as the original, applying a transformation to each element;
-  whereas, the `filter` method returns a new array with selected elements based on a condition, potentially resulting in
-  a shorter array.
+  whereas, the `filter` method returns a new array with selected elements based on a condition, potentially resulting in a shorter array.
 
-The `filter` method is a versatile tool for extracting elements that meet certain criteria from an array, and it's
-  particularly useful for data filtering tasks.
+The `filter` method is a versatile tool for extracting elements that meet certain criteria from an array, and it's particularly useful for data filtering tasks.
