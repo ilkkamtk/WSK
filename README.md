@@ -25,16 +25,16 @@ What is your major malfunction?
 
 1. [JS Toolchain](Week1/tools_pt2.md)
 2. [Node.js](Week1/node.md)
-3. [JavaScript recap - Conditional expressions and loops](Week1/JS-recap1.md)
-4. [JavaScript recap - Arrays and functions](Week1/JS-recap2.md)
+3. [JavaScript recap 1 - Conditional expressions and loops](Week1/JS-recap1.md)
+4. [JavaScript recap 2 - Arrays and functions](Week1/JS-recap2.md)
 
 ---
 
 ## Week 2 - JavaScript
 
-1. [JavaScript recap - DOM](Week2/JS-recap3.md)
-2. [JavaScript recap - Event handling](Week2/JS-recap4.md)
-3. [JavaScript recap - AJAX](Week2/JS-recap5.md)
+1. [JavaScript recap 3 - DOM](Week2/JS-recap3.md)
+2. [JavaScript recap 4 - Event handling](Week2/JS-recap4.md)
+3. [JavaScript recap 5 - AJAX](Week2/JS-recap5.md)
 4. [JavaScript - Arrow functions, special operators, destructuring, modules](Week2/AdvancedJavaScript1.md)
 5. [JavaScript - Array methods, foreach, map, filter reduce](Week2/AdvancedJavascript2.md)
 
