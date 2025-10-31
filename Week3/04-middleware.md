@@ -5,7 +5,9 @@ Middleware functions are functions that have access to the request object (`req`
 Study: [using middleware](https://expressjs.com/en/guide/using-middleware.html) and [writing middleware](https://expressjs.com/en/guide/writing-middleware.html) in Express.
 
 ---
+
 ## Third party middleware
+
 ### Assignment: Handling file uploads
 
 Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middleware like [Multer](https://github.com/expressjs/multer):
@@ -57,12 +59,15 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
     < ./image.jpg
     ------WebKitFormBoundary7MA4YWxkTrZu0gW--
     ```
+
 6. Commit your changes to version control.
 7. Push your code to your remote repository.
 8. Merge the `Assignment3` branch to `main` branch and push again.
 
 ---
+
 ## Custom middleware
+
 ### Assignment: creating thumbnail images
 
 1. Create a new branch `Assignment4` from `main`.
