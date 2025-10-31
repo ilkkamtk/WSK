@@ -31,7 +31,6 @@ fetch(requestURL, {
 3. Error Handling. Practice error handling while using the Fetch API
     - Attempt to make a GET request to a non-existent URL (e.g., `https://reqres.in/api/unknown/23`).
     - Handle the error using [try/catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) blocks.
-    - Also try other methods (POST, PUT, DELETE)
     - Log an error message to the console in case of an error.
     - 4p
 
@@ -39,8 +38,7 @@ fetch(requestURL, {
     - Define an async function named `fetchData` that takes two parameters: `url` and `options`.
     - Use the Fetch API with async/await to make a request to the specified `url` with the provided `options`.
     - If the response is not successful (status code other than
-      2xx), [throw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) an error with an
-      appropriate message.
+      2xx), [throw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) an error with an appropriate message.
     - Return the response as a JSON promise if successful.
     - When testing the function, call the `fetchData` function with the desired URL and options. Example:
 
