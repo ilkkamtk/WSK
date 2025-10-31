@@ -1,5 +1,7 @@
 # Database connection in Express
 
+Recap [relational databases and SQL](../project/databases.md).
+
 1. Create a new branch `Assignment5` from `main`.
 2. Import the [example database](https://gist.github.com/ilkkamtk/b03f47baea5fb83c06141038160cefaa) to your MySQL database on Metropolia's server.
    1. Create a database in https://amme.metropolia.fi/mysql/. Login with your Metropolia username and password. When creating the database **DO NOT USE THE SAME PASSWORD AS YOUR METROPOLIA ACCOUNT.**
@@ -105,11 +107,6 @@ export {listAllCats, findCatById, addCat, modifyCat, removeCat};
 
 Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference. Also update the user routes to use the database. When deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](https://gist.github.com/ilkkamtk/b87666ed682c2c6faea182ca215afaf5) to ensure data integrity.
 
-Get owners name when getting cats.
-
-Add endpoint to get cats by user id.
-
-Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
-
-
-
+1. Get owners name when getting cats.
+2. Add endpoint to get cats by user id.
+3. Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
