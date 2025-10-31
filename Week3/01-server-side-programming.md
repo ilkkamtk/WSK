@@ -72,6 +72,7 @@ Ruby on Rails, often referred to as Rails, is a web application framework writte
 REST APIs are popular due to their simplicity, scalability, and performance. When an API adheres to these principles, it's often referred to as a "RESTful" API.
 
 #### Alternatives to REST
+
 - [GraphQL](https://graphql.org/)
 - [gRPC](https://grpc.io/)
 - [tRPC](https://trpc.io/)

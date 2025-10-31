@@ -2,9 +2,9 @@
 
 <https://expressjs.com/>
 
->Fast, unopinionated, minimalist web framework for Node.js
+>Fast, unopinionated, minimalist (and most popular) web framework for Node.js
 
-Express provides a robust web application feature set and many [other popular frameworks](https://expressjs.com/en/resources/frameworks.html) are built on top of the Express framework.
+Express provides a robust set of features for web and mobile applications and is often used to build REST APIs. It is a thin layer built on top of Node.js that provides utility for many common tasks, such as routing and handling requests and responses.
 
 ## Installation
 
@@ -14,7 +14,7 @@ npm install express
 
 Express package is saved as a dependency in the project's `package.json` file.
 
-Node with Express:
+Simple server application with Express:
 
 ```js
 import express from 'express';
@@ -44,19 +44,10 @@ app.listen(port, hostname, () => {
 
 ### Serving static files
 
-1. Create a folder `src/public` and add any static files into it, e.g. html, css, js, images, etc.
-1. Serve the files: `app.use('/static', express.static(path.join(__dirname, 'public')));`
-1. Access the files in `public` folder at `http://localhost:3000/static/...`
-
-Note: If using ES modules (`import` statements instead of CommonJS `require()`) and `path.join()` when serving static files, you don't have `__dirname` variable by default. You need set it manually:
-
-```js
-import path from 'path';
-import {fileURLToPath} from 'url';
-...
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-```
+1. Create a folder `public` into your project folder and add any static files into it, e.g. html, css, js, images, etc.
+1. Serve the files using root URL: `app.use(express.static('public'));`
+   - or if you want to use a sub path in the URL for the files folder: `app.use('/static', express.static('public'));`
+1. Access the files in `public` folder at `http://localhost:3000/filename` when using root URL or `http://localhost:3000/static/filename` when using sub path
 
 ### Serving response in JSON format (for client-side rendering, CSR)
 
@@ -142,10 +133,11 @@ In the labs we are going to build a REST API with Express. The API will serve da
 
 
 1. Create a new project folder for this week's assignments and initialize a new Git repository.
+   - or you can use your GitHub template repository created in Week 1, remember to update the project name and description in `package.json` and `README.md`
 2. Add a `.gitignore` file to the project folder. Exclude `node_modules` and `.env` files from the repository. You can use [gitignore.io](https://www.toptal.com/developers/gitignore) to generate `.gitignore` files.
 3. Create a new branch 'Assignment1' and switch to it: `git checkout -b 'Assignment1'`
 4. Make sure to commit your changes and push to the Git repository regularly.
-5. Init [eslint, editorconfig and prettier](../Week1/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project. Note that now we are running code in Node, not browser.
+5. If starting with empty project, init [eslint, editorconfig and prettier](../Week1/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project. Note that now we are running code in Node, not browser.
 6. Enable ES Modules in Node.js by adding `"type": "module"` to `package.json`.
 7. Create a new Express project in the project folder based on the 'Hello world' example above.
    - install Express: `npm install express`
@@ -165,8 +157,8 @@ In the labs we are going to build a REST API with Express. The API will serve da
     - open a browser and navigate to `http://localhost:3000/api/v1/cat`
 10. Create new folder 'public' and add a some image file there. Serve the static files from the 'public' folder: `app.use('/public', express.static('public'));`
 11. Test that the image is served correctly by navigating to `http://localhost:3000/public/your-image.jpg`
-12. Add a start script to `package.json` to run the server with `node` instead of `nodemon`: `"start": "node app.js"`
+12. Add a `start` script to `package.json` to run the server with `node` instead of `nodemon`: `"start": "node app.js"`
 13. Commit and push branch 'Assignment1' to the remote repository.
 14. Merge the 'Assignment1' branch to the 'main' branch.
 15. Push your 'main' to a remote repository.
-16. Serve the project on a server (e.g. [Azure](https://www.youtube.com/playlist?list=PLKenVLUxjmH_1obN-sz7KvOcBHbRuTdiO), [Metropolia ecloud](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo), etc.) and test that it works.
+16. Optional but recommended: Serve the project on a server (e.g. [Azure](../project/cloud-deployment.md), [Metropolia ecloud](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo), etc.) and test that it works.
