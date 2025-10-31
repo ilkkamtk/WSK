@@ -1,7 +1,5 @@
 # Error Handling and Input Validation
 
----
-
 ## Handling Errors in Express
 
 - Study: [Error Handling](https://expressjs.com/en/guide/error-handling.html)
@@ -209,6 +207,7 @@ Input data validation in web applications is a critical process that ensures the
    
     export {validationErrors, ...};
     ```
+
 3. Add validation middleware to the route handler and validation rules to the request body fields
 
     ```js
@@ -286,8 +285,6 @@ Input data validation in web applications is a critical process that ensures the
 
 3. Test the endpoint with Postman or VSC REST Client
     - Try to send invalid data and verify that the validation works as expected
-
-
 
 ## Assignment 7, Input validation and error handling
 
