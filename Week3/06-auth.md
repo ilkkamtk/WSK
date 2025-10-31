@@ -168,6 +168,7 @@ In web applications, authentication is typically done by verifying a username an
       req.body.password = bcrypt.hashSync(req.body.password, 10);
     ...
     ```
+
 6. Create a new user and check that the password is hashed in the database.
 7. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
     - add a new route handler to `routes/auth-router.js`, controller method to `controllers/auth-controller.js`, and use the user model to query the database or create a new model for authentication.
@@ -322,9 +323,7 @@ In web applications, authentication is typically done by verifying a username an
 
 ---
 
-## Web Application Security
-
---- 
+## Web Application Security 
 
 ### Data Security
 
