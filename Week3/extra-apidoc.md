@@ -118,6 +118,7 @@
 - To use separate files you can add new folder `src/api/apidoc` and save your documentation files there as `*.js` files.
 - You can use for example ChatGPT or GitHub Copilot to generate the documentation. Don't try to generate the whole documentation all at once, but rather focus on one endpoint at a time: 
 - Example prompt:
+
     ```text
     I need REST api documentaion in APIDoc format to a separate file for the following end point:
     
@@ -158,8 +159,8 @@
         return false;
       }
     };
-    
     ```
+
 - The result should be an APIDoc for the `GET /user` endpoint. Save the result to a file `src/api/apidoc/user.js`. Create `POST`,  `PUT` and `DELETE` endpoints in the same manner and place them in the same file. 
 - Run APIDoc to generate the documentation and open the documentation in the browser to check that it looks good.
 - Obviously the documentation is not perfect, so you'll need to do some manual editing to make it represent the API correctly.
