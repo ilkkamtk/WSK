@@ -294,3 +294,14 @@ export {listAllCats, findCatById, addCat};
     1. `DELETE /api/v1/user/:id` - return hard coded json response: `{message: 'User item deleted.'}`
     1. Commit and push your branch changes to the remote repository.
 14. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

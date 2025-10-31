@@ -474,3 +474,14 @@ Think about your project requiremens. What kind of data is needed?
 1. Insert multiple records of mock data into the tables
 1. Think about use cases for the data from the application point of view and provide examples how to update, delete and query the data in a meaningful way
 1. Create a script including all your SQL statements (create tables, insert data, queries, updates, etc.)
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

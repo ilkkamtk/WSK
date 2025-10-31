@@ -373,3 +373,14 @@ Props and JSX work together in React to create dynamic and reusable components. 
     - Add propType validation for the `item` prop in the `MediaRow` component.
 8. You can use `index.css` for adding styles to your components.
 9. Commit your changes and push the branch to GitHub `git push origin first-component`
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
