@@ -464,9 +464,9 @@ DELETE FROM MediaItems WHERE media_id = 9632;
 
 ## Group assignment (project team)
 
-Think about your project requiremens. What kind of data is needed?
+Think about your project requirements. What kind of data is needed?
 
-1. Design tables for the app (in addition to the ones we already have in examples)
+1. Define what data needs permanent storage and design tables for your application
 1. Draw a diagram of the database structure (including relations between tables)
 1. Define the data types for the columns
 1. Define primary keys and foreign keys
