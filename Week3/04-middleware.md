@@ -38,26 +38,26 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
         - Filenames are automatically hashed.
         - If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
 5. Test the file upload with [Postman](https://www.postman.com/downloads/) or [VSCode REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension.
-   - Testing upload with VSCode REST Client example:
+   - Testing file upload (file 'test-cat.png' is being uploaded from the test folder) with VSCode REST Client example:
 
     ```http
-    POST http://localhost:3000/api/cat
-    Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-    
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
+    POST http://localhost:3000/api/media
+    Content-Type: multipart/form-data; boundary=----Boundary
+
+    ------Boundary
     Content-Disposition: form-data; name="title"
-    
-    New cat title
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
+
+    New cat image
+    ------Boundary
     Content-Disposition: form-data; name="user_id"
-    
-    1
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="file"; filename="image.jpg"
-    Content-Type: image/jpeg
-    
-    < ./image.jpg
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+    21
+    ------Boundary
+    Content-Disposition: form-data; name="file"; filename="image.png"
+    Content-Type: image/png
+
+    < ./test-cat.png
+    ------Boundary--
     ```
 
 6. Commit your changes to version control.
