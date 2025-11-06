@@ -41,23 +41,31 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
    - Testing file upload (file 'test-cat.png' is being uploaded from the test folder) with VSCode REST Client example:
 
     ```http
-    POST http://localhost:3000/api/media
-    Content-Type: multipart/form-data; boundary=----Boundary
+    POST http://127.0.0.1:3000/api/v1/cats HTTP/1.1
+    Content-Type: multipart/form-data; boundary=MyBoundary
 
-    ------Boundary
-    Content-Disposition: form-data; name="title"
+    --MyBoundary
+    Content-Disposition: form-data; name="cat_name"
 
-    New cat image
-    ------Boundary
-    Content-Disposition: form-data; name="user_id"
+    Misu
+    --MyBoundary
+    Content-Disposition: form-data; name="weight"
 
-    21
-    ------Boundary
-    Content-Disposition: form-data; name="file"; filename="image.png"
-    Content-Type: image/png
+    6
+    --MyBoundary
+    Content-Disposition: form-data; name="owner"
 
-    < ./test-cat.png
-    ------Boundary--
+    3602
+    --MyBoundary
+    Content-Disposition: form-data; name="birthdate"
+
+    2023-10-08
+    --MyBoundary
+    Content-Disposition: form-data; name="file"; filename="dog.jpg"
+    Content-Type: image/jpeg
+
+    < ./dog.jpg
+    --MyBoundary--
     ```
 
 6. Commit your changes to version control.
