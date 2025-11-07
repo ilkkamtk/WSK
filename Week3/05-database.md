@@ -3,7 +3,7 @@
 Recap [relational databases and SQL](../project/databases.md).
 
 1. Create a new branch `Assignment5` from `main`.
-1. Import the [example database](https://gist.github.com/ilkkamtk/b03f47baea5fb83c06141038160cefaa) to your MySQL database on Metropolia's server.
+1. Import the [example database](../database/cats-db.sql) to your MySQL database on Metropolia's server.
    1. Create a database in https://amme.metropolia.fi/mysql/. Login with your Metropolia username and password. When creating the database **DO NOT USE THE SAME PASSWORD AS YOUR METROPOLIA ACCOUNT.**
    2. Open https://users.metropolia.fi/phpMyAdmin/
    3. Select your database from the left sidebar
@@ -12,7 +12,7 @@ Recap [relational databases and SQL](../project/databases.md).
    6. Note that you need to use Metropolia network when accessing to mysql.metropolia.fi from your app (eduroam or VPN)
 1. **Optionally**, you can use local MySQL/MariaDB server for development.
    1. Install MariaDB or MySQL server on your computer.
-   1. Create a new database and database user with all privileges to the database using the MySQL clent:
+   1. Create a new database and database user with all privileges to the database using the MySQL client:
 
    ```sql
    -- You can replace 'wskcats' with your desired database name
@@ -26,7 +26,7 @@ Recap [relational databases and SQL](../project/databases.md).
    FLUSH PRIVILEGES;
    ```
 
-   1. Use the same `cats.sql` script file to create the tables.
+   1. Use the same [cats-db.sql](../database/cats-db.sql) script file to create the tables.
 1. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
     - `.env` file is used to store sensitive data like database credentials and should not be committed to version control (remember to add to `.gitignore`).
     - Add `.env` file to the project root folder and add the following content to it:
