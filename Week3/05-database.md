@@ -8,7 +8,7 @@ Recap [relational databases and SQL](../project/databases.md).
    2. Open https://users.metropolia.fi/phpMyAdmin/
    3. Select your database from the left sidebar
    4. Click on the `SQL` tab
-   5. Copy the content of the `example-database.sql` file and paste it into the SQL query window and press `Go`
+   5. Copy the content of the `cats-db.sql` file and paste it into the SQL query window and press `Go`
    6. Note that you need to use Metropolia network when accessing to mysql.metropolia.fi from your app (eduroam or VPN)
 1. **Optionally**, you can use local MySQL/MariaDB server for development.
    1. Install MariaDB or MySQL server on your computer.
@@ -125,7 +125,7 @@ export {listAllCats, findCatById, addCat, modifyCat, removeCat};
 
 1. Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference.
 1. Update the user routes to use the database.
-   - Note: when deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](https://gist.github.com/ilkkamtk/b87666ed682c2c6faea182ca215afaf5) to ensure data integrity.
+   - Note: when deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](../database/transaction-example.js) to ensure data integrity.
 1. Add owner's name to response json when getting cats.
 1. Add endpoint to get cats by user id.
 1. Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
