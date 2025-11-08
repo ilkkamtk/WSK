@@ -70,7 +70,7 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 
 6. Commit your changes to version control.
 7. Push your code to your remote repository.
-8. Merge the `Assignment3` branch to `main` branch and push again.
+8. Merge the `assignment3` branch to `main` branch and push again.
 
 ---
 
@@ -78,8 +78,9 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 
 ### Assignment: creating thumbnail images
 
-1. Create a new branch `Assignment4` from `main`.
-2. Create a new file `./src/middlewares.js` and add a new middleware function `createThumbnail` that creates a thumbnail image from the uploaded image.
+1. Create a new branch `assignment4` from `main`.
+1. Create a new folder `src/middlewares`
+2. Create a new file `src/middlewares/thumbnail.js` and add a new middleware function `createThumbnail` that creates a thumbnail image from the uploaded image.
     - Use [sharp](https://sharp.pixelplumbing.com/) to create the thumbnail.
        - Mac/linux users install version 0.32.6 of sharp to avoid issues _(not fixed yet, spring 2024)_
     - The middleware should be used after the file upload middleware.
@@ -97,10 +98,10 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
       }
       console.log(req.file.path);
       // TODO: use file path to create 160x160 png thumbnail with sharp
-      next()
+      next();
     };
     
-    export { createThumbnail };
+    export {createThumbnail};
     ```
    
 3. Add the middleware to the `/` route for post method in `cat-router.js`.
