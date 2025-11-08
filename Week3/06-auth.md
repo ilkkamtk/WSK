@@ -2,11 +2,11 @@
 
 ---
 
-#### Authentication
+### Authentication
 
 Authentication is the process of verifying the identity of a user. It is the process of determining whether someone or something is, in fact, who or what it is declared to be.
 
-#### Authorization
+### Authorization
 
 Authorization is the process of determining whether a user has permission to perform a specific action. It is the process of granting or denying access to a network resource.
 
@@ -152,7 +152,7 @@ In web applications, authentication is typically done by verifying a username an
 
 ### Assignment
 
-1. Create new branch `Assignment6` based on `main`
+1. Create new branch `assignment6` based on `main`
 2. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 3. Install [bcrypt](https://www.npmjs.com/package/bcrypt)
 4. Generate a secret key for signing the tokens and store it in the `.env` file: `JWT_SECRET=...`
@@ -170,13 +170,13 @@ In web applications, authentication is typically done by verifying a username an
     ```
 
 6. Create a new user and check that the password is hashed in the database.
-7. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
+7. Create a route `POST /api/v1auth/login` that accepts a username and password in the request body.
     - add a new route handler to `routes/auth-router.js`, controller method to `controllers/auth-controller.js`, and use the user model to query the database or create a new model for authentication.
-8. In the user model implement a method for getting user by username and returning the user object if found:
+8. In the user model implement a method for fetching user by username and returning the user object if found:
 
    ```js
    ...
-   const login = async (user) => {
+   const findUserByUsername = async (user) => {
        const sql = `SELECT *
                  FROM wsk_users 
                  WHERE username = ?`;
@@ -189,18 +189,19 @@ In web applications, authentication is typically done by verifying a username an
     ```js
     import jwt from 'jsonwebtoken';
     import bcrypt from 'bcrypt';
-    import {getUserByUsername} from '../models/user-model.js';
+    import {findUserByUsername} from '../models/user-model.js';
     import 'dotenv/config';
     
     const postLogin = async (req, res) => {
       console.log('postLogin', req.body);
-      const user = await getUserByUsername(req.body.username);
+      const user = await findUserByUsername(req.body.username);
       if (!user) {
         res.sendStatus(401);
         return;
       }
     
-      if (!bcrypt.compareSync(req.body.password, user.password)) {
+      const passwordMatch = await bcrypt.compare(req.body.password, user.password);
+      if (!passwordMatch) {
         res.sendStatus(401);
         return;
       }
@@ -214,7 +215,7 @@ In web applications, authentication is typically done by verifying a username an
       };
 
       const token = jwt.sign(userWithNoPassword, process.env.JWT_SECRET, {
-        expiresIn: '24h',
+        expiresIn: '24h', // token expiration time, e.g. 24 hours, can be configured in .env too
       });
       res.json({user: userWithNoPassword, token});
     };
@@ -222,10 +223,10 @@ In web applications, authentication is typically done by verifying a username an
     export {postLogin};
     ```
 
-    - if the user is found, `jsonwebtoken` is used to generate a JWT token and then token is sent back to the client along with the user object.
-    - Remember to not send the password back to the client.
+    - If the user is found, `jsonwebtoken` is used to generate a JWT token and then token is sent back to the client along with the user object.
+    - Do not send the password (even hashed) back to the client.
 
-10. Create a middleware for handling requests to endpoints where authentication is needed `middlewares.js`
+10. Create a middleware for handling requests to endpoints where authentication is needed `src/middlewares/authentication.js`
 
      ```js
      import jwt from 'jsonwebtoken';
@@ -249,10 +250,10 @@ In web applications, authentication is typically done by verifying a username an
        }
      };
 
-     export {authenticateToken, andOthersIfYouHave};
+     export {authenticateToken};
      ```
 
-11. Add a new route handler for `GET /api/auth/me` that returns the user object based on the token in the request header:
+11. Add a new route handler for `GET /api/v1/auth/me` that returns the user object based on the token in the request header:
 
      ```js
      // controller:
@@ -287,23 +288,26 @@ In web applications, authentication is typically done by verifying a username an
      }
      ```
 
-     - Check the response and copy the token from the response body.
+     - Check the response and copy the token from the response body
+     - When using VS Code REST client you can store the token to variable
 
      ```http
+     @token = <put-your-token-from-login-response-here>
+
      ### Get my user info
      GET http://localhost:3000/api/v1/auth/me
-     Authorization: Bearer <put-your-token-from-login-response-here>
+     Authorization: Bearer {{token}}
      ```
-
+     
+     - Use the `Authorization` header with `Bearer <token>` for all routes that need authentication
      - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
 
 13. Now you can use the authentication middleware with any route where needed.
      - Information about the authenticated user is passed to the controller in `res.locals.user` object.
-
 14. Implement authorization for protected routes, e.g.:
-     - `PUT /api/cat/:id` - only file owner can update cats
-     - `DELETE /api/cat/:id` - only file owner can delete cat
-     - `PUT /api/users/` - users can update only their own user info
+     - `PUT /api/v1/cats/:id` - only file owner can update cats
+     - `DELETE /api/v1/cats/:id` - only file owner can delete cat
+     - `PUT /api/v1/users/` - users can update only their own user info
      - and so on...
      - describe your rules in report/readme/docs
 15. Implement user roles (e.g. admin, user) with different permissions (role based resource authorization)
@@ -314,12 +318,13 @@ In web applications, authentication is typically done by verifying a username an
          - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
          - With users, it is easier to block unauthorized access in the controller. If `res.locals.user.user_id` is the same as `req.params.id`  or if `res.locals.user.role` is 'admin' then continue, else return 403. Note that `res.locals.user` is number and `req.params.id` is string
 16. Test the authorization rules with Postman or VS Code REST Client.
-17. Test the app with the front end from [this ZIP](../zip/cat-ui.zip).
+17. You can test the app also with the front end from [this ZIP](../zip/cat-ui.zip).
    - Unzip and use VSCode Live Server to open the `index.html` folder.
    - You'll notice that nothing works. Look at the console and network tabs in the browser developer tools to see what's going on. You'll see some CORS errors (scroll down this page for more info on CORS).
    - Fix the CORS errors by adding `cors` middleware to your Express app: `npm i cors`. Then add `app.use(cors())` to your `app.js` file.
-17. Commit your changes to version control.
-18. Merge the `Assignment6` branch to the `main` branch and push the changes to the remote repository.
+   - You can prevent CORS issues by serving the front-end application from the same origin as the back-end, e.g. using Express static middleware (see `public` folder in our example).
+18. Commit your changes to version control.
+19. Merge the `assignment6` branch to the `main` branch and push the changes to the remote repository.
 
 ---
 
@@ -428,9 +433,11 @@ Reading:
 - [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 - [OWASP NodeJS Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html)
 
-### Password Hashing
+### Password Security
 
 - Read: [Salted Password Hashing - Doing it Right](https://crackstation.net/hashing-security.htm)
+- xkcd comic classics: [Password Strength](https://xkcd.com/936/), [Password Reuse](https://xkcd.com/792/)
+- [How long it takes to crack a password?](https://www.hivesystems.com/password)
 
 ---
 

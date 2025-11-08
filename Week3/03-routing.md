@@ -180,12 +180,12 @@ const postCat = (req, res) => {
 };
 
 const putCat = (req, res) => {
-  // not implemented in this example, this is future homework
+  // not implemented in this example, this is homework
   res.sendStatus(200);
 };
 
 const deleteCat = (req, res) => {
-  // not implemented in this example, this is future homework
+  // not implemented in this example, this is homework
   res.sendStatus(200);
 };
 
@@ -237,7 +237,7 @@ export {listAllCats, findCatById, addCat};
 
 ## Assignment
 
-1. Create a new branch `Assignment2`
+1. Create a new branch `assignment2`
 2. Create a new folder `src` in your project folder and move your `app.js` file there.
 3. To make the express app easier to test, create `src/index.js` file and import `app.js` from the `src` folder:
 

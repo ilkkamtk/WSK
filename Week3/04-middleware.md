@@ -109,4 +109,4 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 5. Check the `uploads` folder after uploading to see file with `_thumb` suffix.
 6. Commit your changes to version control.
 7. Push your code to your remote repository.
-8. Merge the `Assignment4` branch to `main` branch and push again.
+8. Merge the `assignment4` branch to `main` branch and push again.
