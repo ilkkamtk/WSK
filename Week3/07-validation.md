@@ -11,7 +11,7 @@
     - If the error handler middleware is called, the next middleware in the chain is skipped
     - Error handler middleware should be the last middleware in the chain
 
-1. Add error handler middleware functions to _middlewares.js_:
+1. Add error handler middleware functions to `src/middlewares/error-handlers.js`:
 
     ```js
     ...
@@ -55,7 +55,7 @@
 
     ```js
     // user-controller.js
-    import {addUser} from '../models/user-model.mjs';
+    import {addUser} from '../models/user-model.js';
 
     const postUser = async (req, res, next) => {
       // validation errors can be retrieved from the request object (added by express-validator middleware)
@@ -75,8 +75,8 @@
     ```
 
     ```js
-    // media-controller.mjs
-    const postMedia = async (req, res, next) => {
+    // cat-controller.js
+    const postCat = async (req, res, next) => {
       // check if file is rejected by multer
       if (!req.file) {
         const error = new Error('Invalid or missing file');
@@ -84,12 +84,9 @@
         next(error);
       }
    
-      const {title, description} = req.body;
-      const {filename, mimetype, size} = req.file;
-      // req.user is added by authenticateToken middleware
-      const user_id = req.user.user_id;
-      const newMedia = {title, description, user_id, filename, mimetype, size};
-      const result = await addMedia(newMedia);
+      ...
+     
+      const result = await addCat(newCat);
       if (result.error) {
         return next(new Error(result.error));
       }
@@ -98,9 +95,10 @@
     ...
     ```
 
-    - Modify _middlewares/upload.mjs_ to pass the error to the error handler middleware
+    - Modify `src/middlewares/upload.js` to pass the error to the error handler middleware and move the multer configuration from `cat-router.js` to `middlewares/upload.js` if not done already:
 
     ```js
+    // add multer import
     // multer configuration
     const upload = multer({
       dest: 'uploads/',
@@ -121,11 +119,13 @@
     ...
     ```
 
+    - Import the `upload` middleware in `cat-router.js` and use it in POST route just like before
+
 4. Test the error handler by sending invalid requests to the API, for example:
-    - `POST /api/users` with an empty request body
-    - `POST /api/media` with an empty request body
-    - `POST /api/media` with a file that is not an image or video
-    - `POST /api/media` with a file that is larger than 10 MB
+    - `POST /api/v1/users` with an empty request body
+    - `POST /api/v1/cats` with an empty request body
+    - `POST /api/v1/cats` with a file that is not an image or video
+    - `POST /api/v1/cats` with a file that is larger than 10 MB
 
 ---
 
@@ -179,8 +179,7 @@ Input data validation in web applications is a critical process that ensures the
     - What about a rule like: "_confirm_password_: required, must match password"? - not needed on server-side, important on client-side
 
 1. Install `express-validator`
-
-2. Handle validation errors in `middleware.js`
+2. Handle validation errors in `middlewares/error-handlers.js`, add new middleware function and required imports & exports:
 
     ```js
     import {validationResult} from 'express-validator';
@@ -230,7 +229,7 @@ Input data validation in web applications is a critical process that ensures the
 4. Test the endpoint with Postman or VSC REST Client
     - Try to send invalid data and verify that the validation works as expected
 
-### Example 2: File upload (`POST /api/cats`)
+### Example 2: File upload (`POST /api/v1/cats`)
 
 - Validation rules:
     - _cat_name_: required, 3-50 characters
@@ -240,32 +239,7 @@ Input data validation in web applications is a critical process that ensures the
     - _file_: required, max. 10 MB, only images or videos allowed
         - file needs to be validated with Multer's [fileFilter](https://github.com/expressjs/multer#filefilter)
 
-1. Use fileFilter to validate the file itself, multer can be configured in a separate file, e.g. _middlewares.js_:
-
-    ```js
-    import multer from 'multer';
-    ...
-    // multer configuration
-    const upload = multer({
-      dest: 'uploads/',
-      limits: {
-        fileSize: 10 * 1024 * 1024, // max 10 MB
-      },
-      fileFilter: (req, file, cb) => {
-        // allow only images and videos
-        if (file.mimetype.startsWith('image/') || file.mimetype.startsWith('video/')) {
-          // accept file
-          cb(null, true);
-        } else {
-          // reject file
-          cb(null, false);
-        }
-      },
-    });
-    export {upload, ...};
-    ```
-
-2. Add validation middleware to the route handler and validation rules to the request body fields
+1. Add validation middleware to the route handler and validation rules to the request body fields
 
     ```js
     ...
@@ -283,14 +257,14 @@ Input data validation in web applications is a critical process that ensures the
     ...
     ```
 
-3. Test the endpoint with Postman or VSC REST Client
+1. Test the endpoint with Postman or VSCode REST Client
     - Try to send invalid data and verify that the validation works as expected
 
 ## Assignment 7, Input validation and error handling
 
-1. Continue your existing Express app and create a new branch `Assignment7` from `main`
+1. Continue your existing Express app and create a new branch `assignment7` from `main`
 1. Implement error handler middleware
-    - Use the error handler in your controllers instead of "hard-coded" sending error responses
+    - Use the error handler in your controllers instead of sending "hard-coded" error responses
 1. Implement proper server-side validation and sanitization for all input data
     - Use [express-validator](https://express-validator.github.io/docs/)
     - Specify the validation rules for each field in the request bodies
