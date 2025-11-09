@@ -207,11 +207,12 @@ Input data validation in web applications is a critical process that ensures the
     export {validationErrors, ...};
     ```
 
-3. Add validation middleware to the route handler and validation rules to the request body fields
+3. Add validation middleware to the route handler and validation rules to the request body fields, user creation example for `user-router.js`:
 
     ```js
     ...
     import {body} from 'express-validator';
+    import {validationErrors} from '../../middlewares/error-handlers.js';
     ...
     // routes for /api/users/
     userRouter.route('/')
@@ -239,12 +240,13 @@ Input data validation in web applications is a critical process that ensures the
     - _file_: required, max. 10 MB, only images or videos allowed
         - file needs to be validated with Multer's [fileFilter](https://github.com/expressjs/multer#filefilter)
 
-1. Add validation middleware to the route handler and validation rules to the request body fields
+1. Add validation middlewares to the route handler and validation rules to the request body fields
 
     ```js
     ...
     import {body} from 'express-validator';
-    import {upload} from '../../middlewares.js';
+    import {validationErrors} from '../../middlewares/error-handlers.js';
+    import {upload} from '../../middlewares/upload.js';
     ...
     catRouter
       .route('/')
@@ -252,7 +254,8 @@ Input data validation in web applications is a critical process that ensures the
       .post(
         authenticateToken,
         upload.single('file'),
-        // TODO: add validation rules here
+        // TODO: add validation and sanitization rules here
+        validationErrors,
         postCat);
     ...
     ```
