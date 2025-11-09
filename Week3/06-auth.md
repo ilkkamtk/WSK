@@ -288,8 +288,8 @@ In web applications, authentication is typically done by verifying a username an
      }
      ```
 
-     - Check the response and copy the token from the response body
-     - When using VS Code REST client you can store the token to variable
+     - Check the response and copy the token from the response body and use it in the requests for routes that need authentication
+     - When using VS Code REST Client you can store the token to variable:
 
      ```http
      @token = <put-your-token-from-login-response-here>
