@@ -38,6 +38,8 @@ Recap [relational databases and SQL](../project/databases.md).
     DB_NAME=myusername # replace with your database name
     ```
 
+1. Add line `.env` to `.gitignore`.
+    - You can store a template of the file in version control as `.env.example`, just remove all sensitive data before committing.
 1. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
 1. Create a new file `src/utils/database.js` and add the following code to it:
 
@@ -60,7 +62,9 @@ Recap [relational databases and SQL](../project/databases.md).
 
 ### MySQL2 examples
 
-JavaScript variables in SQL queries should be handled using [prepared statements](https://github.com/sidorares/node-mysql2#using-prepared-statements) to prevent SQL injection attacks.
+JavaScript variables in SQL queries should be handled using [prepared statements](https://sidorares.github.io/node-mysql2/docs#using-prepared-statements) to prevent SQL injection attacks.
+
+>If you have parameters (`SELECT * FROM user WHERE user_id = ?` for an example) in your query then suggestion is to use `execute()` method by default, and only use `query()` when hitting prepared statement syntax limitations (for example, sql IN statement).
 
 _cat-model.js:_
 
