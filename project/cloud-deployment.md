@@ -215,7 +215,7 @@ This can be done later when you have your Express application ready for deployme
 
    ```bash
    # Download the setup script:
-   curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+   curl -fsSL https://deb.nodesource.com/setup_24.x -o nodesource_setup.sh
    # Run the setup script:
    sudo -E bash nodesource_setup.sh
    # Install node.js:
