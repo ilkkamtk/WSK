@@ -85,14 +85,10 @@ export default Example;
   up a subscription, and manually changing the DOM.
 - `useEffect` runs after the component renders and after every re-render.
 - `useEffect` takes a function as an argument. This function is the effect.
-- Second argument to `useEffect` is an array of values (dependencies). If any of the values change, the effect is
-  re-run. If the array is empty, the effect is only run once, after the initial render. If you omit the second argument,
-  the effect is run after every render which is not recommended.
-    - **Infinte re-renders can occur** if there is a problem with the dependencies. E.g., if you forget to add the
-      dependencies to the array or if you add a dependency that changes every time the component renders.
+- Second argument to `useEffect` is an array of values (dependencies). If any of the values change, the effect is re-run. If the array is empty, the effect is only run once, after the initial render. If you omit the second argument, the effect is run after every render which is not recommended.
+    - **Infinte re-renders can occur** if there is a problem with the dependencies. E.g., if you forget to add the dependencies to the array or if you add a dependency that changes every time the component renders.
 - You can have multiple `useEffect` hooks in a component.
-- Cleanup function can be returned from the effect. This function runs before the component is removed from the UI to
-  prevent memory leaks.
+- Cleanup function can be returned from the effect. This function runs before the component is removed from the UI to prevent memory leaks.
 - Example of `useEffect` hook with cleanup function:
 
 ```jsx
@@ -114,23 +110,18 @@ function Example() {
 export default Example;
 ```
 
-- In the example the cleanup function is used to clear the timer when the component is removed from the UI. Without it
-  the timer would continue to run and cause a memory leak. To test it without the cleanup function, remove
-  the `return () => clearTimeout(timer);` line. You will see in the console that the timer continues to run even after
-  the component is removed from the UI (e.g., if you navigate to another page and then back to the page with the timer).
+- In the example the cleanup function is used to clear the timer when the component is removed from the UI. Without it the timer would continue to run and cause a memory leak. To test it without the cleanup function, remove the `return () => clearTimeout(timer);` line. You will see in the console that the timer continues to run even after the component is removed from the UI (e.g., if you navigate to another page and then back to the page with the timer).
 - Typical situations where cleanup functions are used:
-    - Timers
-    - Event listeners
-    - Subscriptions
-        - the term subscription refers to a mechanism for receiving notifications when new data is available. To use
-          subscriptions you would need to use a library such as [RxJS](https://rxjs.dev/) which is not covered in this
-          course.
+  - Timers
+  - Event listeners
+  - Subscriptions
+    - the term subscription refers to a mechanism for receiving notifications when new data is available. To use subscriptions you would need to use a library such as [RxJS](https://rxjs.dev/) which is not covered in this course.
 
 ## useRef
+
 - `useRef` is usually used to access DOM elements or to store mutable values.
    - in React, you should avoid using DOM-related APIs directly, such as `document.getElementById` or `document.querySelector`
-- `useRef` can also be used to store mutable values that are not part of the state like the previous value of a prop or state
-  variable. When the value changes, the ref will not re-render the component.
+- `useRef` can also be used to store mutable values that are not part of the state like the previous value of a prop or state variable. When the value changes, the ref will not re-render the component.
 - `useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). For example:
    - `const someHTMLElement = useRef(null);`
    - `someHTMLElement.current` can then be used to access the DOM element.
@@ -138,38 +129,37 @@ export default Example;
 ## Lab assignment 1
 
 1. Continue last exercise. Create a new branch 'hooks' with git.
-2. Delete the hard coded `mediaArray` from `Home`component.
-    - The data for the media items will be fetched from a static JSON file using
-      the [fetchData](https://gist.github.com/ilkkamtk/cb8230539e10f103c36613c338851a5c) function and the `useEffect`
-      hook.
+2. Delete the hard coded `mediaArray` from `Home` component.
+    - The data for the media items will be fetched from a static JSON file using the [fetchData](https://gist.github.com/ilkkamtk/cb8230539e10f103c36613c338851a5c) function and the `useEffect` hook.
 3. Create a new state `mediaArray` and a function `setMediaArray` using the `useState` hook:
     - `const [mediaArray, setMediaArray] = useState([]);`
     - The initial value of the state is an empty array.
-4. Create a new function `getMedia` that fetches the media items from the JSON file using the `fetchData` function and
-   updates the `mediaArray` state using the `setMediaArray` function.
-    - Download [test.json](https://gist.github.com/ilkkamtk/9b935c507d1f5b67ada63169e76009f1) and save it to
-      the `public` folder.
+4. Create a new function `getMedia` that fetches the media items from the JSON file using the `fetchData` function and updates the `mediaArray` state using the `setMediaArray` function.
+    - Download [test.json](https://gist.github.com/ilkkamtk/9b935c507d1f5b67ada63169e76009f1) and save it to the `public` folder.
+
     ```jsx
     const getMedia = async () => {
        const json = await fetchData('test.json');
        setMediaArray(json);
-   };
-   getMedia();
+    };
+    getMedia();
    
-   console.log(mediaArray);
+    console.log(mediaArray);
     ```
+
 5. Open the browser console and check that the media items are logged to the console. What do you notice?
     - The `getMedia` function is called every time the component renders. Why?
 6. The function should be called from a `useEffect` hook.
     - The function should be called only once, after the initial render. So the second argument of the `useEffect` hook
       should be an empty array (for now):
+
     ```jsx
     useEffect(() => {
         getMedia();
     }, []);
     ```
-7. Check that the media items are logged to the console only once. (Or actually twice, because the React is in
-   development mode.)
+
+7. Check that the media items are logged to the console only once. (Or actually twice, because the React is in development mode.)
 8. Use try/catch to catch errors in the `getMedia` function.
     - If an error occurs, log the error to the console.
 9. Git add, commit & push to remote repository
@@ -182,14 +172,11 @@ export default Example;
    - Works only in Metropolia's network or VPN.
    - Open the APIDoc to accept the self-signed certificate.
 3. Replace `test.json` with `import.meta.env.VITE_MEDIA_API + '/media'` in `getMedia` function.
-4. Next we want to display the owner's username with the media item. The owner's id is in the media item, but we need to
-   fetch the username from the User API.
+4. Next we want to display the owner's username with the media item. The owner's id is in the media item, but we need to fetch the username from the User API.
 5. Edit `.env.local` to include `VITE_AUTH_API=https://media2.edu.metropolia.fi/auth-api/api/v1` environment variable.
    - [APIDoc is here](https://media2.edu.metropolia.fi/auth-api/)
    - Open the APIDoc to accept the self-signed certificate.
-6. Each media item has `user_id` property, which means that we need to make multiple requests to the API. We can
-   use [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to
-   make multiple requests and combine the results to a single array. Example:
+6. Each media item has `user_id` property, which means that we need to make multiple requests to the API. We can use [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to make multiple requests and combine the results to a single array. Example:
 
    ```jsx
     const newArray = Promise.all(array.map(async (item) => {
@@ -209,6 +196,7 @@ export default Example;
 9. Add the owner's username to the `MediaRow` and `Single`/`SingleView` components.
 
 ## Submit
+
 1. Run `npm build` or `npm run build`
 2. Move build folder to your public_html
 3. Test your app: `http://users.metropolia.fi/~username/hooks`
