@@ -134,7 +134,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 
 9. Add `handleInputChange` and `handleSubmit` to the `<form>` and `<input>` components. Which one goes where?
 10. Test the form. Check the console. What is happening?
-11. In APiHooks.js create a new hook `useAuthentication`. Create `postLogin` function to `useAuthentication`:
+11. In `apiHooks.js` create a new hook `useAuthentication`. Create `postLogin` function to `useAuthentication`:
 
      ```javascript
      const postLogin = async (inputs) => {

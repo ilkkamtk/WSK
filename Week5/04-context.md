@@ -2,29 +2,23 @@
 
 ## Context
 
-- Context is a way to share state between components without having to pass props down the component tree manually at
-  every level.
-- Context is designed to share data that can be considered “global” for a tree of React components, such as the current
-  authenticated user, theme, or preferred language.
+- Context is a way to share state between components without having to pass props down the component tree manually at every level.
+- Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
 - Context is primarily used when some data needs to be accessible by many components at different nesting levels.
-- There are other ways to share state between components, such as using [Redux](https://redux.js.org/) or [Zustand](https://github.com/pmndrs/zustand) if you need more advanced
-  state management.
+- There are other ways to share state between components, such as using [Redux](https://redux.js.org/) or [Zustand](https://github.com/pmndrs/zustand) if you need more advanced state management.
 
 ## Context API
 
 - [Context](https://react.dev/learn/passing-data-deeply-with-context) is created with `createContext`.
 - It returns a `Provider` component and a `Consumer` component.
 - **Provider:**
-    - The `Provider` is used to wrap components and share the context values down the component tree. The `useContext`
-      hook relies on the existence of a `Provider` higher up in the component tree to obtain the context values.
-
+    - The `Provider` is used to wrap components and share the context values down the component tree. The `useContext` hook relies on the existence of a `Provider` higher up in the component tree to obtain the context values.
 - **Consumer:**
-    - Is a bit deprecated. It is used to consume the context values. It is not used as much as it used to be, because
-      the `useContext` hook is more convenient.
+    - Is a bit deprecated. It is used to consume the context values. It is not used as much as it used to be, because the `useContext` hook is more convenient.
 
 Example:
 
-**MyContext.js:**
+_MyContext.js_:
 
 ```jsx
 import React, {createContext, useContext} from 'react';
@@ -44,7 +38,7 @@ export const MyProvider = ({children}) => {
 export const useMyContext = () => useContext(MyContext);
 ```
 
-**App.js:**
+_App.js_:
 
 ```jsx
 import React from 'react';
@@ -64,7 +58,7 @@ function App() {
 export default App;
 ```
 
-**ComponentA.js:**
+_ComponentA.js_:
 
 ```jsx
 import React from 'react';
@@ -78,7 +72,7 @@ const ComponentA = () => {
 export default ComponentA;
 ```
 
-**ComponentB.js:**
+_ComponentB.js_:
 
 ```jsx
 import React from 'react';
@@ -97,8 +91,9 @@ export default ComponentB;
 - Context is often used to share state between components.
 - In the following example we will create a context for the currently logged-in user.
 
+_UserContext.jsx_:
+
 ```jsx
-// UserContext.jsx
 import {createContext, useContext, useState} from 'react';
 
 const UserContext = createContext(null);
@@ -116,8 +111,9 @@ export const UserProvider = ({children}) => {
 export const useUser = () => useContext(UserContext);
 ```
 
+_Profile.jsx_:
+
 ```jsx
-// Profile.jsx
 import {useUser} from '../contexts/UserContext';
 
 const Profile = () => {
@@ -142,17 +138,14 @@ export default Profile;
 ## Lab assignment 1
 
 1. Continue last exercise. Create a new branch 'context' with git.
-2. In this exercise we will use context to share the currently logged-in user between components. We will use the
-   context to define is the user logged in or not and to show the appropriate links in the navigation and protect
-   necessary routes.
-3. We will use the `UserContext.jsx` file from the previous example as a starting point, but we will also add functions
-   to the context to handle the login and logout functionalities.
-4. Create `contexts` folder in the `src` of your project. Add `UserContext.jsx` file to the `contexts` folder.
+2. In this exercise we will use context to share the currently logged-in user between components. We will use the context to define is the user logged in or not and to show the appropriate links in the navigation and protect necessary routes.
+3. We will use the `UserContext.jsx` file from the previous example as a starting point, but we will also add functions to the context to handle the login and logout functionalities.
+4. Create `contexts` folder in the `src` of your project. Add `UserContext.jsx` file to the `contexts` folder:
+
     ```jsx
-    // UserContext.jsx
-    import { createContext, useState } from 'react';
-    import { useAuthentication, useUser } from '../hooks/apiHooks';
-    import { useNavigate } from 'react-router';
+    import {createContext, useState} from 'react';
+    import {useAuthentication, useUser} from '../hooks/apiHooks';
+    import {useNavigate} from 'react-router';
     
     const UserContext = createContext(null);
     
@@ -202,15 +195,15 @@ export default Profile;
             </UserContext.Provider>
         );
     };
-    export { UserProvider, UserContext };
+    export {UserProvider, UserContext};
    ```
-    - Note that in this case we don't make a custom hook in the context file, because linter will recommend to create
-      the custom hook in a separate file.
+
+    - Note that in this case we don't make a custom hook in the context file, because linter will recommend to create the custom hook in a separate file.
 5. Create `contextHooks.js` to `hooks` folder:
+
    ```jsx
-   // contextHooks.js
-   import { useContext } from 'react';
-   import { UserContext } from '../contexts/UserContext';
+   import {useContext} from 'react';
+   import {UserContext} from '../contexts/UserContext';
     
    // Current recommendation is to use custom hook instead of the context directly
    // this way we don't have errors when UserContext is not defined or null (thats why we have the if statement)
@@ -224,12 +217,13 @@ export default Profile;
        return context;
    };
     
-   export { useUserContext };
+   export {useUserContext};
    ```
+
 6. Add `UserProvider` to `App.jsx`:
+
    ```jsx
-   // App.jsx
-   import { UserProvider } from './contexts/UserContext';
+   import {UserProvider} from './contexts/UserContext';
     
    const App = () => {
      return (
@@ -241,15 +235,16 @@ export default Profile;
      );
    }
    ```
+
     - Note that the provider must be inside the Router and outside the Routes.
 7. Now we can use the context in our components. For example in `LoginForm.jsx`:
+
    ```jsx
-   // LoginForm.jsx
-   import { useUserContext } from '../hooks/contextHooks';
+   import {useUserContext} from '../hooks/contextHooks';
    
    ...
    
-   const { handleLogin } = useUserContext();
+   const {handleLogin} = useUserContext();
    
    const doLogin = async () => {
         try {
@@ -263,16 +258,15 @@ export default Profile;
 8. Use `handleLogout` in `Logout.jsx` to log out the user.
 9. Use `handleAutoLogin` in `Layout.jsx` to check if there is a valid token in local storage when the app is loaded.
 10. Also in `Layout.jsx` use the `user` from the context to show the appropriate links in the navigation.
-11. Test the app. Check the console. What is happening? When you are logged out and write `/profile` to the address bar,
-    what happens? You can still access the profile page, so we need to protect the route.
+11. Test the app. Check the console. What is happening? When you are logged out and write `/profile` to the address bar, what happens? You can still access the profile page, so we need to protect the route.
 12. Add new component `ProtectedRoute.jsx` to `src/components` folder:
-    ```jsx
-    // ProtectedRoute.jsx
-    import { Navigate } from 'react-router';
-    import { useUserContext } from '../hooks/contextHooks';
 
-    const ProtectedRoute = ({ children }) => {
-        const { user } = useUserContext();
+    ```jsx
+    import {Navigate} from 'react-router';
+    import {useUserContext} from '../hooks/contextHooks';
+
+    const ProtectedRoute = ({children}) => {
+        const {user} = useUserContext();
     
         if (!user) {
             return <Navigate to="/" />;
@@ -283,11 +277,11 @@ export default Profile;
     
     export default ProtectedRoute;
     ```
-    - This component is used to protect routes that require the user to be logged in. If the user is not logged in, the
-      component will redirect to the home page.
+
+    - This component is used to protect routes that require the user to be logged in. If the user is not logged in, the component will redirect to the home page.
 13. Use `ProtectedRoute` in `App.jsx` to protect the necessary routes:
+
     ```jsx
-    // App.jsx
     import ProtectedRoute from './components/ProtectedRoute';
     
     ...
@@ -301,14 +295,13 @@ export default Profile;
         }
     />
     ```
-14. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page
-    anymore.
+
+14. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page anymore.
 15. Login, open one of the protected routes and then refresh the page. What happens? Why?
-16. If you want to automatically redirect to the same page you can use the useLocation hook in UserContext.jsx:
+16. If you want to automatically redirect to the same page you can use the useLocation hook in `UserContext.jsx`:
     
     ```jsx
-    // UserContext.jsx
-    import { useLocation, useNavigate } from 'react-router';
+    import {useLocation, useNavigate} from 'react-router';
     
     ...
 
@@ -331,6 +324,7 @@ export default Profile;
         }
     };
     ```
+
     - Now when you refresh the page, you will be redirected to the same page.
 
 ## Submit

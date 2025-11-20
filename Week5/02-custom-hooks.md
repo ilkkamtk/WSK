@@ -17,7 +17,7 @@
 1. Continue last exercise. Create a new branch 'custom-hooks' with git.
 2. Create `hooks` folder in the `src` of your project. Add `apiHooks.js` file to the `hooks` folder.
 3. The idea is to make hooks for each path in the APIs we are using: login, users, media, etc.
-4. Create a custom hook `useMedia` to `ApiHooks.js` and move the functionalities from `Home.jsx` that are used to fetch media from the APIs to the useMedia hook:
+4. Create a custom hook `useMedia` to `apiHooks.js` and move the functionalities from `Home.jsx` that are used to fetch media from the APIs to the useMedia hook:
 
    ```jsx
    // TODO: add necessary imports
