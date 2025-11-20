@@ -155,7 +155,11 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
        - [Documentation](https://media2.edu.metropolia.fi/auth-api/#api-User-CreateUser).
     - remember to handle errors from promises with try/catch
 12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
-13. display user's info (username, email etc.) in Profile.js. For this functionality you need to add a new hook `useUser` to `apiHooks`. Create a new function `getUserByToken` to `useUser` hook. `getUserByToken` should get the user data from the Auth API from this endpoint: [/users/token](https://media2.edu.metropolia.fi/auth-api/#api-User-CheckToken). Use the token from localStorage as a parameter for the `fetchData` function. Then use `getUserByToken` in Profile.js to get the user data and display it.
+13. Display user's info (username, email etc.) in `Profile.jsx`. For this functionality you need to add a new hook `useUser` to `apiHooks`.
+    - Create a new function `getUserByToken` to `useUser` hook. 
+    - `getUserByToken` should fetch the user data from the Auth API from this endpoint: [/users/token](https://media2.edu.metropolia.fi/auth-api/#api-User-CheckToken) by using the `fetchData` function.
+    - Use `useEffect` in `Profile.jsx` to get the user data and display it in JSX. Use the token from `localStorage` as a parameter when calling the `getUserByToken` function.
+    - Token should be sent in the `Authorization` header as `Bearer <token>` in the GET request.
 14. Make `RegisterForm` component have similar functionality as `LoginForm`, but it should create a new user, so it also features an `email` field. Use the same `useForm` hook to get the values from input fields.
     - Instead of `doLogin` use `doRegister` as the name for the function that is called when the form is submitted.
     - Create `postUser` function to `useUser` hook. `postUser` should post the form data to the Auth API to this endpoint: [/users](https://media2.edu.metropolia.fi/auth-api/#api-User-CreateUser).
