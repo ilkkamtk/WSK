@@ -149,10 +149,10 @@ export default Profile;
     
     const UserContext = createContext(null);
     
-    const UserProvider = ({ children }) => {
+    const UserProvider = ({children}) => {
         const [user, setUser] = useState(null);
-        const { postLogin } = useAuthentication();
-        const { getUserByToken } = useUser();
+        const {postLogin} = useAuthentication();
+        const {getUserByToken} = useUser();
         const navigate = useNavigate();
         
         // login, logout and autologin functions are here instead of components
@@ -171,7 +171,7 @@ export default Profile;
             try {
                 // TODO: remove token from local storage
                 // TODO: set user to null
-                // TODO: navigate to home
+                // TODO: navigate to home or login page
             } catch (e) {
                 console.log(e.message);
             }
@@ -190,13 +190,13 @@ export default Profile;
         };
                
         return (
-            <UserContext.Provider value={{ user, handleLogin, handleLogout, handleAutoLogin }}>
+            <UserContext.Provider value={?what to provide?}>
                 {children}
             </UserContext.Provider>
         );
     };
     export {UserProvider, UserContext};
-   ```
+    ```
 
     - Note that in this case we don't make a custom hook in the context file, because linter will recommend to create the custom hook in a separate file.
 5. Create `contextHooks.js` to `hooks` folder:
