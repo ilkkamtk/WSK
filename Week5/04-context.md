@@ -16,7 +16,7 @@
 - **Consumer:**
     - Is a bit deprecated. It is used to consume the context values. It is not used as much as it used to be, because the `useContext` hook is more convenient.
 
-Example:
+### Example
 
 _MyContext.js_:
 
