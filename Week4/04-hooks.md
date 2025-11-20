@@ -130,7 +130,8 @@ export default Example;
 
 1. Continue last exercise. Create a new branch 'hooks' with git.
 2. Delete the hard coded `mediaArray` from `Home` component.
-    - The data for the media items will be fetched from a static JSON file using the [fetchData](https://gist.github.com/ilkkamtk/cb8230539e10f103c36613c338851a5c) function and the `useEffect` hook.
+    - The data for the media items will be fetched from a static JSON file using the [fetchData](fetch-data.js) utility function and the `useEffect` hook.
+    - Put the `fetchData` function to a separate file `fetchData.js` in the `src/utils` folder and import from there.
 3. Create a new state `mediaArray` and a function `setMediaArray` using the `useState` hook:
     - `const [mediaArray, setMediaArray] = useState([]);`
     - The initial value of the state is an empty array.
