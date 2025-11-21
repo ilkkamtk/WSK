@@ -55,7 +55,7 @@
                         src={
                             file
                             ? URL.createObjectURL(file)
-                            : 'https://via.placeholder.com/200?text=Choose+image'
+                            : 'https://placehold.co/200?text=Choose+image'
                         }
                         alt="preview"
                         width="200"
