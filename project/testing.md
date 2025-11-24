@@ -121,7 +121,7 @@ Run your tests by running the script defined in your `package.json`: `npm test`
 
 Jest will execute the tests and display the results in the terminal.
 
-## test(), it() and describe()
+#### test(), it() and describe()
 
 In testing frameworks like Jest `test`, `describe`, and `it` are used to structure and organize your test suites and individual test cases. Here's when and how to use each of these:
 
@@ -163,12 +163,187 @@ In testing frameworks like Jest `test`, `describe`, and `it` are used to structu
 - Use `describe` to group related tests and provide context.
 - Use descriptive names for `describe`, `test`, and `it` to make your test suite more readable and maintainable.
 
-## Additional Considerations
+### Additional Considerations
 
 1. [Mocking](https://vitest.dev/guide/mocking.html)
 2. [Matchers](https://vitest.dev/api/expect.html): Vitest comes with a variety of built-in matchers (
    like `.toBe()`, `.toEqual()`, etc.) that help you write expressive assertions.
 3. Testing Frameworks: Besides Jest, other popular testing frameworks for JavaScript and TypeScript include Vitest, Mocha and Jasmine.
 4. Coverage Reporting: You can also configure Jest to generate code coverage reports, helping you identify areas of your codebase that lack testing coverage by adding the `--coverage` flag to your `test` script in `package.json`.
+
+---
+
+## React Component Testing
+
+### Tools
+
+- [Vitest](https://vitest.dev/guide/) is a Vite-native testing framework and compatible with [Jest](https://jestjs.io/).
+- [React Testing Library](https://github.com/testing-library/react-testing-library/blob/main/README.md) provides React DOM testing utilities.
+- [jest-dom](https://github.com/testing-library/jest-dom/blob/main/README.md) is used for DOM assertions.
+- [jsdom](https://github.com/jsdom/jsdom/blob/main/README.md) is used for simulating a browser environment in Node for testing purposes.
+
+### Setup testing environment
+
+1. Install libraries: `npm install --save-dev vitest jsdom @testing-library/react @testing-library/jest-dom @types/jest`
+1. Add test script to `package.json`:
+
+    ```json
+    "test": "vitest run"
+    ```
+
+1. Create `vitest-setup.js`:
+
+    ```js
+    import {afterEach} from 'vitest';
+    import {cleanup} from '@testing-library/react';
+    import '@testing-library/jest-dom/vitest';
+
+    // reset jsdom (simulated browser) after each test
+    afterEach(() => {
+      cleanup();
+    });
+    ```
+
+1. Update `vite.config.ts` by addin test configuration:
+
+    ```ts
+    /// <reference types="vitest/config" /> // https://vitest.dev/config/
+    import {defineConfig} from 'vite';
+    import react from '@vitejs/plugin-react-swc';
+
+    // https://vite.dev/config/
+    export default defineConfig({
+      plugins: [react()],
+      test: {
+        environment: 'jsdom',
+        globals: true,
+        setupFiles: './vitest-setup.js',
+      },
+    });
+    ```
+
+### Simple examples
+
+#### Profile view component
+
+1. Create `src/tests/Profile.test.tsx`:
+
+    ```ts
+    import {render, screen} from '@testing-library/react';
+    import Profile from '../views/Profile';
+
+    test('renders correct content for the headline', () => {
+
+      // render the Profile component in jsdom (simulated browser)
+      render(<Profile />);
+
+      // find the element with the text 'Profile'
+      const element = screen.getByText(
+        'Profile',
+      );
+      
+      // check that the element is found (not undefined)
+      expect(element).toBeDefined();
+    });
+    ```
+
+1. Run tests: `npm test`
+   - Finds and runs all files with extensions `.test.ts(x)` and `.spec.ts(x)`
+   - Use `tsx` extension for React component tests and `ts` for "plain" TypeScript files (e.g. unit tests).
+1. Change the content of `h2` and try again
+
+### Dummy upload component
+
+_Upload.tsx_:
+
+```tsx
+import {useState} from 'react';
+
+const Upload = () => {
+  const [uploading, setUploading] = useState(false);
+  return (
+    <>
+      <h2>Upload</h2>
+      <button
+        onClick={() => {
+          setUploading(true);
+          setTimeout(() => {
+            setUploading(false);
+          }, 3000);
+        }}
+      >
+        Upload
+      </button>
+      {uploading && <p>Uploading...</p>}
+    </>
+  );
+};
+
+export default Upload;
+```
+
+_Upload.test.tsx_:
+
+```tsx
+import {fireEvent, render, screen} from '@testing-library/react';
+import Upload from '../views/Upload';
+
+test('renders h2 headline', () => {
+  render(<Upload />);
+  const header = screen.getByRole('heading', {
+      level: 2,
+    })
+  expect(header).toBeDefined();
+});
+
+test('displays uploading notification after button is clicked', () => {
+  render(<Upload />);
+  // simulates clicking the button
+  fireEvent.click(screen.getByRole('button'));
+  expect(screen.getByText('Uploading...')).toBeDefined();
+});
+```
+
+---
+
+## Integration testing
+
+Integration testing is a level of software testing where individual units or components are combined and tested as a group. The purpose of integration testing is to verify that different modules or services used by your application work well together. It focuses on the interactions between components, ensuring that they communicate and function correctly when integrated. Focus areas of integration testing include:
+
+- **Component Interaction**: Integration testing focuses on verifying the interaction and collaboration between different software components or modules. It ensures that these components work cohesively when combined.
+- **Data Flow Validation**: Integration tests examine the flow of data between various parts of the system. They validate that data is transferred correctly and processed accurately as it moves between different components.
+- **API Endpoint Testing**: Integration testing involves verifying the interactions between various API endpoints. Ensure that endpoints are properly connected and function as expected, covering typical use cases, error handling, and edge cases.
+
+### Checklist
+
+Things to consider when writing comprehensive integration tests:
+
+1. **Use Random Data**: Utilize random data, such as usernames and emails, to prevent clashes with existing data in the database. This ensures test isolation.
+2. **Clean-Up After Tests**: Always remember to delete or clean up any data that the tests have added. Utilize "beforeEach" or "afterEach" hooks for a clean slate for each test case.
+3. **Separate Tests by Concerns**: Group tests by concerns or features. Organize tests into sections like "test create user," "test login," "test image upload," for clarity.
+4. **Use Descriptive Test Names**: Ensure test case names are descriptive and indicative of what is being tested for easy comprehension.
+5. **Arrange, Act, Assert (AAA)**: Follow the AAA pattern for test cases - Arrange, Act, and Assert. Set up data, perform actions, and verify outcomes.
+6. **Comments and Documentation**: Add comments or documentation within test code to explain the test's purpose and specific conditions.
+7. **Separate Unit and Integration Tests**: Separate unit tests (testing individual functions or components) from integration tests (testing interactions between components).
+8. **Test Coverage**: Aim for good test coverage, including normal and edge cases to catch potential issues.
+9. **Test for Error Cases**: Test error cases to ensure graceful handling of invalid input or error conditions.
+10. **Mock External Dependencies**: Use mocks or stubs for external dependencies (databases, APIs) to isolate tests from actual external behavior.
+11. **Parameterized Tests**: Consider parameterized tests to run the same test with different input data for robustness.
+12. **Continuous Integration**: Integrate tests into the continuous integration (CI) pipeline for automatic testing on code changes.
+13. **Test Security**: If dealing with sensitive data or authentication, include security tests to verify security measures.
+14. **Performance Testing**: Add performance tests to evaluate API performance under various loads.
+15. **Regression Testing**: Regularly run tests to detect regressions when new features or changes are introduced to the codebase.
+
+### Exercise
+
+[Example Express project with integration test assignments](https://github.com/ilkkamtk/integration-testing-exercise-js?tab=readme-ov-file#rest-api-integration-testing-and-end-to-end-testing)
+
+---
+
+## End-to-End Testing
+
+End-to-end (E2E) testing is a software testing methodology that involves testing an application from start to finish, simulating real user scenarios. The goal of E2E testing is to ensure that the entire application functions as expected, including all its components and integrations.
+
+[Material and examples for E2E testing with Playwright](https://github.com/JuhQ/e2e-playwright)
 
 ---
