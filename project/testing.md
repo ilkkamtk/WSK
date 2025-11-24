@@ -333,7 +333,127 @@ Things to consider when writing comprehensive integration tests:
 14. **Performance Testing**: Add performance tests to evaluate API performance under various loads.
 15. **Regression Testing**: Regularly run tests to detect regressions when new features or changes are introduced to the codebase.
 
-### Exercise
+### API testing with [supertest](https://github.com/ladjs/supertest#readme) and [Jest](https://jestjs.io/)
+
+Supertest is a popular library for testing Node.js HTTP servers. It provides a high-level abstraction for testing HTTP requests and responses, making it easy to write integration tests for your API endpoints. Jest is a widely used testing framework for JavaScript and TypeScript applications and can be used in conjunction with Supertest to create comprehensive integration tests for your API. 
+
+1. Install tools: `npm install --save-dev supertest jest`
+1. Add test script to `package.json`:
+
+    ```json
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    ```
+
+    - `--experimental-vm-modules` flag is needed to run Jest with ES modules (`import` statements instead of `require`).
+
+1. When using eslint, add `globals.jest` to your eslint config file to avoid "NN is not defined" errors:
+
+    ```js
+    languageOptions: {globals: {...globals.node, ...globals.jest}},
+    ```
+
+1. Create a test file, e.g., `test/api.test.js`:
+
+    ```js
+    import request from 'supertest';
+    import app from '../src/app'; // your Express app
+
+    describe('Test User endpoints', () => {
+
+      describe('POST /api/v1/users', () => {
+        it('should create a new user', async () => {
+          const newUser = {
+            name: 'Test User',
+            username: 'testuser',
+            email: 'testuser@example.com',
+            role: 'user',
+            password: 'password123',
+          };
+          const res = await request(app)
+            .post('/api/v1/users')
+            .send(newUser)
+            .set('Accept', 'application/json');
+          // TODO: add all relevant assertions here
+          expect(res.statusCode).toEqual(201);
+          expect(res.body).toHaveProperty('result');
+          expect(res.body.result.user_id).toBeDefined();
+        });
+      });
+
+      describe('GET /api/v1/users', () => {
+        it('should return a list of users', async () => {
+          const res = await request(app)
+            .get('/api/v1/users')
+            .set('Accept', 'application/json');
+          expect(res.statusCode).toEqual(200);
+          expect(res.body).toBeInstanceOf(Array);
+        });
+      });
+
+    });
+
+    describe('Test Authentication endpoints', () => {
+      let token;
+      describe('POST /api/v1/auth/login', () => {
+        it('should login a user and return a token', async () => {
+          const user = {
+            username: 'testuser',
+            password: 'password123',
+          };
+          const res = await request(app)
+            .post('/api/v1/auth/login')
+            .send(user)
+            .set('Accept', 'application/json');
+          // TODO: add all relevant assertions here
+          expect(res.statusCode).toEqual(200);
+          expect(res.body).toHaveProperty('user');
+          expect(res.body.token).toBeDefined();
+          token = res.body.token;
+        });
+      });
+
+      describe('GET /api/v1/auth/me', () => {
+        it('should return a list of users', async () => {
+          const res = await request(app)
+            .get('/api/v1/auth/me')
+            .set('Authorization', `Bearer ${token}`)
+            .set('Accept', 'application/json');
+          // TODO: add all relevant assertions here
+          expect(res.statusCode).toEqual(200);
+          expect(res.body).toHaveProperty('user');
+        });
+      });
+    });
+    ```
+
+1. Add function to close the database connection after tests are done. e.g. in `src/utils/database.js`:
+
+    ```js
+    // function to close pool
+    const closePool = async () => {
+      await promisePool.end();
+    };
+    export {closePool};    
+    ```
+
+1. Add `afterAll` hook to close the database connection after all tests are done to `api.test.js`:
+
+    ```js
+    import {closePool} from '../utils/database';
+
+    afterAll(async () => {
+      await closePool();
+    });
+    ```
+
+1. Run tests: `npm test` and verify that tests pass.
+1. You should add tests for all API endpoints. Things to consider:
+   - Check both success and error cases.
+   - Use token for all authenticated endpoints.
+   - Clean up any data created during tests. e.g delete users created by tests.
+   - You can split tests into multiple files for better organization, and import them into a main test file.
+
+### API testing exercise
 
 [Example Express project with integration test assignments](https://github.com/ilkkamtk/integration-testing-exercise-js?tab=readme-ov-file#rest-api-integration-testing-and-end-to-end-testing)
 
