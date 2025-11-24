@@ -168,7 +168,7 @@ In testing frameworks like Jest `test`, `describe`, and `it` are used to structu
 1. [Mocking](https://vitest.dev/guide/mocking.html)
 2. [Matchers](https://vitest.dev/api/expect.html): Vitest comes with a variety of built-in matchers (
    like `.toBe()`, `.toEqual()`, etc.) that help you write expressive assertions.
-3. Testing Frameworks: Besides Jest, other popular testing frameworks for TypeScript include Vitest, Mocha and Jasmine.
+3. Testing Frameworks: Besides Jest, other popular testing frameworks for JavaScript and TypeScript include Vitest, Mocha and Jasmine.
 4. Coverage Reporting: You can also configure Jest to generate code coverage reports, helping you identify areas of your codebase that lack testing coverage by adding the `--coverage` flag to your `test` script in `package.json`.
 
 ---
