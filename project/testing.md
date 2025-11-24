@@ -77,7 +77,6 @@ Testing frameworks are essential tools for software testing. They provide a set 
 - [TDD](https://youtu.be/Jv2uxzhPFl4)
 - [Types of tests](https://youtu.be/4-_0aTlkqK0)
 - [One take on unit tests](https://youtu.be/ZGKGb109-I4)
-- [API testing](https://www.sisense.com/blog/rest-api-testing-strategy-what-exactly-should-you-test/)
 
 ---
 
