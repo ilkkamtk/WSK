@@ -10,7 +10,7 @@
 2. Add `VITE_UPLOAD_SERVER=https://media2.edu.metropolia.fi/upload-api/api/v1` to `.env.local` file. This is the file server where we will upload the files.
    - [APIDoc](https://media2.edu.metropolia.fi/upload-api)
 2. Create `Upload.jsx` to `views`
-3. Add `upload` to routing in App.jsx
+3. Add `upload` to routing in App.jsx (if not done already)
    - Add `Upload` to imports
    - Add `<Route path="/upload" element={<Upload/>}/>` to `Routes`
    - Add `<Link to="/upload">Upload</Link>` to `Nav` in `Layout.jsx`
@@ -103,7 +103,8 @@
     const postFile = async (file, token) => {
         // TODO: create FormData object
         // TODO: add file to FormData
-        // TODO: upload the file to file server and get the file data (url = import.meta.env.VITE_UPLOAD_SERVER + '/upload')
+        // TODO: upload the file to file server and get the file data, use upload api endpoint
+        // - add authorization header with token, content-type is set automatically when using FormData
         // TODO: return the file data.
     };
     ```
