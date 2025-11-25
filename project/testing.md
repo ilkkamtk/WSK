@@ -164,9 +164,8 @@ In testing frameworks like Jest `test`, `describe`, and `it` are used to structu
 
 ### Additional Considerations
 
-1. [Mocking](https://vitest.dev/guide/mocking.html)
-2. [Matchers](https://vitest.dev/api/expect.html): Vitest comes with a variety of built-in matchers (
-   like `.toBe()`, `.toEqual()`, etc.) that help you write expressive assertions.
+1. [Mocking](https://jestjs.io/docs/mock-functions)
+2. [Matchers](https://jestjs.io/docs/using-matchers): Jest comes with a variety of built-in matchers (like `.toBe()`, `.toEqual()`, etc.) that help you write expressive assertions.
 3. Testing Frameworks: Besides Jest, other popular testing frameworks for JavaScript and TypeScript include Vitest, Mocha and Jasmine.
 4. Coverage Reporting: You can also configure Jest to generate code coverage reports, helping you identify areas of your codebase that lack testing coverage by adding the `--coverage` flag to your `test` script in `package.json`.
 
@@ -229,6 +228,8 @@ In testing frameworks like Jest `test`, `describe`, and `it` are used to structu
 
     ```ts
     import {render, screen} from '@testing-library/react';
+    // you should have created Profile component earlier
+    // this test assumes that Profile component displays 'Profile' headline
     import Profile from '../views/Profile';
 
     test('renders correct content for the headline', () => {
@@ -413,7 +414,7 @@ Supertest is a popular library for testing Node.js HTTP servers. It provides a h
       });
 
       describe('GET /api/v1/auth/me', () => {
-        it('should return a list of users', async () => {
+        it('should return user info based on auth token', async () => {
           const res = await request(app)
             .get('/api/v1/auth/me')
             .set('Authorization', `Bearer ${token}`)
