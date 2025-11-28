@@ -57,12 +57,12 @@
 2. Now we add likes to the media items. The user can like a media item only once.
 3. Create a new component `Likes.jsx` in the `components` folder.
 4. Add a button to the `Likes` component. The button can have just text or a heart icon. You can decide. It also needs to show the number of likes.
-5. Add new hook `useLike` to `apiHooks.js`. The hook should have functions `postLike`, `deleteLike`, `getLikesByMediaId` and `getLikesByUser`. Use the same URL as in the `MediaAPI` for liking media items.
-6. Create states for `likes` and `userLikes` in the `Likes` component. These are used to store all the likes of the media item and whether the user has liked the media item.
+5. Add new hook `useLike` to `apiHooks.js`. The hook should have functions `postLike`, `deleteLike`, `getLikeCountByMediaId` and `getLikeByUser`. Use the `MediaAPI`'s [likes endpoints](https://media2.edu.metropolia.fi/media-api/#api-Like) for required functionality.
+6. Create states for `likeCount` and `userLike` in the `Likes` component. These are used to store all the likes of the media item and whether the user has liked the media item.
 7. Use `useEffect` to get the likes of the media item when the component is mounted.
 8. Add event listener to the button. If the user has liked the media item, the button should show that the user has liked the media item. If the user hasn't liked the media item, the button should show that the user can like the media item.
 9. Add a function to the button that posts a like to the media item if the user hasn't liked the media item. If the user has liked the media item, the function should delete the like.
-10. Add the `Like` component to the `SingleView` component. The button should be active only when the user is logged in. The number of likes should be shown always.
+10. Add the `Likes` component to the `SingleView` component. The button should be active only when the user is logged in. The number of likes should be shown always.
 
 ## Submit
 
