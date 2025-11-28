@@ -160,7 +160,7 @@ export default Example;
     }, []);
     ```
 
-7. Check that the media items are logged to the console only once. (Or actually twice, because the React is in development mode.)
+7. Check that the media items are logged to the console only once. (Or actually twice, because the React is in development mode. This is normal and expected behavior when [running the app in development (strict) mode](https://react.dev/reference/react/StrictMode).)
 8. Use try/catch to catch errors in the `getMedia` function.
     - If an error occurs, log the error to the console.
 9. Git add, commit & push to remote repository
