@@ -3,6 +3,7 @@
 A self-invoking function, also known as an Immediately Invoked Function Expression (IIFE), is a JavaScript function that is defined and executed immediately after its creation. It is often used to create a private scope for variables and functions, preventing them from polluting the global scope.
 
 **Syntax:**
+
 ```javascript
 (function() {
   // Function body

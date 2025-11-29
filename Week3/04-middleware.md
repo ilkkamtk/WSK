@@ -5,7 +5,9 @@ Middleware functions are functions that have access to the request object (`req`
 Study: [using middleware](https://expressjs.com/en/guide/using-middleware.html) and [writing middleware](https://expressjs.com/en/guide/writing-middleware.html) in Express.
 
 ---
+
 ## Third party middleware
+
 ### Assignment: Handling file uploads
 
 Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middleware like [Multer](https://github.com/expressjs/multer):
@@ -36,37 +38,49 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
         - Filenames are automatically hashed.
         - If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
 5. Test the file upload with [Postman](https://www.postman.com/downloads/) or [VSCode REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension.
-   - Testing upload with VSCode REST Client example:
+   - Testing file upload (file 'test-cat.png' is being uploaded from the test folder) with VSCode REST Client example:
 
     ```http
-    POST http://localhost:3000/api/cat
-    Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-    
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="title"
-    
-    New cat title
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="user_id"
-    
-    1
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="file"; filename="image.jpg"
+    POST http://127.0.0.1:3000/api/v1/cats HTTP/1.1
+    Content-Type: multipart/form-data; boundary=MyBoundary
+
+    --MyBoundary
+    Content-Disposition: form-data; name="cat_name"
+
+    Misu
+    --MyBoundary
+    Content-Disposition: form-data; name="weight"
+
+    6
+    --MyBoundary
+    Content-Disposition: form-data; name="owner"
+
+    3602
+    --MyBoundary
+    Content-Disposition: form-data; name="birthdate"
+
+    2023-10-08
+    --MyBoundary
+    Content-Disposition: form-data; name="file"; filename="dog.jpg"
     Content-Type: image/jpeg
-    
-    < ./image.jpg
-    ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+    < ./dog.jpg
+    --MyBoundary--
     ```
+
 6. Commit your changes to version control.
 7. Push your code to your remote repository.
-8. Merge the `Assignment3` branch to `main` branch and push again.
+8. Merge the `assignment3` branch to `main` branch and push again.
 
 ---
+
 ## Custom middleware
+
 ### Assignment: creating thumbnail images
 
-1. Create a new branch `Assignment4` from `main`.
-2. Create a new file `./src/middlewares.js` and add a new middleware function `createThumbnail` that creates a thumbnail image from the uploaded image.
+1. Create a new branch `assignment4` from `main`.
+1. Create a new folder `src/middlewares`
+2. Create a new file `src/middlewares/upload.js` and add a new middleware function `createThumbnail` that creates a thumbnail image from the uploaded image.
     - Use [sharp](https://sharp.pixelplumbing.com/) to create the thumbnail.
        - Mac/linux users install version 0.32.6 of sharp to avoid issues _(not fixed yet, spring 2024)_
     - The middleware should be used after the file upload middleware.
@@ -84,10 +98,10 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
       }
       console.log(req.file.path);
       // TODO: use file path to create 160x160 png thumbnail with sharp
-      next()
+      next();
     };
     
-    export { createThumbnail };
+    export {createThumbnail};
     ```
    
 3. Add the middleware to the `/` route for post method in `cat-router.js`.
@@ -95,4 +109,4 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 5. Check the `uploads` folder after uploading to see file with `_thumb` suffix.
 6. Commit your changes to version control.
 7. Push your code to your remote repository.
-8. Merge the `Assignment4` branch to `main` branch and push again.
+8. Merge the `assignment4` branch to `main` branch and push again.

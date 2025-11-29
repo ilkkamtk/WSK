@@ -2,45 +2,36 @@
 
 ### [Self-Invoking Functions (IIFE)](iife.md)
 
-- Self-invoking functions, also known as Immediately Invoked Function Expressions (IIFE), are JavaScript functions that
-  are defined and executed immediately upon creation.
-- They create a private scope for variables and functions, aiding in encapsulation, avoiding global pollution, and
-  enabling modular code organization.
+- Self-invoking functions, also known as Immediately Invoked Function Expressions (IIFE), are JavaScript functions that are defined and executed immediately upon creation.
+- They create a private scope for variables and functions, aiding in encapsulation, avoiding global pollution, and enabling modular code organization.
 
 ---
 
 ### [Arrow Functions](ArrowFunctions.md)
 
-- Arrow functions are a concise way to define functions in JavaScript, utilizing the => syntax for compact and readable
-  code.
-- They automatically capture the surrounding context (this) and have a shorter syntax compared to traditional function
-  expressions.
+- Arrow functions are a concise way to define functions in JavaScript, utilizing the => syntax for compact and readable code.
+- They automatically capture the surrounding context (this) and have a shorter syntax compared to traditional function expressions.
 
 ---
 
 ### [Special Operators](SpecialOperators.md)
 
-- Special operators in JavaScript include the ternary operator (? :), optional chaining (?.), the nullish coalescing
-  operator (??) and Spread and Rest operators.
-- These operators provide advanced capabilities like conditional expressions, handling optional properties, and
-  providing default values in a succinct and efficient manner.
+- Special operators in JavaScript include the ternary operator (? :), optional chaining (?.), the nullish coalescing operator (??) and Spread and Rest operators.
+- These operators provide advanced capabilities like conditional expressions, handling optional properties, and providing default values in a succinct and efficient manner.
 
 ---
 
 ### [Destructuring](Destructuring.md)
 
-- Destructuring is a feature that allows you to extract values from arrays or objects and assign them to variables using
-  a concise syntax.
-- It simplifies data manipulation, parameter handling, and object property extraction, enhancing code readability and
-  reducing redundancy.
+- Destructuring is a feature that allows you to extract values from arrays or objects and assign them to variables using a concise syntax.
+- It simplifies data manipulation, parameter handling, and object property extraction, enhancing code readability and reducing redundancy.
 
 ---
 
 ### [Modules](Modules.md)
 
 - Modules provide a way to organize and structure code by splitting it into reusable and independent units.
-- They encapsulate variables, functions, or classes, enabling better code maintainability, reducing naming conflicts,
-  and promoting modularity in larger projects.
+- They encapsulate variables, functions, or classes, enabling better code maintainability, reducing naming conflicts, and promoting modularity in larger projects.
 
 ---
 
@@ -52,9 +43,7 @@
 
 ### Enhancing the Modular Restaurant App
 
-In this assignment, your objective is to finalize the restaurant app by incorporating modular components, arrow
-functions, special operators, and applying destructuring where appropriate. You'll be enhancing the existing codebase to
-create a more organized, maintainable, and efficient application.
+In this assignment, your objective is to finalize the restaurant app by incorporating modular components, arrow functions, special operators, and applying destructuring where appropriate. You'll be enhancing the existing codebase to create a more organized, maintainable, and efficient application.
 
 **Requirements:**
 
@@ -62,17 +51,13 @@ create a more organized, maintainable, and efficient application.
     - Convert all standard function expressions to arrow function expressions.
 
 2. **Integrate Special Operators:**
-    - Utilize special operators like the ternary operator (`? :`) where applicable for improved property access and
-      handling.
+    - Utilize special operators like the ternary operator (`? :`) where applicable for improved property access and handling.
 
 3. **Apply Destructuring:**
-    - Implement destructuring to extract necessary properties from objects, enhancing data manipulation and function
-      parameter handling.
+    - Implement destructuring to extract necessary properties from objects, enhancing data manipulation and function parameter handling.
 
 4. **Modular UI Components:**
-    - Create separate modules for UI components, such as `restaurantRow` and `restaurantModal`, to encapsulate the
-      HTML
-      generation for restaurant rows and modal content.
+    - Create separate modules for UI components, such as `restaurantRow` and `restaurantModal`, to encapsulate the HTML generation for restaurant rows and modal content.
     - Steps:
         1. Create new file `components.js`.
         2. Define the `restaurantRow` function:
@@ -112,6 +97,7 @@ create a more organized, maintainable, and efficient application.
             // new
             const row = restaurantRow(restaurant);
             ```
+
         7. Modify this part to crete the modal content with `restaurantModal`:
 
             ```javascript
@@ -152,10 +138,5 @@ create a more organized, maintainable, and efficient application.
 
 **Note:**
 
-- Ensure that your app retains its core functionality, including fetching restaurant data, displaying it in a table, and
-  showing detailed restaurant and menu information in a modal.
-- Focus on improving code organization, reusability, and readability by effectively utilizing modular UI components and
-  the specified JavaScript concepts.
-
-
-
+- Ensure that your app retains its core functionality, including fetching restaurant data, displaying it in a table, and showing detailed restaurant and menu information in a modal.
+- Focus on improving code organization, reusability, and readability by effectively utilizing modular UI components and the specified JavaScript concepts.

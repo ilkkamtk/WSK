@@ -3,6 +3,7 @@
 The `reduce` method is used to accumulate values from an array into a single result by repeatedly applying a given function.
 
 **Syntax:**
+
 ```javascript
 const result = array.reduce((accumulator, currentValue, index, array) => {
   // Return the updated accumulator value
@@ -22,9 +23,7 @@ Suppose you have an array of numbers, and you want to calculate their sum using 
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-
 const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
 console.log(sum);
 ```
 

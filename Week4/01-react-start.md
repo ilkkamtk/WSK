@@ -38,11 +38,13 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
       - VS Code + extensions, add 'ES7+ React/Redux/React-Native snippets'
       - Browser + dev tools (+ [React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi))
     - [Vite](https://vitejs.dev/) for project scaffolding and automated development tasks
-1. Create a new project with Vite
-    - `npm create vite@latest my-app`
+1. Create a new project (and a folder for it) with Vite
+    - `npm create vite@latest my-app` - replace `my-app` with your project name
       - Choose 'React' -> 'JavaScript + SWC'
+      - For other options, press enter to accept defaults
+1. Start development server
     - `cd my-app`
-    - `npm install`
+    - `npm install` (check `package.json` to see dependencies to be installed)
     - `npm run dev`
     - Open http://localhost:port in your browser (remember to check the port from the console output and open dev tools)
     - Open the project folder in code editor
@@ -61,8 +63,8 @@ See [Learn React JS](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
    insert_final_newline = true
    ```
 
-1. Install prettier: `npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier`
-1. If using VSCode, Create new file '.prettierrc' and add this content:
+1. Install prettier: `npm install --save-dev --save-exact prettier`
+1. If using VSCode, Create new file '.prettierrc.json' and add this content:
 
    ```json
    {
@@ -373,3 +375,14 @@ Props and JSX work together in React to create dynamic and reusable components. 
     - Add propType validation for the `item` prop in the `MediaRow` component.
 8. You can use `index.css` for adding styles to your components.
 9. Commit your changes and push the branch to GitHub `git push origin first-component`
+
+---
+
+<!-- add mermaid support for gh pages -->
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

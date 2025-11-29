@@ -5,9 +5,11 @@ Study the material from the first year course:
 1. [BOM & DOM](https://github.com/ilkkamtk/JavaScript-english/blob/main/BOM-DOM-event.md)
    - Study only the BOM & DOM parts
 
-## Assignments:
+## Assignments
+
 [Download this ZIP-file](https://github.com/ilkkamtk/WSK/raw/main/zip/dom-assignments.zip), extract it and move the content to the folder where you have your other files for this course.
 1. Open t1 folder in your IDE/editor. In `t1.js` there is an array of todo items called `todoList`. Add the todo items to `ul` element in `t1.html` by using [insertAdjacentHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) method. The structure of the end result should be this: 
+
    ```html
    <li>
       <input type="checkbox" id="todo-1" checked>
@@ -22,6 +24,7 @@ Study the material from the first year course:
       <label for="todo-3">Buy bread</label>
    </li>
    ```
+
    - note: if `completed` property is `true`, the checkbox should be automatically checked.
    - 4p
 2. Open t2 folder in your IDE/editor. The assignment remains unchanged from the first, except that for this version, [DOM methods](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) are used to add the todo items.

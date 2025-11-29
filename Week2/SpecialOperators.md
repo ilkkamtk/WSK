@@ -1,7 +1,6 @@
 ## Special Operators
 
-Special operators in JavaScript provide functionality for handling specific operations, making your code more concise
-and efficient. In this section, we'll explore some of the important special operators and their applications:
+Special operators in JavaScript provide functionality for handling specific operations, making your code more concise and efficient. In this section, we'll explore some of the important special operators and their applications:
 
 ### Ternary Operator (`? :`)
 
@@ -30,9 +29,7 @@ if (age >= 18) {
 console.log(isAdult); // 'Adult'
 ``` 
 
-In both cases, the code checks if the `age` is greater than or equal to 18. If the condition is true, the person is
-considered an adult; otherwise, they are considered a minor. The ternary operator offers a more compact way to
-achieve the same result as the if-else statement.
+In both cases, the code checks if the `age` is greater than or equal to 18. If the condition is true, the person is considered an adult; otherwise, they are considered a minor. The ternary operator offers a more compact way to achieve the same result as the if-else statement.
 
 ### Spread Operator (`...`)
 
@@ -60,8 +57,7 @@ function sum(...numbers) {
 
 #### Shared Syntax:
 
-Both the spread and rest operators use the same syntax of ..., but their usage and behavior differ based on their
-context:
+Both the spread and rest operators use the same syntax of ..., but their usage and behavior differ based on their context:
 
 - Spread Operator: Used to spread the elements of an iterable (like an array) into individual elements, such as when
   creating a new array or passing arguments to a function.
@@ -140,9 +136,7 @@ Remember to choose the appropriate operator based on your intended behavior and 
 
 ### Optional Chaining Operator (`?.`)
 
-The optional chaining operator provides a concise way to access nested properties of an object without causing an error
-if any of the intermediate properties are undefined or null. It short-circuits the evaluation and returns `undefined` if
-any part of the chain is not present.
+The optional chaining operator provides a concise way to access nested properties of an object without causing an error if any of the intermediate properties are undefined or null. It short-circuits the evaluation and returns `undefined` if any part of the chain is not present.
 
 Example:
 
@@ -155,12 +149,10 @@ const person = {
 };
 
 const cityName = person.address?.city; // 'Wonderland'
-
 const missingCity = person.address?.country?.city; // undefined
 ```
 
-In this example, if `address` or `country` were not defined, the optional chaining operator ensures that no error
-occurs, and the result is `undefined`.
+In this example, if `address` or `country` were not defined, the optional chaining operator ensures that no error occurs, and the result is `undefined`.
 
 The `?.` operator can be used in various contexts, including:
 
@@ -169,6 +161,4 @@ The `?.` operator can be used in various contexts, including:
 3. Accessing array elements within an object.
 4. Chaining multiple optional properties.
 
-The optional chaining operator is particularly useful when dealing with data that may not always be complete or
-consistent, helping you avoid runtime errors and providing a safer way to access properties and navigate complex object
-structures.
+The optional chaining operator is particularly useful when dealing with data that may not always be complete or consistent, helping you avoid runtime errors and providing a safer way to access properties and navigate complex object structures.

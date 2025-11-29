@@ -1,9 +1,8 @@
 ## `forEach` Method
 
-The `forEach` method is used to iterate over each element in an array and perform an operation on each element. It
-provides a concise way to loop through array elements without the need for explicit loop constructs.
+The `forEach` method is used to iterate over each element in an array and perform an operation on each element. It provides a concise way to loop through array elements without the need for explicit loop constructs.
 
-**Syntax:**
+### Syntax
 
 ```javascript
 array.forEach(callback(element, index, array) {
@@ -16,10 +15,9 @@ array.forEach(callback(element, index, array) {
 - `index` is the index of the current element. _Used sometimes_.
 - `array` is the array being iterated. _Rarely used_.
 
-**Example using Arrow Function and Destructuring:**
+#### Example
 
-Suppose you have an array of student objects, and you want to log each student's name and grade. You can use
-the `forEach` method with an arrow function to achieve this:
+Suppose you have an array of student objects, and you want to log each student's name and grade. You can use the `forEach` method with an arrow function to achieve this:
 
 ```javascript
 const students = [
@@ -40,35 +38,32 @@ Name: Bob, Grade: 92
 Name: Eve, Grade: 78
 ```
 
-In this example:
-
 - The arrow function logs the formatted output for each student using the `forEach` method.
 - The `student` parameter represents the current student object being processed.
 - The `index` parameter is used to display the student's position in the array.
 
-- **Benefits:**
+### Benefits
+
 - Concise: The `forEach` method eliminates the need for explicit loops.
 - Functional Approach: It encourages a more functional programming style.
 - Readability: The arrow function syntax makes the code compact and readable.
 
-**Usage Tips:**
+### Usage Tips
 
 - The `forEach` method is suitable for executing an operation for each element in the array.
 - It doesn't modify the original array; it's primarily used for side effects (e.g., logging, UI updates).
 
-**Consideration:**
+### Consideration
 
 - Unlike some other array methods, `forEach` doesn't return a new array; it simply iterates over the existing array.
 
-The `forEach` method is a fundamental tool for iterating over arrays and performing actions on their elements. It's
-particularly useful when you want to process each element without altering the array's structure.
+The `forEach` method is a fundamental tool for iterating over arrays and performing actions on their elements. It's particularly useful when you want to process each element without altering the array's structure.
 
 ---
 
-**`forEach` and `for...of` Comparison:**
+### `forEach` and `for...of` Comparison
 
-Both `forEach` and `for...of` are used to iterate over elements in an array, but they have differences in syntax, use
-cases, and performance characteristics.
+Both `forEach` and `for...of` are used to iterate over elements in an array, but they have differences in syntax, use cases, and performance characteristics.
 
 1. **`forEach` Loop:**
     - Syntax: `array.forEach(callback(currentValue, index, array) {...})`
@@ -85,7 +80,7 @@ cases, and performance characteristics.
     - Note: Can create a new array by pushing elements into a result array.
     - Readability: More concise and less verbose, especially when you don't need the index.
 
-**Performance Consideration:**
+#### Performance Consideration
 
 In terms of performance, `for...of` tends to be more efficient compared to `forEach` due to the following reasons:
 
@@ -94,11 +89,8 @@ In terms of performance, `for...of` tends to be more efficient compared to `forE
 - However, performance differences might be negligible for small arrays, and optimization strategies vary across
   engines.
 
-**Choosing Between `forEach` and `for...of`:**
+#### Choosing Between `forEach` and `for...of`
 
 - Use `forEach` when you want to perform a side effect on each element without constructing a new array.
 - Use `for...of` when you need to manipulate data, construct a new array, or work with other iterable objects.
 - Consider performance implications based on the specific use case and array size.
-
-Ultimately, the choice between `forEach` and `for...of` depends on the desired functionality, readability, and
-performance characteristics of your code.

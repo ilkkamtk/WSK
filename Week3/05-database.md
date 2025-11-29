@@ -1,30 +1,58 @@
 # Database connection in Express
 
+Recap [relational databases and SQL](../project/databases.md).
+
 1. Create a new branch `Assignment5` from `main`.
-2. Import the [example database](https://gist.github.com/ilkkamtk/b03f47baea5fb83c06141038160cefaa) to your MySQL database on Metropolia's server.
+1. Import the [example database](../database/cats-db.sql) to your MySQL database on Metropolia's server.
    1. Create a database in https://amme.metropolia.fi/mysql/. Login with your Metropolia username and password. When creating the database **DO NOT USE THE SAME PASSWORD AS YOUR METROPOLIA ACCOUNT.**
    2. Open https://users.metropolia.fi/phpMyAdmin/
    3. Select your database from the left sidebar
    4. Click on the `SQL` tab
-   5. Copy the content of the `example-database.sql` file and paste it into the SQL query window and press `Go`
-3. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
+   5. Copy the content of the `cats-db.sql` file and paste it into the SQL query window and press `Go`
+   6. Note that you need to use Metropolia network when accessing to mysql.metropolia.fi from your app (eduroam or VPN)
+1. **Optionally**, you can use local MySQL/MariaDB server for development.
+   1. Install MariaDB or MySQL server on your computer.
+   1. Create a new database and database user with all privileges to the database using the MySQL client:
+
+   ```sql
+   -- You can replace 'wskcats' with your desired database name
+   DROP DATABASE IF EXISTS wskcats;
+   CREATE DATABASE wskcats;
+   USE wskcats;
+
+   -- Replace 'myusername' and 'mypassword' with your desired username and password (DO NOT USE YOUR METROPOLIA CREDENTIALS)
+   CREATE USER 'myusername'@'localhost' IDENTIFIED BY 'mypassword';
+   GRANT ALL PRIVILEGES ON `wskcats`.* TO 'myusername'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
+
+   1. Use the same [cats-db.sql](../database/cats-db.sql) script file to create the tables.
+1. Install [dotenv](https://github.com/motdotla/dotenv#readme) to load environment variables from a `.env` file into `process.env`.
     - `.env` file is used to store sensitive data like database credentials and should not be committed to version control (remember to add to `.gitignore`).
     - Add `.env` file to the project root folder and add the following content to it:
 
     ```env
-    DB_HOST=mysql.metropolia.fi
-    DB_USER=myusername
-    DB_PASSWORD=mypassword
-    DB_NAME=myusername
+    DB_HOST=mysql.metropolia.fi # or localhost if using local database
+    DB_USER=myusername # replace with your database user name
+    DB_PASSWORD=mypassword # replace with your database user password
+    DB_NAME=myusername # replace with your database name
     ```
 
-4. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
-5. Create a new file `src/utils/database.js` and add the following code to it:
+1. Add line `.env` to `.gitignore`.
+    - You can store a template of the file in version control as `.env.example`, just remove all sensitive data before committing.
+1. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
+1. Create a new file `src/utils/database.js` and add the following code to it:
 
     ```js
     import mysql from 'mysql2';
-    import 'dotenv/config';
+    // This will load variables from .env file to process.env
+    // it can be done also e.g. in index.js but just make sure
+    // that it is imported before using process.env variables
+    import 'dotenv/config'; 
 
+    // Create the connection pool. Pool is used to improve performance
+    // by reusing existing connections instead of creating new
+    // connection for every request 
     const pool = mysql.createPool({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
@@ -34,13 +62,17 @@
       connectionLimit: 10,
       queueLimit: 0,
     });
+    // promise pool is asynchronous version of the pool and
+    // returns promises, which is used with async/await syntax
     const promisePool = pool.promise();
     export default promisePool;
     ```
 
 ### MySQL2 examples
 
-JavaScript variables in SQL queries should be handled using [prepared statements](https://github.com/sidorares/node-mysql2#using-prepared-statements) to prevent SQL injection attacks.
+JavaScript variables in SQL queries should be handled using [prepared statements](https://sidorares.github.io/node-mysql2/docs#using-prepared-statements) to prevent SQL injection attacks.
+
+>If you have parameters (`SELECT * FROM user WHERE user_id = ?` for an example) in your query then suggestion is to use `execute()` method by default, and only use `query()` when hitting prepared statement syntax limitations (for example, sql IN statement).
 
 _cat-model.js:_
 
@@ -103,13 +135,9 @@ export {listAllCats, findCatById, addCat, modifyCat, removeCat};
 
 ### Continue assignment
 
-Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference. Also update the user routes to use the database. When deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](https://gist.github.com/ilkkamtk/b87666ed682c2c6faea182ca215afaf5) to ensure data integrity.
-
-Get owners name when getting cats.
-
-Add endpoint to get cats by user id.
-
-Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.
-
-
-
+1. Convert your existing REST API to use MySQL database for storing data. You can use the `cat-model.js` as a reference.
+1. Update the user routes to use the database.
+   - Note: when deleting users from the database, you should also delete all the cats that belong to the user because of the foreign key constraint. It is strongly recommended to use [transactions](../database/transaction-example.js) to ensure data integrity.
+1. Add owner's name to response json when getting cats.
+1. Add endpoint to get cats by user id.
+1. Commit and push your branch changes to the remote repository. Merge the `Assignment5` branch to the `main` branch and push the changes to the remote repository.

@@ -21,6 +21,7 @@ Arrow functions were introduced in ECMAScript 6 (ES6) and provide a more concise
    - Example use cases: `array.map()`, `array.filter()`, and other cases where a concise function is required.
 
 5. **Examples:**
+
    ```javascript
    // Regular function
    function multiply(a, b) {
@@ -52,14 +53,19 @@ In arrow functions, parentheses play a crucial role in defining parameters and i
 
 3. **Examples:**
     - Single parameter, single expression:
+
       ```javascript
       const double = x => x * 2;
       ```
+
     - Multiple parameters, single expression:
+
       ```javascript
       const sum = (x, y) => x + y;
       ```
+
     - Multiple parameters, multiple statements:
+
       ```javascript
       const multiplyAndLog = (x, y) => {
         const result = x * y;
@@ -71,6 +77,7 @@ In arrow functions, parentheses play a crucial role in defining parameters and i
 4. **Returning Objects:**
     - When you want to return an object literal directly from an arrow function, you need to enclose the object in parentheses. This is to avoid confusion with the function body being mistaken for a block.
     - Example:
+
       ```javascript
       const createPerson = (name, age) => ({ name, age });
       ```
@@ -78,6 +85,7 @@ In arrow functions, parentheses play a crucial role in defining parameters and i
 5. **Implicit Return:**
     - As mentioned earlier, arrow functions with a single expression have an implicit return. This means that the result of the expression is automatically returned without needing the `return` keyword.
     - Example:
+
       ```javascript
       const double = x => x * 2; // Implicit return of x * 2
       ```

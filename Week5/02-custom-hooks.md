@@ -17,8 +17,8 @@
 1. Continue last exercise. Create a new branch 'custom-hooks' with git.
 2. Create `hooks` folder in the `src` of your project. Add `apiHooks.js` file to the `hooks` folder.
 3. The idea is to make hooks for each path in the APIs we are using: login, users, media, etc.
-4. Create a custom hook `useMedia` to `ApiHooks.js` and move the functionalities from `Home.jsx` that are used to fetch
-   media from the APIs to the useMedia hook:
+4. Create a custom hook `useMedia` to `apiHooks.js` and move the functionalities from `Home.jsx` that are used to fetch media from the APIs to the useMedia hook:
+
    ```jsx
    // TODO: add necessary imports
    const useMedia = () => {
@@ -30,14 +30,16 @@
    
    export {useMedia};
    ```
+
 5. `Home` component after refactoring:
+
    ```jsx
    const Home = () => {
         const [selectedItem, setSelectedItem] = useState(
         null,
     );
     
-        const { mediaArray } = useMedia();
+        const {mediaArray} = useMedia();
     
         return (
             <>
@@ -57,12 +59,14 @@
         );
     };
    ```
+
 6. The app should work as before. Test it.
 7. Git add, commit and push the changes to your repository.
 
 **(If we have time, we can refactor the other functionalities to custom hooks as well. For example, useUser hook for the user functionalities: `getUserByToken()`, `postUser()` etc. )**
 
 ## Submit
+
 1. Run `npm build` or `npm run build`
 2. Move build folder to your public_html
 3. Test your app: `http://users.metropolia.fi/~username/custom-hooks`

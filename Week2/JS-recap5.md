@@ -1,15 +1,22 @@
 # AJAX
 
-Study the material from the first year course:
+Study the material from the first year course: [Open application programming interfaces + AJAX](https://github.com/ilkkamtk/JavaScript-english/blob/main/apit-ajax.md)
 
-1. [Open application programming interfaces + AJAX](https://github.com/ilkkamtk/JavaScript-english/blob/main/apit-ajax.md)
+## Assignments
 
-## Assignments:
+Use the starter repository you made in the first class as a template to create a new repository for these assignments Clone the new repository to your local computer. Or use the same repository but remember to _create a new branch_ called `ajax` for these assignments.
 
-Use the starter repository you made in the first class as a template to create a new repository for these assignments.
-Clone the new repository to your local computer. Put each assignment into its own folder. Write separate HTML and JS
-files for each assignment. Use the assignment number in file and folder names. In the first four assignments you'll be
-using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
+Put each assignment into its own folder. Write separate HTML and JS files for each assignment. Use the assignment number in file and folder names. In the first four assignments you'll be using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
+
+You need to use an API key to accessa the API. Here is an example of how to include the API key in the fetch request headers:
+
+```javascript
+fetch(requestURL, {
+    headers: {
+      'x-api-key': 'reqres-free-v1',
+    },
+  });
+```
 
 1. GET Method. Practice using the Fetch API with async/await to make a GET request and log the response.
     - Utilize the Fetch API with async/await to make a GET request to the URL `https://reqres.in/api/users/1`.
@@ -17,18 +24,13 @@ using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
     - 2p
 
 2. POST Method. Practice making a POST request using the Fetch API with async/await and handling the response.
-    - Make a POST request to the URL `https://reqres.in/api/users` with a JSON payload containing user information (
-      e.g.,
-      name and job).
+    - Make a POST request to the URL `https://reqres.in/api/users` with a JSON payload containing user information (e.g. name and job).
     - Log the response data to the console.
     - 3p
 
 3. Error Handling. Practice error handling while using the Fetch API
     - Attempt to make a GET request to a non-existent URL (e.g., `https://reqres.in/api/unknown/23`).
-    - Handle the error
-      using [try/catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
-      blocks.
-    - Also try other methods (POST, PUT, DELETE)
+    - Handle the error using [try/catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) blocks.
     - Log an error message to the console in case of an error.
     - 4p
 
@@ -36,36 +38,35 @@ using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
     - Define an async function named `fetchData` that takes two parameters: `url` and `options`.
     - Use the Fetch API with async/await to make a request to the specified `url` with the provided `options`.
     - If the response is not successful (status code other than
-      2xx), [throw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) an error with an
-      appropriate message.
+      2xx), [throw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) an error with an appropriate message.
     - Return the response as a JSON promise if successful.
+    - When testing the function, call the `fetchData` function with the desired URL and options. Example:
 
-    - When testing the function:
-        - Call the fetchData function with the desired URL and options. Example:
-   ```javascript
-   try {
-      const user = {
-         name: 'John Doe',
-         job: 'Developer'
-      };
-      const url = 'https://reqres.in/api/users';
-      const options = {
-         method: 'POST',
-         headers: {
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(user)
+    ```javascript
+    try {
+        const user = {
+          name: 'John Doe',
+          job: 'Developer'
+        };
+        const url = 'https://reqres.in/api/users';
+        const options = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        }
+        const userData = await fetchData(url, options);
+        console.log(userData);
+      } catch (error) {
+        console.error('An error occurred:', error);
       }
-      const userData = await fetchData(url, options);
-      console.log(userData);
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
-   
-   ```
-    - Handle any errors using try/catch blocks to customize error handling.
+    ```
+
+    - Handle any errors using `try/catch` blocks to customize error handling.
     - 5p
-5. In this assignment we will work with the [Restaurant API](https://media2.edu.metropolia.fi/restaurant/) to build upon the previous lab's restaurant assignment (Assignment 2). Extend the previous restaurant assignment by integrating the [Restaurant API](https://media2.edu.metropolia.fi/restaurant/) and enhancing the app to display the current day's menu for selected restaurants. To use the API you need to be connected to the school's network or use a VPN connection.
+
+5. In this assignment we will work with the [Restaurant API](https://media2.edu.metropolia.fi/restaurant/) (accessible only inside Metropolia network or via VPN connection) to build upon the previous lab's restaurant assignment (Assignment 2). Extend the previous restaurant assignment by integrating the [Restaurant API](https://media2.edu.metropolia.fi/restaurant/) and enhancing the app to display the current day's menu for selected restaurants. To use the API you need to be connected to the school's network or use a VPN connection.
    1. Begin by revisiting your previous restaurant assignment code.
    2. Modify the app to fetch restaurant data using a single AJAX call to the [Restaurant API](https://media2.edu.metropolia.fi/restaurant/api/v1/restaurants) endpoint. Replace the previous hard-coded array of restaurants.
    3. Implement the necessary logic to display the retrieved restaurant data in your app.
@@ -76,4 +77,3 @@ using [Reqres](https://reqres.in/), which is a dummy API for testing frontends.
    8. Test the app thoroughly to ensure that restaurant data and menus are displayed accurately.
    9. Make effective use of CSS for styling and layout.
    - 10p
-
