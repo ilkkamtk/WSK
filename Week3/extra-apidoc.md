@@ -19,49 +19,49 @@
 
 ## APIDoc example
 
-    ```javascript
-    /**
-     * @api {get} /user/:id Request User information
-     * @apiName GetUser
-     * @apiGroup User
-     *
-     * @apiParam {Number} id User's unique ID.
-     *
-     * @apiSuccess {String} name Name of the User.
-     * @apiSuccess {String} email Email of the User.
-     */
-    ```
+```javascript
+/**
+* @api {get} /user/:id Request User information
+* @apiName GetUser
+* @apiGroup User
+*
+* @apiParam {Number} id User's unique ID.
+*
+* @apiSuccess {String} name Name of the User.
+* @apiSuccess {String} email Email of the User.
+*/
+```
 
 ## Swagger example
 
-    ```yaml
-    openapi: 3.0.0
-    info:
-      title: Sample API
-      version: 1.0.0
-    paths:
-        /user/{id}:
-            get:
-            summary: Get user by ID
-            parameters:
-                - name: id
-                in: path
-                required: true
-                schema:
-                    type: integer
-            responses:
-                '200':
-                description: OK
-                content:
-                    application/json:
-                    schema:
-                        type: object
-                        properties:
-                        name:
-                            type: string
-                        email:
-                            type: string
-    ```
+ ```yaml
+ openapi: 3.0.0
+ info:
+   title: Sample API
+   version: 1.0.0
+ paths:
+     /user/{id}:
+         get:
+         summary: Get user by ID
+         parameters:
+             - name: id
+             in: path
+             required: true
+             schema:
+                 type: integer
+         responses:
+             '200':
+             description: OK
+             content:
+                 application/json:
+                 schema:
+                     type: object
+                     properties:
+                     name:
+                         type: string
+                     email:
+                         type: string
+ ```
 
 ## API documentation best practices
 
