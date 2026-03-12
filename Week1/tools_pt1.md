@@ -64,7 +64,8 @@ Handy keyboard shortcuts (finnish layout, check _File -> Preferences -> Keyboard
 - Chrome & [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 - Safari & [Safari Develop menu](https://support.apple.com/guide/safari/use-the-developer-tools-in-the-develop-menu-sfri20948/mac)
 
-![Chrome screenshot](images/chrome-devtools.png)
+<img width="2048" height="619" alt="Chrome screenshot" src="https://github.com/user-attachments/assets/1b9727e5-d639-422c-92ef-176d10fd25f5" />
+
 
 ---
 
