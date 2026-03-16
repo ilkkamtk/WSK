@@ -1,6 +1,7 @@
 # CSS Grid
 
-CSS Grid is a powerful layout system that allows you to create complex layouts with ease. It was first introduced in 2011, and since 2017 it has been supported by all major browsers. It is a two-dimensional system, meaning that it can handle both columns and rows, unlike the traditional box model layout system which is one-dimensional.
+CSS Grid is a layout system that allows you to create complex page layouts. It was first introduced in 2011, and since 2017 it has been supported by all major browsers. It is a two-dimensional system, meaning it can control both columns and rows, unlike traditional one-dimensional layout methods.
+
 
 ## Usage
 
