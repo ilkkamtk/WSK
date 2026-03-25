@@ -43,7 +43,7 @@
 
 ### Enhancing the Modular Restaurant App
 
-In this assignment, your objective is to finalize the restaurant app by incorporating modular components, arrow functions, special operators, and applying destructuring where appropriate. You'll be enhancing the existing codebase to create a more organized, maintainable, and efficient application.
+In this assignment, your objective is to finalize the restaurant app started in AJAX assingment 5 by incorporating modular components, arrow functions, special operators, and applying destructuring where appropriate. You'll be enhancing the existing codebase to create a more organized, maintainable, and efficient application.
 
 **Requirements:**
 
