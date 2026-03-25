@@ -45,7 +45,7 @@ const result2 = operationOnNumbers(10, 4, subtract); // Result: 6
 
 ### Enhancing the Restaurant App with Filter and Display Feature
 
-In this assignment, you will enhance your restaurant app by implementing a feature that allows users to filter and
+In this assignment, you will enhance your restaurant app started in AJAX assingment 5 and refinded in Advanced JS 1 by implementing a feature that allows users to filter and
 display only Sodexo or Compass restaurants. This assignment will emphasize the use of `map` and `filter` methods
 with arrays, promoting a modern and functional approach to solving the problem.
 
