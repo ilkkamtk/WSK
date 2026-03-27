@@ -43,7 +43,7 @@ What is your major malfunction?
 ## Week 3 - Node.js, Express
 
 1. [Server side programming, Restful API, Node.js, NPM](Week3/01-server-side-programming.md)
-2. [Express - intro](Week3/02-express.md)
+2. [Express - Intro](Week3/02-express.md)
 3. [Express - Routing](Week3/03-routing.md)
 4. [Express - Middleware, File upload](Week3/04-middleware.md)
 5. [Express - Database access](Week3/05-database.md)
