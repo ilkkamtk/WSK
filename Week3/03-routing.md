@@ -280,34 +280,35 @@ export { listAllCats, findCatById, addCat };
 - `PUT /api/v1/cats/:id` - return hard coded json response: `{message: 'Cat item updated.'}`
 - `DELETE /api/v1/cats/:id` - return hard coded json response: `{message: 'Cat item deleted.'}`
 
-11. Test the endpoints in [Postman](https://www.postman.com/downloads/) or with [VSCode Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Get cats, add a new cat, then get cats again to see if the new cat is added.
-12. Use the above examples to create routes for users. Create similar dummy data:
+1. Test the endpoints in [Postman](https://www.postman.com/downloads/) or with [VSCode Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Get cats, add a new cat, then get cats again to see if the new cat is added.
+2. Use the above examples to create routes for users. Create similar dummy data:
 
-    ```javascript
-    const userItems = [
-      {
-         user_id: 3609,
-         name: 'John Doe',
-         username: 'johndoe',
-         email: 'john@metropolia.fi',
-         role: 'user',
-         password: 'password',
-      },
-      etc...
-    ];
-    ```
+   ```javascript
+   const userItems = [
+     {
+        user_id: 3609,
+        name: 'John Doe',
+        username: 'johndoe',
+        email: 'john@metropolia.fi',
+        role: 'user',
+        password: 'password',
+     },
+     etc...
+   ];
+   ```
 
-13. Add the following endpoints:
-14. `GET /api/v1/users` - returns all users
-15. `GET /api/v1/users/:id` - returns one user by id
-16. `POST /api/v1/users` - adds a new user
-17. `PUT /api/v1/users/:id` - return hard coded json response: `{message: 'User item updated.'}`
-18. `DELETE /api/v1/users/:id` - return hard coded json response: `{message: 'User item deleted.'}`
-19. Commit and push your branch changes to the remote repository.
-20. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
+3. Add the following endpoints:
+4. `GET /api/v1/users` - returns all users
+5. `GET /api/v1/users/:id` - returns one user by id
+6. `POST /api/v1/users` - adds a new user
+7. `PUT /api/v1/users/:id` - return hard coded json response: `{message: 'User item updated.'}`
+8. `DELETE /api/v1/users/:id` - return hard coded json response: `{message: 'User item deleted.'}`
+9. Commit and push your branch changes to the remote repository.
+10. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
 
 ---
 
+<!-- markdownlint-disable MD033 -->
 <!-- add mermaid support for gh pages -->
 <script type="module">
     Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
@@ -316,3 +317,4 @@ export { listAllCats, findCatById, addCat };
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
 </script>
+<!-- markdownlint-enable MD033 -->

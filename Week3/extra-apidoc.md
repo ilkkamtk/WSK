@@ -77,6 +77,7 @@ paths:
 
 - Install APIDoc: `npm install apidoc`
 - Create a `apidoc.json` file with the configuration settings:
+
   ```json
   {
     "name": "My API",
@@ -96,13 +97,16 @@ paths:
     "files": ["src/**/*.js"]
   }
   ```
+
 - Add script to `package.json` to generate the documentation:
+
   ```json
   "scripts": {
       ...
       "apidoc": "apidoc -i src/ -o docs/"
   }
   ```
+
 - Generate the documentation: `npm run apidoc`
 - Serve `/docs` with express in `app.js`:
 
