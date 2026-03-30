@@ -12,56 +12,56 @@
 
 ## API documentation tools
 
-- **[APIDoc](https://apidocjs.com/)**  generates API documentation from predefined comments in the source code.
-   - [Real life example](https://https://media2.edu.metropolia.fi/media-api/) (requires Metropolia VPN)
+- **[APIDoc](https://apidocjs.com/)** generates API documentation from predefined comments in the source code.
+  - [Real life example](https://https://media2.edu.metropolia.fi/media-api/) (requires Metropolia VPN)
 - **[Swagger](https://swagger.io/solutions/api-documentation/)** is a tool for designing, documenting, and testing APIs. It uses a YAML or JSON file to describe the API.
-   - [Real life example](http://lipas.cc.jyu.fi/api/index.html)
+  - [Real life example](http://lipas.cc.jyu.fi/api/index.html)
 
 ## APIDoc example
 
 ```javascript
 /**
-* @api {get} /user/:id Request User information
-* @apiName GetUser
-* @apiGroup User
-*
-* @apiParam {Number} id User's unique ID.
-*
-* @apiSuccess {String} name Name of the User.
-* @apiSuccess {String} email Email of the User.
-*/
+ * @api {get} /users/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id User's unique ID.
+ *
+ * @apiSuccess {String} name Name of the User.
+ * @apiSuccess {String} email Email of the User.
+ */
 ```
 
 ## Swagger example
 
- ```yaml
- openapi: 3.0.0
- info:
-   title: Sample API
-   version: 1.0.0
- paths:
-     /user/{id}:
-         get:
-         summary: Get user by ID
-         parameters:
-             - name: id
-             in: path
-             required: true
-             schema:
-                 type: integer
-         responses:
-             '200':
-             description: OK
-             content:
-                 application/json:
-                 schema:
-                     type: object
-                     properties:
-                     name:
-                         type: string
-                     email:
-                         type: string
- ```
+```yaml
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+paths:
+   /users/{id}:
+        get:
+        summary: Get user by ID
+        parameters:
+            - name: id
+            in: path
+            required: true
+            schema:
+                type: integer
+        responses:
+            '200':
+            description: OK
+            content:
+                application/json:
+                schema:
+                    type: object
+                    properties:
+                    name:
+                        type: string
+                    email:
+                        type: string
+```
 
 ## API documentation best practices
 
@@ -76,91 +76,91 @@
 ### Setup
 
 - Install APIDoc: `npm install apidoc`
-- Create a `apidoc.json` file with the configuration settings: 
-    
-    ```json
-    {
-        "name": "My API",
-        "version": "1.0.0",
-        "description": "API documentation for my project",
-        "title": "My API Documentation",
-        "url": "/api/v1",
-        "header": {
-            "title": "My API Documentation",
-            "content": "<p>This is a sample API documentation.</p>"
-        },
-        "template": {
-            "withCompare": true,
-            "withGenerator": true
-        },
-        "exclude": ["node_modules/", "uploads/"],
-        "files": ["src/**/*.js"]
-    }
-    ```
-- Add script to `package.json` to generate the documentation: 
-    
-    ```json
-    "scripts": {
-        ...
-        "apidoc": "apidoc -i src/ -o docs/"
-    }
-    ```
+- Create a `apidoc.json` file with the configuration settings:
+  ```json
+  {
+    "name": "My API",
+    "version": "1.0.0",
+    "description": "API documentation for my project",
+    "title": "My API Documentation",
+    "url": "/api/v1",
+    "header": {
+      "title": "My API Documentation",
+      "content": "<p>This is a sample API documentation.</p>"
+    },
+    "template": {
+      "withCompare": true,
+      "withGenerator": true
+    },
+    "exclude": ["node_modules/", "uploads/"],
+    "files": ["src/**/*.js"]
+  }
+  ```
+- Add script to `package.json` to generate the documentation:
+  ```json
+  "scripts": {
+      ...
+      "apidoc": "apidoc -i src/ -o docs/"
+  }
+  ```
 - Generate the documentation: `npm run apidoc`
-- Serve `/docs` with express in `app.js`: 
+- Serve `/docs` with express in `app.js`:
 
-    ```javascript
-    app.use('/docs', express.static('docs'));
-    ```
+  ```javascript
+  app.use('/docs', express.static('docs'));
+  ```
+
 - Access the documentation at `http://localhost:3000/docs`
 
 ### Creating the docs
+
 - You can add the APIDoc comments to the source code files, or you can put them in separate files.
 - To use separate files you can add new folder `src/api/apidoc` and save your documentation files there as `*.js` files.
-- You can use for example ChatGPT or GitHub Copilot to generate the documentation. Don't try to generate the whole documentation all at once, but rather focus on one endpoint at a time: 
+- You can use for example ChatGPT or GitHub Copilot to generate the documentation. Don't try to generate the whole documentation all at once, but rather focus on one endpoint at a time:
 - Example prompt:
 
-    ```text
-    I need REST api documentaion in APIDoc format to a separate file for the following end point:
-    
-    // user-router.js:
-    userRouter
-      .route('/')
-      .get(getUser)
-      .post(
-        body('email').trim().isEmail(),
-        body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric(),
-        body('password').trim().isLength({min: 8}),
-        body('name').trim().isLength({min: 1}),
-        validationErrors,
-        postUser
-      );
-    
-    // user-controller.js
-    const getUser = async (req, res, next) => {
-      try {
-        const users = res.json(await listAllUsers());
-        // no need to check if users is empty, it will return an empty array
-        res.json(users);
-      } catch (e) {
-        const error = new Error('An error occurred while fetching users');
-        error.status = 500;
-        next(error);
-      }
-    };
-    
-    // user-model.js
-    const listAllUsers = async () => {
-      try {
-        const [rows] = await promisePool.query('SELECT * FROM wsk_users');
-        console.log('rows', rows);
-        return rows;
-      } catch (e) {
-        console.error('error', e.message);
-        return false;
-      }
-    };
-    ```
+  ```text
+  I need REST api documentaion in APIDoc format to a separate file for the following end point:
 
-- The result should be an APIDoc for the `GET /user` endpoint. Save the result to a file `src/api/apidoc/user.js`. Create `POST`,  `PUT` and `DELETE` endpoints in the same manner and place them in the same file. 
+  // user-router.js:
+  userRouter
+    .route('/')
+    .get(getUser)
+    .post(
+      body('email').trim().isEmail(),
+      body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric(),
+      body('password').trim().isLength({min: 8}),
+      body('name').trim().isLength({min: 1}),
+      validationErrors,
+      postUser
+    );
+
+  // user-controller.js
+  const getUser = async (req, res, next) => {
+    try {
+      const users = res.json(await listAllUsers());
+      // no need to check if users is empty, it will return an empty array
+      res.json(users);
+    } catch (e) {
+      const error = new Error('An error occurred while fetching users');
+      error.status = 500;
+      next(error);
+    }
+  };
+
+  // user-model.js
+  const listAllUsers = async () => {
+    try {
+      const [rows] = await promisePool.query('SELECT * FROM wsk_users');
+      console.log('rows', rows);
+      return rows;
+    } catch (e) {
+      console.error('error', e.message);
+      return false;
+    }
+  };
+  ```
+
+- The result should be an APIDoc for the `GET /users` endpoint. Save the result to a file `src/api/apidoc/user.js`. Create `POST`, `PUT` and `DELETE` endpoints in the same manner and place them in the same file.
 - Run APIDoc to generate the documentation and open the documentation in the browser to check that it looks good.
 - Obviously the documentation is not perfect, so you'll need to do some manual editing to make it represent the API correctly.

@@ -62,7 +62,7 @@ graph TD
 Type-based folder structure (typical for Express applications):
 
 ```dir
-src 
+src
   ├── api/
 app.js  ├── controllers/
         │   ├── auth-conroller.js
@@ -156,7 +156,7 @@ export default catRouter;
 _src/api/controllers/cat-controller.js:_
 
 ```js
-import {addCat, findCatById, listAllCats} from "../models/cat-model.js";
+import { addCat, findCatById, listAllCats } from '../models/cat-model.js';
 
 const getCat = (req, res) => {
   res.json(listAllCats());
@@ -175,7 +175,7 @@ const postCat = (req, res) => {
   const result = addCat(req.body);
   if (result.cat_id) {
     res.status(201);
-    res.json({message: 'New cat added.', result});
+    res.json({ message: 'New cat added.', result });
   } else {
     res.sendStatus(400);
   }
@@ -191,7 +191,7 @@ const deleteCat = (req, res) => {
   res.sendStatus(200);
 };
 
-export {getCat, getCatById, postCat, putCat, deleteCat};
+export { getCat, getCatById, postCat, putCat, deleteCat };
 ```
 
 _src/api/models/cat-model.js:_
@@ -226,13 +226,20 @@ const findCatById = (id) => {
 };
 
 const addCat = (cat) => {
-  const {cat_name, weight, owner, filename, birthdate} = cat;
+  const { cat_name, weight, owner, filename, birthdate } = cat;
   const newId = catItems[0].cat_id + 1;
-  catItems.unshift({cat_id: newId, cat_name, weight, owner, filename, birthdate});
-  return {cat_id: newId};
+  catItems.unshift({
+    cat_id: newId,
+    cat_name,
+    weight,
+    owner,
+    filename,
+    birthdate,
+  });
+  return { cat_id: newId };
 };
 
-export {listAllCats, findCatById, addCat};
+export { listAllCats, findCatById, addCat };
 ```
 
 ---
@@ -243,16 +250,16 @@ export {listAllCats, findCatById, addCat};
 2. Create a new folder `src` in your project folder and move your `app.js` file there.
 3. To make the express app easier to test, create `src/index.js` file and import `app.js` from the `src` folder:
 
-    ```javascript
-    import app from './app.js';
-   
-    const hostname = '127.0.0.1';
-    const port = 3000;
-   
-    app.listen(port, hostname, () => {
-       console.log(`Server running at http://${hostname}:${port}/`);
-    });
-    ```
+   ```javascript
+   import app from './app.js';
+
+   const hostname = '127.0.0.1';
+   const port = 3000;
+
+   app.listen(port, hostname, () => {
+     console.log(`Server running at http://${hostname}:${port}/`);
+   });
+   ```
 
 4. Remove the above code from the `app.js` file and add the following code to the end of the `app.js` file:
 
@@ -266,36 +273,38 @@ export {listAllCats, findCatById, addCat};
 8. Create a new folder `controllers` in your `api` folder
 9. Create a new folder `models` in your `api` folder
 10. Based on the examples above create an Express project with the following routes:
-     - `GET /api/v1/cat` - returns all cats
-     - `GET /api/v1/cat/:id` - returns one cat by id
-     - `POST /api/v1/cat` - adds a new cat
-     - `PUT /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item updated.'}`
-     - `DELETE /api/v1/cat/:id` - return hard coded json response: `{message: 'Cat item deleted.'}`
+
+- `GET /api/v1/cats` - returns all cats
+- `GET /api/v1/cats/:id` - returns one cat by id
+- `POST /api/v1/cats` - adds a new cat
+- `PUT /api/v1/cats/:id` - return hard coded json response: `{message: 'Cat item updated.'}`
+- `DELETE /api/v1/cats/:id` - return hard coded json response: `{message: 'Cat item deleted.'}`
+
 11. Test the endpoints in [Postman](https://www.postman.com/downloads/) or with [VSCode Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Get cats, add a new cat, then get cats again to see if the new cat is added.
 12. Use the above examples to create routes for users. Create similar dummy data:
 
-     ```javascript
-     const userItems = [
-       {
-          user_id: 3609,
-          name: 'John Doe',
-          username: 'johndoe',
-          email: 'john@metropolia.fi',
-          role: 'user',
-          password: 'password',
-       },
-       etc...
-     ];    
-     ```
+    ```javascript
+    const userItems = [
+      {
+         user_id: 3609,
+         name: 'John Doe',
+         username: 'johndoe',
+         email: 'john@metropolia.fi',
+         role: 'user',
+         password: 'password',
+      },
+      etc...
+    ];
+    ```
 
 13. Add the following endpoints:
-    1. `GET /api/v1/user` - returns all users
-    1. `GET /api/v1/user/:id` - returns one user by id
-    1. `POST /api/v1/user` - adds a new user
-    1. `PUT /api/v1/user/:id` - return hard coded json response: `{message: 'User item updated.'}`
-    1. `DELETE /api/v1/user/:id` - return hard coded json response: `{message: 'User item deleted.'}`
-    1. Commit and push your branch changes to the remote repository.
-14. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
+14. `GET /api/v1/users` - returns all users
+15. `GET /api/v1/users/:id` - returns one user by id
+16. `POST /api/v1/users` - adds a new user
+17. `PUT /api/v1/users/:id` - return hard coded json response: `{message: 'User item updated.'}`
+18. `DELETE /api/v1/users/:id` - return hard coded json response: `{message: 'User item deleted.'}`
+19. Commit and push your branch changes to the remote repository.
+20. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
 
 ---
 
