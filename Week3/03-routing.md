@@ -82,7 +82,7 @@ Feature-based folder structure:
 
 ```dir
 src/
-├── car/
+├── cat/
 │   ├── controller.js
 │   ├── model.js
 │   └── routes.js
