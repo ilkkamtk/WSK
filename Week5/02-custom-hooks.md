@@ -22,10 +22,10 @@
    ```jsx
    // TODO: add necessary imports
    const useMedia = () => {
-   // TODO: move mediaArray state here
-   // TODO: move getMedia function here
-   // TODO: move useEffect here
-   return {mediaArray};
+     // TODO: move mediaArray state here
+     // TODO: move getMedia function here
+     // TODO: move useEffect here
+     return {mediaArray};
    };
    
    export {useMedia};
@@ -35,12 +35,9 @@
 
    ```jsx
    const Home = () => {
-        const [selectedItem, setSelectedItem] = useState(
-        null,
-    );
-    
+        const [selectedItem, setSelectedItem] = useState(null);
         const {mediaArray} = useMedia();
-    
+
         return (
             <>
                 <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
@@ -63,7 +60,7 @@
 6. The app should work as before. Test it.
 7. Git add, commit and push the changes to your repository.
 
-**(If we have time, we can refactor the other functionalities to custom hooks as well. For example, useUser hook for the user functionalities: `getUserByToken()`, `postUser()` etc. )**
+**(If we have time, we can refactor the other functionalities to custom hooks as well. For example, useUser hook for the user functionalities: `getUserByToken()`, `postUser()` etc.)**
 
 ## Submit
 
