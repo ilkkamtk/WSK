@@ -239,7 +239,7 @@ export {listAllCats, findCatById, addCat};
 
 ## Assignment
 
-1. Create a new branch `assignment2`
+1. Create a new branch `Assignment2`
 2. Create a new folder `src` in your project folder and move your `app.js` file there.
 3. To make the express app easier to test, create `src/index.js` file and import `app.js` from the `src` folder:
 
@@ -251,7 +251,7 @@ export {listAllCats, findCatById, addCat};
    
     app.listen(port, hostname, () => {
        console.log(`Server running at http://${hostname}:${port}/`);
-    });    
+    });
     ```
 
 4. Remove the above code from the `app.js` file and add the following code to the end of the `app.js` file:
