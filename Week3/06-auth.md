@@ -106,7 +106,7 @@ sequenceDiagram
     AuthServer->>Server: JWT
     Server->>Client: HTTP Response with JWT
     Note over Client: Stores JWT (usually in memory)
-    
+
     Client->>Server: Subsequent HTTP Request with JWT in header
     Note over Server: Verifies JWT
     alt JWT valid
@@ -115,7 +115,7 @@ sequenceDiagram
         Server->>Client: Unauthorized Response
     end
 ```
---- 
+---
 
 ## Bcrypt
 
@@ -159,7 +159,7 @@ In web applications, authentication is typically done by verifying a username an
     - use a long random string, e.g. from [random.org](https://www.random.org/strings/)
     - or use the `crypto` module to generate a random string
 5. Modify `postUser()` in `user-controller.js` to hash the password before saving it to the database:
-    
+
     ```js
     import bcrypt from 'bcrypt';
     ...
@@ -178,7 +178,7 @@ In web applications, authentication is typically done by verifying a username an
    ...
    const findUserByUsername = async (user) => {
        const sql = `SELECT *
-                 FROM wsk_users 
+                 FROM wsk_users
                  WHERE username = ?`;
    ...
    ...
@@ -191,7 +191,7 @@ In web applications, authentication is typically done by verifying a username an
     import bcrypt from 'bcrypt';
     import {findUserByUsername} from '../models/user-model.js';
     import 'dotenv/config';
-    
+
     const postLogin = async (req, res) => {
       console.log('postLogin', req.body);
       const user = await findUserByUsername(req.body.username);
@@ -199,13 +199,13 @@ In web applications, authentication is typically done by verifying a username an
         res.sendStatus(401);
         return;
       }
-    
+
       const passwordMatch = await bcrypt.compare(req.body.password, user.password);
       if (!passwordMatch) {
         res.sendStatus(401);
         return;
       }
-      
+
       const userWithNoPassword = {
         user_id: user.user_id,
         name: user.name,
@@ -219,7 +219,7 @@ In web applications, authentication is typically done by verifying a username an
       });
       res.json({user: userWithNoPassword, token});
     };
-    
+
     export {postLogin};
     ```
 
@@ -231,9 +231,9 @@ In web applications, authentication is typically done by verifying a username an
      ```js
      import jwt from 'jsonwebtoken';
      import 'dotenv/config';
-    
+
      ...
-    
+
      const authenticateToken = (req, res, next) => {
        console.log('authenticateToken', req.headers);
        const authHeader = req.headers['authorization'];
@@ -265,7 +265,7 @@ In web applications, authentication is typically done by verifying a username an
          res.sendStatus(401);
        }
      };
-    
+
      // router:
      ...
      import {getMe, postLogin} from '../controllers/auth-controller.js';
@@ -298,7 +298,7 @@ In web applications, authentication is typically done by verifying a username an
      GET http://localhost:3000/api/v1/auth/me
      Authorization: Bearer {{token}}
      ```
-     
+
      - Use the `Authorization` header with `Bearer <token>` for all routes that need authentication
      - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
 
@@ -328,7 +328,7 @@ In web applications, authentication is typically done by verifying a username an
 
 ---
 
-## Web Application Security 
+## Web Application Security
 
 ### Data Security
 

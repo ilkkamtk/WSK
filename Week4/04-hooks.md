@@ -86,7 +86,7 @@ export default Example;
 - `useEffect` runs after the component renders and after every re-render.
 - `useEffect` takes a function as an argument. This function is the effect.
 - Second argument to `useEffect` is an array of values (dependencies). If any of the values change, the effect is re-run. If the array is empty, the effect is only run once, after the initial render. If you omit the second argument, the effect is run after every render which is not recommended.
-    - **Infinte re-renders can occur** if there is a problem with the dependencies. E.g., if you forget to add the dependencies to the array or if you add a dependency that changes every time the component renders.
+    - **Infinite re-renders can occur** if there is a problem with the dependencies. E.g., if you forget to add the dependencies to the array or if you add a dependency that changes every time the component renders.
 - You can have multiple `useEffect` hooks in a component.
 - Cleanup function can be returned from the effect. This function runs before the component is removed from the UI to prevent memory leaks.
 - Example of `useEffect` hook with cleanup function:
@@ -144,7 +144,7 @@ export default Example;
        setMediaArray(json);
     };
     getMedia();
-   
+
     console.log(mediaArray);
     ```
 
@@ -184,12 +184,12 @@ export default Example;
         const result = await fetchData(url + item.id);
         return result;
     }));
-   
+
    console.log(newArray);
    ```
 
 7. Use the example above to get the user data for each media item and add it to the media item. Promise.all should return
-   an array of media items with user data. 
+   an array of media items with user data.
     - You can do this in the `array.map` part of the `Promise.all` function.
     - Then you can use object spread to add the user data to the media
       item: `{ ...item, username: result.username }`.

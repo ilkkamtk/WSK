@@ -37,7 +37,7 @@
   - Object model
   - Document model
 - **Relational model** is the most widely used database model
-  - Implemented by several DBMSes (e.g. MySQL, Postgre, Oracle, etc.) since 1970s
+  - Implemented by several DBMSes (e.g. MySQL, PostgreSQL, Oracle, etc.) since 1970s
   - Relational databases are typically operated through **Structured Query Language (SQL)**
 
 ### Relational database model
@@ -74,7 +74,7 @@ combine information stored in records)
 
 ### Primary key (PK)
 
-- A column (or group of colums) that uniquely identifies records (rows) in the table
+- A column (or group of columns) that uniquely identifies records (rows) in the table
 - Must be unique value, two records cannot have the same value for the primary key
 - Each record must have a value for primary key
 - Every table must have a primary key (defined by database designer)
@@ -201,7 +201,7 @@ CREATE TABLE table_name (
 - The statement defines:
   - Table name
   - Column names and data types
-  - Primay key column(s)
+  - Primary key column(s)
   - Possibly foreign keys as well (enforcement of foreign key constraint depends on the database engine and settings)
   - Other constraints, e.g. NOT NULL if column value cannot be NULL, UNIQUE if column values must be unique, AUTO_INCREMENT if column value is automatically incremented when new record is inserted
 - Tips:
@@ -271,11 +271,11 @@ INSERT INTO Users VALUES (260, 'VCHar', 'secret123', 'vchar@example.com', 1, nul
 INSERT INTO Users VALUES (305, 'Donatello', 'secret234', 'dona@example.com', 1, null);
 
 -- Following will generate an error: FK constraint fails because user_id 1606 does not exist
-INSERT INTO MediaItems (filename, filesize, title, description, user_id, media_type) 
+INSERT INTO MediaItems (filename, filesize, title, description, user_id, media_type)
   VALUES ('ffd8.jpg', 887574, 'Favorite drink', '', 1606, 'image/jpeg');
 
 -- Inserting multiple records at once
-INSERT INTO MediaItems (filename, filesize, title, description, user_id, media_type) 
+INSERT INTO MediaItems (filename, filesize, title, description, user_id, media_type)
   VALUES ('ffd8.jpg', 887574, 'Favorite drink', null, 305, 'image/jpeg'),
          ('dbbd.jpg', 60703, 'Miika', 'My Photo', 305, 'image/jpeg'),
          ('2f9b.jpg', 30635, 'Aksux and Jane', 'friends', 260, 'image/jpeg');
@@ -375,8 +375,8 @@ SELECT * FROM Users, MediaItems;
 SELECT * FROM Users, MediaItems WHERE Users.user_id = MediaItems.user_id;
 
 -- Select all media items along with the username of the owner using a (inner) join:
-SELECT MediaItems.*, Users.username 
-  FROM MediaItems 
+SELECT MediaItems.*, Users.username
+  FROM MediaItems
   JOIN Users ON MediaItems.user_id = Users.user_id;
 
 -- Select media items with the highest filesize for each user using a subquery:
@@ -386,16 +386,16 @@ WHERE filesize = (
   WHERE MI1.user_id = MI2.user_id
 );
 
--- Select all media items and all users whether they have media items or not. 
-SELECT 
-  Users.user_id, 
-  Users.username, 
-  MediaItems.media_id, 
-  MediaItems.title, 
+-- Select all media items and all users whether they have media items or not.
+SELECT
+  Users.user_id,
+  Users.username,
+  MediaItems.media_id,
+  MediaItems.title,
   MediaItems.filename
-FROM 
+FROM
   Users
-LEFT OUTER JOIN MediaItems 
+LEFT OUTER JOIN MediaItems
   ON Users.user_id = MediaItems.user_id;
 ```
 

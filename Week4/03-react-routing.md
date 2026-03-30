@@ -212,7 +212,7 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 
 1. Replace the `<dialog>` based `SingleView` component with the `Single` component in `views` folder.
     - Idea is to use router to display the `Single` component when a user clicks a media item in the `MediaRow` component.
-    - In `MediaRow` component, use `Link` component istead of `<button>` to navigate, item object can be passed as [`state`](https://reactrouter.com/en/main/components/link#state) prop to the `Link` component:
+    - In `MediaRow` component, use `Link` component instead of `<button>` to navigate, item object can be passed as [`state`](https://reactrouter.com/en/main/components/link#state) prop to the `Link` component:
 
     ```jsx
     <Link to="/single" state={{item}}>Show</Link>
@@ -266,7 +266,7 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
     <BrowserRouter basename={import.meta.env.BASE_URL}>
     ```
 
-    
+
 
 1. Run `npm build` or `npm run build`
 1. Copy contents of build folder (`dist/*`) to your home dir's `public_html/wsk-routing/` (shell.metropolia.fi)

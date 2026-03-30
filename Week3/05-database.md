@@ -48,11 +48,11 @@ Recap [relational databases and SQL](../project/databases.md).
     // This will load variables from .env file to process.env
     // it can be done also e.g. in index.js but just make sure
     // that it is imported before using process.env variables
-    import 'dotenv/config'; 
+    import 'dotenv/config';
 
     // Create the connection pool. Pool is used to improve performance
     // by reusing existing connections instead of creating new
-    // connection for every request 
+    // connection for every request
     const pool = mysql.createPool({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,

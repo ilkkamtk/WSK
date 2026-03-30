@@ -146,15 +146,15 @@ export default Profile;
     import {createContext, useState} from 'react';
     import {useAuthentication, useUser} from '../hooks/apiHooks';
     import {useNavigate} from 'react-router';
-    
+
     const UserContext = createContext(null);
-    
+
     const UserProvider = ({children}) => {
         const [user, setUser] = useState(null);
         const {postLogin} = useAuthentication();
         const {getUserByToken} = useUser();
         const navigate = useNavigate();
-        
+
         // login, logout and autologin functions are here instead of components
         const handleLogin = async (credentials) => {
             try {
@@ -166,7 +166,7 @@ export default Profile;
                 console.log(e.message);
             }
         };
-        
+
         const handleLogout = () => {
             try {
                 // TODO: remove token from local storage
@@ -176,7 +176,7 @@ export default Profile;
                 console.log(e.message);
             }
         };
-        
+
         // handleAutoLogin is used when the app is loaded to check if there is a valid token in local storage
         const handleAutoLogin = async () => {
             try {
@@ -188,7 +188,7 @@ export default Profile;
                 console.log(e.message);
             }
         };
-               
+
         return (
             <UserContext.Provider value={?what to provide?}>
                 {children}
@@ -204,19 +204,19 @@ export default Profile;
    ```jsx
    import {useContext} from 'react';
    import {UserContext} from '../contexts/UserContext';
-    
+
    // Current recommendation is to use custom hook instead of the context directly
    // this way we don't have errors when UserContext is not defined or null (thats why we have the if statement)
-    
+
    const useUserContext = () => {
        const context = useContext(UserContext);
        if (!context) {
            throw new Error('useUserContext must be used within an UserProvider');
        }
-    
+
        return context;
    };
-    
+
    export {useUserContext};
    ```
 
@@ -224,13 +224,13 @@ export default Profile;
 
    ```jsx
    import {UserProvider} from './contexts/UserContext';
-    
+
    const App = () => {
      return (
          <Router>
            <UserProvider>
                ...
-           </UserProvider> 
+           </UserProvider>
          </Router>
      );
    }
@@ -241,11 +241,11 @@ export default Profile;
 
    ```jsx
    import {useUserContext} from '../hooks/contextHooks';
-   
+
    ...
-   
+
    const {handleLogin} = useUserContext();
-   
+
    const doLogin = async () => {
         try {
             handleLogin(inputs);
@@ -267,14 +267,14 @@ export default Profile;
 
     const ProtectedRoute = ({children}) => {
         const {user} = useUserContext();
-    
+
         if (!user) {
             return <Navigate to="/" />;
         }
-    
+
         return children;
     };
-    
+
     export default ProtectedRoute;
     ```
 
@@ -283,9 +283,9 @@ export default Profile;
 
     ```jsx
     import ProtectedRoute from './components/ProtectedRoute';
-    
+
     ...
-    
+
     <Route
         path="/profile"
         element={
@@ -299,23 +299,23 @@ export default Profile;
 14. Test the app. When you are logged out and write `/profile` to the address bar, you can't access the profile page anymore.
 15. Login, open one of the protected routes and then refresh the page. What happens? Why?
 16. If you want to automatically redirect to the same page you can use the useLocation hook in `UserContext.jsx`:
-    
+
     ```jsx
     import {useLocation, useNavigate} from 'react-router';
-    
+
     ...
 
     const location = useLocation();
-    
+
     ...
-    
+
     const handleAutoLogin = async () => {
         try {
             const token = localStorage.getItem('token');
             if (token) {
                 const userResult = await getUserByToken(token);
                 setUser(userResult.user);
-                
+
                 console.log('location', location);
                 navigate(location.pathname);
             }

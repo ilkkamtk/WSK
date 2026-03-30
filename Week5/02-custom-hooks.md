@@ -27,7 +27,7 @@
      // TODO: move useEffect here
      return {mediaArray};
    };
-   
+
    export {useMedia};
    ```
 

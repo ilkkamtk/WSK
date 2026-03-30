@@ -19,7 +19,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 
     ```jsx
     // imports here
-   
+
     const Login = () => {
       return (
         <>
@@ -28,7 +28,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
         </>
       );
     };
-    
+
     export default Login;
    ```
 
@@ -84,7 +84,7 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
             if (event) {
                 event.preventDefault();
             }
-            callback(); 
+            callback();
         };
 
         const handleInputChange = (event) => {
@@ -95,14 +95,14 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
                 [event.target.name]: event.target.value,
             }));
         };
-   
+
         return {
             handleSubmit,
             handleInputChange,
             inputs,
         };
    };
-   
+
    export default useForm;
    ```
 
@@ -120,14 +120,14 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
       username: '',
       password: '',
    };
-   
+
    const doLogin = () => {
      console.log(inputs);
      // TODO: add login functionalities here
    };
-   
+
    const {inputs, handleInputChange, handleSubmit} = useForm(doLogin, initValues);
-   
+
    console.log(inputs);
    ```
 
@@ -150,13 +150,13 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
      ```
 
     - Make `doLogin` function call `postLogin` and pass the form data as a parameter. Then `postLogin` should log the
-      result to the console. 
+      result to the console.
        - Register new user using Postman. Endpoint: `https://media2.edu.metropolia.fi/auth-api/api/v1/users`.
        - [Documentation](https://media2.edu.metropolia.fi/auth-api/#api-User-CreateUser).
     - remember to handle errors from promises with try/catch
 12. When logging in, save token to [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Also [redirect](https://tylermcginnis.com/react-router-programmatically-navigate/) to 'Home'
 13. Display user's info (username, email etc.) in `Profile.jsx`. For this functionality you need to add a new hook `useUser` to `apiHooks`.
-    - Create a new function `getUserByToken` to `useUser` hook. 
+    - Create a new function `getUserByToken` to `useUser` hook.
     - `getUserByToken` should fetch the user data from the Auth API from this endpoint: [/users/token](https://media2.edu.metropolia.fi/auth-api/#api-User-CheckToken) by using the `fetchData` function.
     - Use `useEffect` in `Profile.jsx` to get the user data and display it in JSX. Use the token from `localStorage` as a parameter when calling the `getUserByToken` function.
     - Token should be sent in the `Authorization` header as `Bearer <token>` in the GET request.

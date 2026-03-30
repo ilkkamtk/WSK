@@ -124,7 +124,7 @@ paths:
 - Example prompt:
 
   ```text
-  I need REST api documentaion in APIDoc format to a separate file for the following end point:
+  I need REST api documentation in APIDoc format to a separate file for the following end point:
 
   // user-router.js:
   userRouter

@@ -50,7 +50,7 @@
     ```
 
 3. Refactor your code to use the error handler middleware
-    - Remove the possible error responses from your controllers. 
+    - Remove the possible error responses from your controllers.
     - Use `next()` to pass the error to the error handler middleware, example how to handle missing file in `postCat`:
 
 
@@ -63,9 +63,9 @@
         error.status = 400;
         next(error);
       }
-   
+
       ...
-     
+
       const result = await addCat(newCat);
       if (result.error) {
         return next(new Error(result.error));
@@ -165,7 +165,7 @@ Input data validation in web applications is a critical process that ensures the
     import {validationResult} from 'express-validator';
 
     ...
-   
+
     const validationErrors = async (req, res, next) => {
       // validation errors can be retrieved from the request object (added by express-validator middleware)
       const errors = validationResult(req);
@@ -183,7 +183,7 @@ Input data validation in web applications is a critical process that ensures the
       next();
     };
     ...
-   
+
     export {validationErrors, ...};
     ```
 

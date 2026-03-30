@@ -20,7 +20,7 @@ class MyComponent extends React.Component {
   }
   // this.state is used to access the state object.
   // this.setState is used to update the state.
-  // It schedules an update to the component’s state object and tells React that this 
+  // It schedules an update to the component’s state object and tells React that this
   // component and its children need to be re-rendered with the updated state.
   render() {
     return (
@@ -102,7 +102,7 @@ graph TD;
 
     const SingleView = (props) => {
       const {item, setSelectedItem} = props;
-      return ( 
+      return (
         // TODO: Add JSX for displaying a mediafile here
         // - use e.g. a <dialog> element for creating a modal
         // - use item prop to render the media item details
@@ -126,7 +126,7 @@ graph TD;
 7. To open/close the `<dialog>` component, use `open` attribute with a boolean value. The dialog is opened when the attribute is present and closed when it is not present. Use the `selectedItem` state variable to control the `open` attribute of the `<dialog>` element in the `SingleView` component.
     - Optionally you can use `useRef` [hook](04-hooks#useref) to access the dialog element in the `SingleView` component and use `openModal` and `closeModal` functions to open and close the dialog.
 8. Add a button to the `SingleView` component that hides the `SingleView` component (calls the `setSelectedItem` function with `null` as a parameter).
-9. Use the item's `media_type` property to determine whether to render an image or a video in the `SingleView` component (use condiotinal rendering).
+9. Use the item's `media_type` property to determine whether to render an image or a video in the `SingleView` component (use conditional rendering).
 10. Add your own styling to the `index.css` file to make the `SingleView` component look better. (or use [Teacher's example](./sample-index.css))
 11. Commit your changes and push the branch to GitHub `git push origin state-management`.
 
