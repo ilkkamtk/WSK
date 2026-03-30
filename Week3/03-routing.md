@@ -108,7 +108,9 @@ _src/app.js:_
 import api from './api/index.js';
 
 ...
+// Parses incoming requests with JSON payloads
 app.use(express.json());
+// Parses URL-encoded form data (like HTML forms)
 app.use(express.urlencoded({extended: true}));
 ...
 app.use('/api/v1', api);
