@@ -66,6 +66,8 @@ cd ~
 
 Asenna Node LTS:
 
+- tarkasta ensin mikä on uusin LTS-versio osoitteesta <https://nodejs.org/en/download/> ja vaihda `setup_20.x` uusimmaksi LTS-versioksi.
+
 ```bash
 curl -sL https://rpm.nodesource.com/setup_20.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
@@ -141,6 +143,8 @@ Lisää:
 
 ```apache
 <VirtualHost *:80>
+    ServerName localhost
+
     ProxyPreserveHost On
     ProxyPass /app http://127.0.0.1:3000
     ProxyPassReverse /app http://127.0.0.1:3000
@@ -177,6 +181,11 @@ openssl req -new -key ca.key -out ca.csr
 openssl x509 -req -days 365 -in ca.csr -signkey ca.key -out ca.crt
 ```
 
+- Tämä tuottaa itseallekirjoitetun sertifikaatin, joka sopii testaukseen mutta ei tuotantoon.
+- Tuotannossa selain näyttää varoituksen, koska sertifikaattia ei ole myöntänyt luotettu varmennepalvelu.
+- Varmenne pitää hyväksyä selaimessa ennen kuin HTTPS toimii ilman varoituksia. Esim. Chrome: "Advanced → Proceed to localhost (unsafe)" tai kirjoita 'thisisunsafe'.
+  - Tämä täytyy tehdä jokaiselle selaimelle ja laitteelle, joka käyttää sovellusta. Esim React sovelluksessa, joka käyttää REST APIa, joka on suojattu tällä sertifikaatilla, pitää hyväksyä varmenne. Tämä tapahtuu kirjoittamalla REST APIn osoite käsin selaimen osoiteriville ja hyväksymällä varmenne. Sen jälkeen React-sovellus osaa käyttää REST APIa ilman varoituksia.
+
 Siirrä tiedostot:
 
 ```bash
@@ -194,6 +203,8 @@ Sisältö:
 
 ```apache
 <VirtualHost *:443>
+    ServerName localhost
+
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
@@ -226,6 +237,9 @@ Käynnistä sovellus:
 ```bash
 pm2 start npm --name "oma-sovellus" -- start
 ```
+
+- Jos ajoit sovellusta aiemmin suoraan `npm start`-komennolla, pysäytä se ensin (`Ctrl+C`), jotta portti ei jää varatuksi.
+- PM2:n kautta käynnistys on tarkoitettu jatkuvaan käyttöön, koska se osaa valvoa ja käynnistää prosessin uudelleen.
 
 Luo automaattinen käynnistys:
 
