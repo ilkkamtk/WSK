@@ -4,6 +4,8 @@ Tämä ohje auttaa sinua ottamaan käyttöön Metropolian eCloud-virtuaalikoneen
 
 Ohje etenee vaihe vaiheelta. Suosittelen, että suoritat kohdat järjestyksessä.
 
+Jos asiat menee solmuun, helpin tapa korjata on poistaa virtuaalikone ja aloittaa alusta ja seurata ohjetta tarkemmin.
+
 ---
 
 ## 1. Luo virtuaalikone
@@ -16,7 +18,7 @@ Ohje etenee vaihe vaiheelta. Suosittelen, että suoritat kohdat järjestyksessä
 6. Aseta **Lease time = 120**
 7. Luo kone
 
-> Huom. PHP ja MariaDB ovat jo valmiiksi imagessa, joten niitä ei tarvitse asentaa.
+> Huom. LAMP version valinta on tärkeä, koska PHP ja MariaDB ovat jo valmiiksi imagessa, niitä tarvitaan tietokannan hallintaan phpMyAdminin kautta.
 
 Odota noin **10–15 minuuttia**.
 
@@ -44,9 +46,17 @@ Esimerkki:
 ssh opiskelija@10.x.x.x
 ```
 
+Jos haluat vaihtaa palvelimen käyttäjäsalasanan heti alussa:
+
+```bash
+passwd
+```
+
+Syötä nykyinen salasana, sitten uusi salasana kaksi kertaa.
+
 ---
 
-## 3. Päivitä järjestelmä
+## 3. Päivitä järjestelmä (valinnainen)
 
 Suorita:
 
@@ -56,7 +66,74 @@ sudo dnf upgrade --refresh -y
 
 ---
 
-## 4. Asenna Node.js
+## 4. Testaa phpMyAdmin ja resetoi MariaDB root-salasana
+
+Mene selaimella osoitteeseen:
+
+```text
+http://IP-osoite/phpmyadmin
+```
+
+Jos et pääse kirjautumaan, voit resetoida MariaDB:n root-salasanan.
+
+Pysäytä MariaDB:
+
+```bash
+sudo systemctl stop mariadb
+```
+
+Käynnistä MariaDB tilassa, jossa oikeuksien tarkistus on ohitettu:
+
+```bash
+sudo mysqld_safe --skip-grant-tables --skip-networking &
+```
+
+Jos et näe kursoria komennon jälkeen, paina Enter.
+
+Avaa MariaDB-komentorivi:
+
+```bash
+mysql -u root
+```
+
+Nyt olet tietokannan hallinnassa. Aja seuraavat SQL-komennot:
+
+```sql
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'uusi-salasana-tahan';
+FLUSH PRIVILEGES;
+```
+
+Poistu tietokannan hallinnasta:
+
+```sql
+exit
+```
+
+Käynnistä MariaDB normaalisti uudelleen:
+
+```bash
+sudo systemctl restart mariadb
+```
+
+Kirjaudu käyttäjänä 'root' uudella salasanalla phpMyAdminiin.
+
+Luo tämän jälkeen sovellukselle oma käyttäjä ja tietokanta phpMyAdminissa:
+
+1. Mene välilehdelle **User accounts** ja valitse **Add user account**.
+2. Luo uusi käyttäjä (esim. `metropolia_user`) ja anna salasana.
+3. Ruksaa samalla uuden tietokannan luonti käyttäjälle.
+4. Ruksaa käyttäjälle oikeudet vain tähän tietokantaan (ei kaikkia globaaleja oikeuksia).
+
+Miksi oleellinen:
+
+- Älä käytä `root`-tunnusta sovelluksissa.
+- `root`-tunnuksella on täydet oikeudet koko palvelimeen, joten vuotaneet tunnukset aiheuttavat merkittävästi suuremman riskin.
+- Sovelluskohtainen käyttäjä rajatuilla oikeuksilla pienentää vahinkoa, jos tunnus joutuu vääriin käsiin.
+
+---
+
+## 5. Asenna Node.js
 
 Siirry kotihakemistoon:
 
@@ -83,7 +160,7 @@ npm -v
 
 ---
 
-## 5. Hae projekti palvelimelle
+## 6. Hae projekti palvelimelle
 
 Asenna git:
 
@@ -111,7 +188,7 @@ npm install
 
 ---
 
-## 6. Käynnistä sovellus
+## 7. Käynnistä sovellus
 
 ```bash
 npm start
@@ -125,7 +202,7 @@ node src/app.js
 
 ---
 
-## 7. Julkaise sovellus Apachella
+## 8. Julkaise sovellus Apachella
 
 Salli Apachelle yhteys Node-sovellukseen:
 
@@ -165,7 +242,7 @@ http://IP-osoite/app
 
 ---
 
-## 8. HTTPS
+## 9. HTTPS
 
 Asenna SSL:
 
@@ -224,7 +301,7 @@ sudo systemctl restart httpd
 
 ---
 
-## 9. PM2 – automaattinen käynnistys
+## 10. PM2 – automaattinen käynnistys
 
 Asenna PM2:
 
@@ -255,7 +332,7 @@ pm2 save
 
 ---
 
-## 10. Yleisimmät PM2-komennot
+## 11. Yleisimmät PM2-komennot
 
 ```bash
 pm2 list
@@ -268,7 +345,7 @@ pm2 save
 
 ---
 
-## 11. Testaus
+## 12. Testaus
 
 Kun sovellus toimii, testaa että se aukeaa selaimessa osoitteessa:
 

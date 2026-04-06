@@ -4,6 +4,8 @@ This guide helps you set up a Metropolia eCloud virtual machine and deploy a Nod
 
 Follow the steps in order.
 
+If things get messy, the easiest fix is often to delete the virtual machine and start again while following the guide more carefully.
+
 ---
 
 ## 1. Create a virtual machine
@@ -44,9 +46,17 @@ Example:
 ssh student@10.x.x.x
 ```
 
+If you want to change the server user password right away:
+
+```bash
+passwd
+```
+
+Enter your current password, then enter the new password twice.
+
 ---
 
-## 3. Update system
+## 3. Update system (optional)
 
 Run:
 
@@ -56,7 +66,74 @@ sudo dnf upgrade --refresh -y
 
 ---
 
-## 4. Install Node.js
+## 4. Test phpMyAdmin and reset MariaDB root password
+
+Open in browser:
+
+```text
+http://IP-address/phpmyadmin
+```
+
+If login fails, you can reset the MariaDB root password.
+
+Stop MariaDB:
+
+```bash
+sudo systemctl stop mariadb
+```
+
+Start MariaDB with privilege checks disabled:
+
+```bash
+sudo mysqld_safe --skip-grant-tables --skip-networking &
+```
+
+If no prompt appears after the command, press Enter.
+
+Open MariaDB command line:
+
+```bash
+mysql -u root
+```
+
+Now run these SQL commands:
+
+```sql
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new-password-here';
+FLUSH PRIVILEGES;
+```
+
+Exit MariaDB:
+
+```sql
+exit
+```
+
+Start MariaDB normally again:
+
+```bash
+sudo systemctl restart mariadb
+```
+
+Log in as 'root' to phpMyAdmin with the new password.
+
+After that, create a dedicated user and database for your application in phpMyAdmin:
+
+1. Go to **User accounts** and select **Add user account**.
+2. Create a new user (for example `metropolia_user`) and set a password.
+3. Select creating a new database for this user at the same time.
+4. Grant this user permissions only to that database (not global privileges).
+
+Why this matters:
+
+- Do not use the `root` account in applications.
+- The `root` account has full privileges on the whole server, so leaked credentials create a much larger security risk.
+- An app-specific user with limited privileges reduces impact if credentials are exposed.
+
+---
+
+## 5. Install Node.js
 
 Go to your home directory:
 
@@ -83,7 +160,7 @@ npm -v
 
 ---
 
-## 5. Fetch project to server
+## 6. Fetch project to server
 
 Install git:
 
@@ -111,7 +188,7 @@ npm install
 
 ---
 
-## 6. Start application
+## 7. Start application
 
 ```bash
 npm start
@@ -125,7 +202,7 @@ node src/app.js
 
 ---
 
-## 7. Publish app with Apache
+## 8. Publish app with Apache
 
 Allow Apache to connect to Node app:
 
@@ -165,7 +242,7 @@ http://IP-address/app
 
 ---
 
-## 8. HTTPS
+## 9. HTTPS
 
 Install SSL packages:
 
@@ -224,7 +301,7 @@ sudo systemctl restart httpd
 
 ---
 
-## 9. PM2 - automatic startup
+## 10. PM2 - automatic startup
 
 Install PM2:
 
@@ -255,7 +332,7 @@ pm2 save
 
 ---
 
-## 10. Common PM2 commands
+## 11. Common PM2 commands
 
 ```bash
 pm2 list
@@ -268,7 +345,7 @@ pm2 save
 
 ---
 
-## 11. Testing
+## 12. Testing
 
 When the app is running, test in browser:
 
