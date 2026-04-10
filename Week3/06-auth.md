@@ -279,6 +279,7 @@ In web applications, authentication is typically done by verifying a username an
 
      ```http
      ### Post login
+     # @name login
      POST http://localhost:3000/api/v1/auth/login
      content-type: application/json
 
@@ -288,15 +289,14 @@ In web applications, authentication is typically done by verifying a username an
      }
      ```
 
-     - Check the response and copy the token from the response body and use it in the requests for routes that need authentication
-     - When using VS Code REST Client you can store the token to variable:
+     - Token from the response will be stored in the login variable, defined above as `@name login`
+     - When using VS Code REST Client you can pass the token to the header with `{{}}`
+     - login variable stores the http response from the body, `login.response.body.token`
 
      ```http
-     @token = <put-your-token-from-login-response-here>
-
      ### Get my user info
      GET http://localhost:3000/api/v1/auth/me
-     Authorization: Bearer {{token}}
+     Authorization: Bearer {{login.response.body.token}}
      ```
 
      - Use the `Authorization` header with `Bearer <token>` for all routes that need authentication
