@@ -271,6 +271,7 @@ Study: [React Router Tutorial](https://reactrouter.com/7.5.0/tutorials/address-b
 1. Run `npm build` or `npm run build`
 1. Copy contents of build folder (`dist/*`) to your home dir's `public_html/wsk-routing/` (shell.metropolia.fi)
     - Can be done with scp tool in terminal: `scp -r dist/* your-username@shell.metropolia.fi:~/public_html/wsk-routing/`
+    - Note: Do not upload src/ folder or any other folder, only `dist/` folder content should be uploaded
 1. Test your app: <https://users.metropolia.fi/~your-username/wsk-routing/>
 1. Modify `README.md`. Add a text paragraph and link: `Open [link text here](https://users.metropolia.fi/~your-username/wsk-routing/) to view it in the browser.`
 1. git add, commit & push current branch to the remote repository (GitHub)
