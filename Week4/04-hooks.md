@@ -156,6 +156,10 @@ export default Example;
 
     ```jsx
     useEffect(() => {
+        const getMedia = async () => {
+          const json = await fetchData('test.json');
+          setMediaArray(json);
+        };
         getMedia();
     }, []);
     ```
