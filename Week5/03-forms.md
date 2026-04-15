@@ -1,6 +1,6 @@
 # Forms in React
 
-- There are many ways to handle forms in React. Most common way is to use a third party library like `react-hook-form` or `Formik`. These libraries provide a lot of functionality out of the box and are easy to use. However, it is good to know how to handle forms without these libraries as well. We will start with `useState` hook with our own custom hook, and later we will look at `react-hook-form`.
+- There are many ways to handle forms in React. Most common way is to use a third party library like `react-hook-form` or `Formik`. These libraries provide a lot of functionality out of the box and are easy to use. However, it is good to know how to handle forms without these libraries as well. We will start with `useState` hook with our own custom hook, and later you can study at `react-hook-form`.
 
 ## useState with forms
 
