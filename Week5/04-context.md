@@ -18,7 +18,7 @@
 
 ### Example
 
-_MyContext.js_:
+_MyContext.jsx_:
 
 ```jsx
 import React, {createContext, useContext} from 'react';
@@ -38,7 +38,7 @@ export const MyProvider = ({children}) => {
 export const useMyContext = () => useContext(MyContext);
 ```
 
-_App.js_:
+_App.jsx_:
 
 ```jsx
 import React from 'react';
@@ -58,7 +58,7 @@ function App() {
 export default App;
 ```
 
-_ComponentA.js_:
+_ComponentA.jsx_:
 
 ```jsx
 import React from 'react';
@@ -72,7 +72,7 @@ const ComponentA = () => {
 export default ComponentA;
 ```
 
-_ComponentB.js_:
+_ComponentB.jsx_:
 
 ```jsx
 import React from 'react';
