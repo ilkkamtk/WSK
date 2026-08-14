@@ -56,10 +56,31 @@ The box model properties are used to control the layout of the elements in the H
 
 For these properties, the `value` can be specified in many different units, such as `px`, `em`, `rem`, `%`, and others.
 
-![Box model, image credit by MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/boxmodel.png)
+ ```mermaid
+flowchart TB
+    subgraph Margin["Margin"]
+        style Margin fill:#ffe6e6,stroke:#000,stroke-width:2px,color:#000
 
-Example image credit by [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model). The image showcases the box model properties and how they are used to control the layout of the elements in the HTML document.
+        subgraph Border["Border"]
+            style Border fill:#fff2cc,stroke:#000,stroke-width:2px,color:#000
 
+            subgraph Padding["Padding"]
+                style Padding fill:#e6ffe6,stroke:#000,stroke-width:2px,color:#000
+
+                Content["Content"]
+                style Content fill:#e6f0ff,stroke:#000,stroke-width:2px,color:#000
+            end
+        end
+    end
+
+    %% Force text color to black
+    classDef default fill:#ffffff,color:#000,stroke:#000;
+ ```
+
+- Content: The actual text or image inside the element.
+- Padding: Space inside the element, between content and border.
+- Border: The visible line around the element.
+- Margin: Space outside the element, between this element and others.
 Padding is applied around the content, but inside the border. The border is applied around the padding and the content. Finally, the margin is applied around the border, but outside the border.
 
 ```css
