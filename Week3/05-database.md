@@ -67,6 +67,9 @@ Recap [relational databases and SQL](../project/databases.md).
     const promisePool = pool.promise();
     export default promisePool;
     ```
+   
+### MariaDB Cloud
+**Note, if you want to use MariaDB Cloud, add one more property to the options ```port: process.env.DB_PORT```. Also add DB_PORT to .env file. E.g. ```DB_PORT=4006```**
 
 ### MySQL2 examples
 
