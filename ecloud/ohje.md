@@ -18,6 +18,8 @@ Jos asiat menee solmuun, helpin tapa korjata on poistaa virtuaalikone ja aloitta
 6. Aseta **Lease time = 120**
 7. Luo kone
 
+![ecloud Rocky Linux](images/ecloud-rocky-linux.png)
+
 > Huom. LAMP version valinta on tärkeä, koska PHP ja MariaDB ovat jo valmiiksi imagessa, niitä tarvitaan tietokannan hallintaan phpMyAdminin kautta.
 
 Odota noin **10–15 minuuttia**.
@@ -73,6 +75,8 @@ Mene selaimella osoitteeseen:
 ```text
 http://IP-osoite/phpmyadmin
 ```
+
+![phpmyadmin view](images/phpmyadmin.png)
 
 Jos et pääse kirjautumaan, voit resetoida MariaDB:n root-salasanan.
 

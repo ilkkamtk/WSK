@@ -5,7 +5,7 @@ Study the material from the first year course:
 1. [Interactive programs](https://github.com/ilkkamtk/JavaScript-english/blob/main/vuorovaikutteiset_ohjelmat.md)
 2. [Conditional expressions and Loops](https://github.com/ilkkamtk/JavaScript-english/blob/main/valinta-toistorakenteet.md)
 
-## Assignments:
+## Assignments
 
 Use the starter repository you made in [the first class](tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) as a template to create a new repository for these assignments.
 Clone the new repository to your local computer. Put each assignment into its own folder. Write separate HTML and JS files for each assignment. Use the

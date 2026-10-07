@@ -8,11 +8,11 @@ Study: [using middleware](https://expressjs.com/en/guide/using-middleware.html) 
 
 ## Third party middleware
 
-### Assignment: Handling file uploads
+### Assignment 3: Handling file uploads
 
 Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middleware like [Multer](https://github.com/expressjs/multer):
 
-1. Create a new branch `Assignment3` from `main`.
+1. Create a new branch `assignment3` from `main`.
 2. Add `uploads` folder to the project and put the folder in version control; but not its content, e.g.
 
     ```bash
@@ -76,7 +76,7 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 
 ## Custom middleware
 
-### Assignment: creating thumbnail images
+### Assignment 4: Creating thumbnail images
 
 1. Create a new branch `assignment4` from `main`.
 1. Create a new folder `src/middlewares`

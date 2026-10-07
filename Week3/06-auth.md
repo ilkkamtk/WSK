@@ -150,7 +150,7 @@ Express is a minimalistic framework that does not provide any built-in mechanism
 
 In web applications, authentication is typically done by verifying a username and password combination. Authorization is typically done by checking the user's role or permissions.
 
-### Assignment
+### Assignment 6
 
 1. Create new branch `assignment6` based on `main`
 2. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
@@ -364,7 +364,7 @@ While data security and data privacy are distinct, they are deeply interconnecte
     - [SSL certificate](https://www.kaspersky.com/resource-center/definitions/what-is-a-ssl-certificate) _authenticates_ a website's identity and enables an encrypted connection
     - Protection of the _privacy_ and _integrity_ of the exchanged data
     - Always use HTTPS to encrypt data in transit and protect against eavesdropping, man-in-the-middle attacks, and data tampering.
-    - When using node.js, it is generally better to implement TLS in reverse-proxy such as Apache or Nginx, (just like we did with our [example deployment](08-deployment.md#nodejs-runtime-and-process-management))
+    - When using node.js, it is generally better to implement TLS in reverse-proxy such as Apache or Nginx, (just like we did with our [example deployment](../ecloud/ohje-en.md#8-publish-app-with-apache))
     - All unsecure HTTP connections (port 80) should be automatically redirected to HTTPS (port 443) by using [HTTP status codes](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), the 3XX codes are redirect, 301 means Moved Permanently.
     - (Typically, for localhost development environments secure connections are not needed)
 1. **Authentication**

@@ -129,14 +129,14 @@ Environment variables are used to store configuration settings outside your code
 
 ---
 
-## Assignment
+## Assignment 1
 
 In the labs we are going to build a REST API with Express. The API will serve data in JSON format and static files. [Example API documentation here](http://https://media.edu.metropolia.fi/cats/docs/) (Metropolia network / VPN only).
 
 1. Create a new project folder for this week's assignments and initialize a new Git repository.
    - or you can use your GitHub template repository created in Week 1, remember to update the project name and description in `package.json` and `README.md`
 2. Add a `.gitignore` file to the project folder. Exclude `node_modules` and `.env` files from the repository. You can use [gitignore.io](https://www.toptal.com/developers/gitignore) to generate `.gitignore` files.
-3. Create a new branch 'Assignment1' and switch to it: `git checkout -b 'Assignment1'`
+3. Create a new branch `assignment1` and switch to it: `git checkout -b assignment1`
 4. Make sure to commit your changes and push to the Git repository regularly.
 5. If starting with empty project, init [eslint, editorconfig and prettier](../Week1/tools_pt2.md#generating-javascript-project-settings-for-prettier-eslint-and-editorconfig) to the project. Note that now we are running code in Node, not browser.
 6. Enable ES Modules in Node.js by adding `"type": "module"` to `package.json`.
@@ -159,7 +159,7 @@ In the labs we are going to build a REST API with Express. The API will serve da
 10. Create new folder 'public' and add a some image file there. Serve the static files from the 'public' folder: `app.use('/public', express.static('public'));`
 11. Test that the image is served correctly by navigating to `http://localhost:3000/public/your-image.jpg`
 12. Add a `start` script to `package.json` to run the server with `node` instead of `nodemon`: `"start": "node app.js"`
-13. Commit and push branch 'Assignment1' to the remote repository.
-14. Merge the 'Assignment1' branch to the 'main' branch.
+13. Commit and push branch `assignment1` to the remote repository.
+14. Merge the `assignment1` branch to the 'main' branch.
 15. Push your 'main' to a remote repository.
-16. Optional but recommended: Serve the project on a server (e.g. [Azure](../project/cloud-deployment.md), [Metropolia ecloud](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo), etc.) and test that it works.
+16. Optional but recommended: Serve the project on a server (e.g. [Azure](../project/cloud-deployment.md), [Metropolia eCloud](../ecloud/ohje-en.md), etc.) and test that it works.

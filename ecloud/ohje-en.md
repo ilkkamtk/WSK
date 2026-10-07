@@ -18,6 +18,8 @@ If things get messy, the easiest fix is often to delete the virtual machine and 
 6. Set **Lease time = 120**
 7. Create the VM
 
+![ecloud Rocky Linux](images/ecloud-rocky-linux.png)
+
 > Note: PHP and MariaDB are already included in the image, so you do not need to install them.
 
 Wait about **10-15 minutes**.
@@ -73,6 +75,8 @@ Open in browser:
 ```text
 http://IP-address/phpmyadmin
 ```
+
+![phpmyadmin view](images/phpmyadmin.png)
 
 If login fails, you can reset the MariaDB root password.
 

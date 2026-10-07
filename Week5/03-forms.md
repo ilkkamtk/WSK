@@ -168,9 +168,4 @@ Study [useState with forms](https://www.youtube.com/watch?v=R7T5GQLxRD4)
 
 ## Submit
 
-1. Run `npm build` or `npm run build`
-2. Move build folder to your public_html
-3. Test your app: `http://users.metropolia.fi/~username/forms`
-4. Modify README.md. Change the link in `Open [X](X) to view it in the browser.` to point to the above link.
-5. git add, commit & push to remote repository
-6. Submit the link to correct branch of your repository to Oma
+Build, publish and submit the app by following [these instructions](../Week4/publish-react-app.md). Use `forms` as the `<app-folder>`.

@@ -4,6 +4,8 @@
 
 What is your major malfunction?
 
+**Quick links:** [All assignments](assignments.md) · [Project work](#project-work) · [Deployment](#deployment)
+
 ---
 
 ## Week 1
@@ -60,6 +62,8 @@ What is your major malfunction?
 3. [Routing, Views and Navigation](Week4/03-react-routing.md)
 4. [Hooks](Week4/04-hooks.md)
 
+[How to build, publish and submit a React app](Week4/publish-react-app.md) (same steps for every React assignment)
+
 ---
 
 ## Week 5 - React
@@ -76,3 +80,17 @@ What is your major malfunction?
 - [Tailwind CSS, Delete + Update + Likes](Week6/tailwind.md)
 
 ---
+
+## Project work
+
+1. [Relational databases and SQL](project/databases.md)
+2. [Software testing (unit, integration, E2E)](project/testing.md)
+
+### Deployment
+
+> [!IMPORTANT]
+> **Set up your eCloud virtual machine early.** Setting up the server environment takes considerably more time than one might expect. It involves several steps, and some of them may require troubleshooting or help from the teaching staff. You are therefore strongly advised to complete the setup as soon as possible after the course begins. Please do not leave it until the end of the course, as there may not be enough time to resolve any problems before the deadlines.
+
+1. [Metropolia eCloud: virtual machine and Node app deployment](ecloud/ohje-en.md) ([suomeksi](ecloud/ohje.md))
+2. [CI/CD from GitHub to eCloud](ecloud/CI_CD-en.md) ([suomeksi](ecloud/CI_CD-fi.md))
+3. [Cloud services and deployment on Azure](project/cloud-deployment.md)

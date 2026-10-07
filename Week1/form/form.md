@@ -851,32 +851,7 @@ Next, we will add `border` and `box-sizing` properties to control how the width 
 
 In this code, we have used the `border` property to add a border to the inputs, buttons, and select element. We have also used the `box-sizing` property to control how the width and height of the element is calculated. The value `border-box` means that the width and height of the element includes the padding and border, but not the margin.
 
-### Calculating the total size of an element
-
-The total size of an element is calculated as follows:
-
-- `width` + `padding` + `border` = actual width of the element
-- `height` + `padding` + `border` = actual height of the
-
-With our styling, our button will be approximately 1.5rem + 0.5rem + 1px + 1px = 3rem + 2px in width and 1.5rem + 0.5rem + 1px + 1px = 3rem + 2px in height.
-
-If you're confused about the math here, let's break it down:
-
-- `padding` is 0.5rem, which is 8px (because the font-size in html element is 16px).
-- `border` is 1px.
-
-The width takes into account left and right padding, and left and right border, and the height takes into account top and bottom padding, and top and bottom border. Therefore some of the padding and border is counted twice, which is why the total width and height is 3rem + 2px.
-
-### Box-sizing property
-
-The `box-sizing` property is used to control how the width and height of the element is calculated.
-
-The `box-sizing` property can have the following values:
-
-- `content-box` - The width and height of the element includes only the content, and does not include the padding, border, or margin. This is the default value.
-- `border-box` - The width and height of the element includes the content, padding, and border, but not the margin.
-
-[MDN documentation for box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model)
+Read more about how the total size of an element is calculated and how `box-sizing` affects it in the [Box model](css/box-model.md) material.
 
 ## Button vs input submit
 

@@ -243,7 +243,7 @@ Input data validation in web applications is a critical process that ensures the
 1. Test the endpoint with Postman or VSCode REST Client
     - Try to send invalid data and verify that the validation works as expected
 
-## Assignment 7, Input validation and error handling
+## Assignment 7: Input validation and error handling
 
 1. Continue your existing Express app and create a new branch `assignment7` from `main`
 1. Implement error handler middleware

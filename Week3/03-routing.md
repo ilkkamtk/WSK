@@ -244,9 +244,9 @@ export { listAllCats, findCatById, addCat };
 
 ---
 
-## Assignment
+## Assignment 2
 
-1. Create a new branch `Assignment2`
+1. Create a new branch `assignment2`
 2. Create a new folder `src` in your project folder and move your `app.js` file there.
 3. To make the express app easier to test, create `src/index.js` file and import `app.js` from the `src` folder:
 
@@ -304,7 +304,7 @@ export { listAllCats, findCatById, addCat };
 7. `PUT /api/v1/users/:id` - return hard coded json response: `{message: 'User item updated.'}`
 8. `DELETE /api/v1/users/:id` - return hard coded json response: `{message: 'User item deleted.'}`
 9. Commit and push your branch changes to the remote repository.
-10. Merge the `Assignment2` branch to the `main` branch and push the changes to the remote repository.
+10. Merge the `assignment2` branch to the `main` branch and push the changes to the remote repository.
 
 ---
 

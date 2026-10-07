@@ -2,52 +2,14 @@
 
 ## Server-side technologies
 
-Programming language + application framework + database + runtime environment (server) = server-side (back-end) application
+Recap from the first week:
 
-- Programming language is a tool for writing code, specifying algorithms, and instructing a computer.
-- Framework is a higher-level structural foundation that provides guidelines, pre-written code, and tools for building applications in a specific domain. Developers often use programming languages within the context of a framework to streamline the development process and adhere to best practices for a particular type of application, such as web development or mobile app development.
-- Running environment, often referred to as the "runtime environment" or simply the "runtime," is the software and hardware infrastructure where the server-side code of an application executes. This environment provides the necessary resources and services for the server-side code to run, handle requests, process data, and generate responses.
-- All permanent data used by the application itself or saved by the users of the application is stored in the database
-- Relational databases like MySQL, PostgreSQL, and NoSQL databases like MongoDB, Cassandra, and Redis are commonly used for storing and retrieving data in web applications.
-
-### Python
-
-- Python is a high-level, interpreted, and versatile programming language known for its simplicity, readability, and extensive standard library.
-- Flask is a lightweight web framework for Python. It is designed to be simple and easy to use, making it an excellent choice for building web applications, particularly when you want to get a project up and running quickly. Flask provides the basic tools and libraries needed for web development without imposing too much structure or unnecessary complexity.
-- Django is a high-level web framework built on Python. Django follows the MVC architectural pattern and provides a wide range of built-in features for rapid web application development.
-
-### PHP
-
-- PHP is a server-side scripting language designed specifically for web development. It powers a significant portion of the web.
-- Frameworks like Laravel and Symfony provide modern tools and patterns for PHP web application development.
-- Popular blog/website application Wordpress is written in PHP
-- Most web hotels and e.g. <users.metropolia.fi> home page server support PHP runtime by default
-
-### Java
-
-- Java is a widely used programming language for building robust and scalable web applications.
-- Spring Boot is a framework that simplifies Java web development by providing a set of conventions and tools for creating production-ready applications.
-
-### ASP.NET
-
-- ASP.NET is an open-source, server-side web-application framework developed by Microsoft
-- Supports .NET languages like C#
-
-### Ruby on Rails
-
-Ruby on Rails, often referred to as Rails, is a web application framework written in Ruby. It emphasizes convention over configuration and follows the Model-View-Controller (MVC) architectural pattern, making it a productive choice for building web applications.
-
-### JavaScript and Node.js
-
-- JavaScript is a high-level, often just-in-time compiled language that follows the [ECMAScript standard](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
-- The ECMAScript standard does not include any input/output (I/O), such as networking, storage, text, or graphics. In practice, the web browser or other runtime system provides APIs for I/O.
-- Node.js is a popular runtime environment that allows developers to write server-side code in JavaScript. It is known for its non-blocking, event-driven architecture, making it well-suited for building scalable and high-performance web applications.
-- Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications. It is often used for creating RESTful APIs.
-- Recap: [Node.js](../Week1/node.md)
+- [Back-end development and server-side technologies](../Week1/architecture.md#back-end-development) (Python, PHP, Java, ASP.NET, Ruby on Rails, JavaScript and Node.js)
+- [Node.js](../Week1/node.md)
 
 ---
 
-### REST
+## REST
 
 **Re**presentational **S**tate **T**ransfer, is an architectural style for designing distributed systems. REST is often used in the context of web services, especially when building APIs. RESTful architecture is based on [HTTP protocol](https://github.com/ilkkamtk/web-ohjelmoinnin-perusteet/blob/main/http-request-response.md). In this course we build a REST interface for client-server communication.
 
@@ -71,7 +33,7 @@ Ruby on Rails, often referred to as Rails, is a web application framework writte
 
 REST APIs are popular due to their simplicity, scalability, and performance. When an API adheres to these principles, it's often referred to as a "RESTful" API.
 
-#### Alternatives to REST
+### Alternatives to REST
 
 - [GraphQL](https://graphql.org/)
 - [gRPC](https://grpc.io/)
